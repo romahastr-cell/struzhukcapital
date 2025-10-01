@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="Онлайн калькуляторы инвестиций и сложных процентов от Романа Стружука." />
   <meta name="twitter:image" content="https://calc.struzhuk.ru/og-image.jpg" />
 
-  <!-- JSON-LD (WebSite + FAQ) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"Стратегия капитала","url":"https://calc.struzhuk.ru/","publisher":{"@type":"Organization","name":"Стратегия капитала","logo":{"@type":"ImageObject","url":"https://calc.struzhuk.ru/logo.jpg"}},"author":{"@type":"Person","name":"Роман Стружук","sameAs":["https://t.me/Struzhukcapital","https://t.me/rstruzhuk","https://instagram.com/rstruzhuk"]},"description":"Онлайн калькуляторы инвестиций и сложных процентов: PRO, LIGHT, цели, стартовый капитал, сравнение с депозитом и инфляцией."}
   </script>
@@ -31,8 +31,8 @@
     {"@type":"Question","name":"Что такое сложный процент?","acceptedAnswer":{"@type":"Answer","text":"Это когда проценты прибавляются к телу капитала и дальше проценты начисляются на всю сумму."}},
     {"@type":"Question","name":"Номинальная и эффективная ставка — разница?","acceptedAnswer":{"@type":"Answer","text":"Номинальная — без учёта частоты капитализации. Эффективная учитывает капитализацию и ближе к реальной доходности."}},
     {"@type":"Question","name":"Как работает ежедневная капитализация?","acceptedAnswer":{"@type":"Answer","text":"Доход прибавляется к балансу каждый день, усиливая эффект сложного процента."}},
-    {"@type":"Question","name":"Зачем учитывать инфляцию?","acceptedAnswer":{"@type":"Answer","text":"Чтобы понимать реальную покупательную способность суммы в будущем, а не только номинальные цифры."}},
-    {"@type":"Question","name":"Можно ли делиться результатом?","acceptedAnswer":{"@type":"Answer","text":"Да, есть кнопка Поделиться результатом в Telegram в каждом разделе."}}
+    {"@type":"Question","name":"Зачем учитывать инфляцию?","acceptedAnswer":{"@type":"Answer","text":"Чтобы понимать реальную покупательскую способность суммы в будущем, а не только номинальные цифры."}},
+    {"@type":"Question","name":"Можно ли делиться результатом?","acceptedAnswer":{"@type":"Answer","text":"Да, есть кнопки Поделиться результатом в Telegram и WhatsApp в каждом разделе."}}
   ]}
   </script>
 
@@ -47,7 +47,7 @@
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 
     /* HEADER — чёрная шапка с мягкой анимацией */
-    header{position:sticky;top:0;z-index:20;color:#fff;border-bottom:1px solid #0e0e12;
+    header{position:sticky;top:0;z-index:30;color:#fff;border-bottom:1px solid #0e0e12;
       background:linear-gradient(120deg,#0b0b0e 0%, #0e0e15 40%, #111124 100%);
       background-size:200% 200%; animation:headerFlow 14s ease-in-out infinite;}
     @keyframes headerFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
@@ -82,6 +82,13 @@
     .hero p{margin:0 0 18px;opacity:.92}
     .hero .actions{display:flex;gap:10px;flex-wrap:wrap}
 
+    /* Декоративные «свечи» под текстом в геро-блоке */
+    .hero-bars{margin-top:16px; display:grid; grid-template-columns:repeat(12,1fr); gap:6px; align-items:end; height:90px;}
+    .hero-bars div{height:30px;border:1.5px solid #7c3aed;border-radius:6px;background:#7c3aed22; animation:barRise 2.8s ease-in-out infinite;}
+    .hero-bars div:nth-child(odd){animation-delay:.15s}
+    .hero-bars div:nth-child(3n){animation-delay:.3s}
+    @keyframes barRise{0%{transform:scaleY(.6)}50%{transform:scaleY(1)}100%{transform:scaleY(.6)}}
+
     /* Кнопки — усиленное стекло + блик + парение */
     .btn{
       position:relative; display:inline-flex; align-items:center; gap:8px;
@@ -114,9 +121,9 @@
     input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(109,40,217,.12)}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
-    /* Основной контейнер и вкладки */
+    /* Основной контейнер и вкладки (sticky) */
     main{max-width:1200px;margin:22px auto;padding:0 16px}
-    .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 12px;justify-content:center}
+    .tabs{position:sticky; top:72px; z-index:25; background:#fff; display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 12px;justify-content:center; padding:10px 8px; border-bottom:1px solid var(--border)}
     .tab-btn{padding:10px 14px;border:2px solid var(--accent);border-radius:12px;background:rgba(255,255,255,.7);color:var(--text);font-weight:800;cursor:pointer;backdrop-filter:blur(8px);transition:transform .08s ease, box-shadow .2s ease, background .2s ease}
     .tab-btn:hover{transform:translateY(-2px); box-shadow:0 8px 18px rgba(109,40,217,.15); background:rgba(255,255,255,.9)}
     .tab-btn.active{background:var(--accent);color:#fff}
@@ -151,17 +158,29 @@
     .help-pop b{display:block;margin-bottom:6px}
     .help-pop p{margin:6px 0;color:#334155;font-size:14px}
 
-    /* FAQ */
-    .faq{padding:26px 16px 40px;background:#f8fafc;border-top:1px solid var(--border);margin-top:26px}
-    .faq h2{text-align:center;margin:6px 0 16px}
-    details{margin:10px auto;max-width:1100px;border:1px solid #d1d5db;border-radius:10px;padding:10px;background:#fff}
-    summary{cursor:pointer;font-weight:800}
-    summary::-webkit-details-marker{display:none}
+    /* Плавающая FAB Telegram */
+    .fab{
+      position:fixed; right:16px; bottom:16px; z-index:40;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .fab a{
+      width:56px; height:56px; border-radius:50%;
+      display:grid; place-items:center; color:#fff;
+      border:1px solid rgba(255,255,255,.35);
+      background:linear-gradient(135deg, rgba(109,40,217,.9), rgba(124,58,237,.75));
+      backdrop-filter:blur(10px) saturate(160%);
+      box-shadow:0 12px 30px rgba(109,40,217,.35), inset 0 1px 0 rgba(255,255,255,.35);
+      animation:floaty 6s ease-in-out infinite;
+      transition:transform .12s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .fab a:hover{transform:translateY(-2px); box-shadow:0 18px 44px rgba(109,40,217,.45); filter:saturate(115%)}
+    .fab svg{width:26px;height:26px}
 
     @media(max-width:1000px){
       .hero .inner{grid-template-columns:1fr}
       .row,.row3{grid-template-columns:1fr}
       .grid4{grid-template-columns:1fr 1fr}
+      .tabs{top:64px}
     }
   </style>
 </head>
@@ -186,8 +205,12 @@
   <div class="inner">
     <div>
       <h2>Рассчитай свою стратегию капитала за 1 минуту</h2>
-      <p>Сложный процент, ежедневная и ежемесячная капитализация, цели и инфляция. Понятный интерфейс, наглядные графики, шэринг в Telegram.</p>
-      <div class="actions">
+      <p>Сложный процент, ежедневная и ежемесячная капитализация, цели и инфляция. Понятный интерфейс, наглядные графики, шэринг в Telegram и WhatsApp.</p>
+      <div class="hero-bars">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+      <div class="actions" style="margin-top:14px">
         <a class="btn primary" href="#app">Начать расчёт</a>
         <a class="btn ghost" href="#faq">Как это работает?</a>
       </div>
@@ -197,14 +220,33 @@
     <div class="card">
       <h3>Быстрый калькулятор</h3>
       <div class="grid">
-        <div><label>Сумма, ₽</label><input type="number" placeholder="Например, 100000"></div>
-        <div><label>Срок, лет</label><input type="number" placeholder="Например, 5"></div>
-        <div><label>Ставка, % годовых</label><input type="number" placeholder="Например, 50"></div>
-        <div><label>Капитализация</label><select><option>Ежемесячно</option><option>Ежедневно</option></select></div>
+        <div>
+          <label>Введите ваш стартовый капитал</label>
+          <input type="number" placeholder="Например, 100000">
+        </div>
+        <div>
+          <label>Введите количество лет</label>
+          <input type="number" placeholder="Например, 5">
+        </div>
+        <div>
+          <label>Введите проценты</label>
+          <div class="row" style="grid-template-columns:1fr 1fr">
+            <input type="number" placeholder="Например, 50">
+            <select>
+              <option>в год</option>
+              <option>в месяц</option>
+              <option>в день</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <a class="btn primary" href="#app" style="width:100%; justify-content:center">Рассчитать</a>
+        </div>
       </div>
       <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn primary" href="#app">Рассчитать</a>
-        <a class="btn" href="https://t.me/share/url?url=https://calc.struzhuk.ru/&text=Калькулятор%20инвестиций%20—%20Стратегия%20капитала" target="_blank" rel="nofollow">Поделиться в Telegram</a>
+        <a class="btn share" href="https://t.me/share/url?url=https://calc.struzhuk.ru/&text=Калькулятор%20инвестиций%20—%20Стратегия%20капитала" target="_blank" rel="nofollow">Поделиться результатом в Telegram</a>
+        <a class="btn share" href="https://api.whatsapp.com/send?text=%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B9%20%E2%80%94%20https%3A%2F%2Fcalc.struzhuk.ru%2F" target="_blank" rel="nofollow">Поделиться результатом в WhatsApp</a>
       </div>
     </div>
   </div>
@@ -216,7 +258,7 @@
 </div>
 
 <main id="app">
-  <!-- вкладки -->
+  <!-- вкладки (sticky) -->
   <div class="tabs" id="tabs">
     <button class="tab-btn active" data-tab="pro">PRO</button>
     <button class="tab-btn" data-tab="light">LIGHT</button>
@@ -228,7 +270,7 @@
 
   <!-- PRO -->
   <section class="tab visible" id="tab-pro">
-    <div class="card">
+    <div class="card" style="position:relative">
       <div class="help-dot" data-help="pro">?</div>
       <div class="help-pop" id="help-pro">
         <b>Как пользоваться разделом PRO</b>
@@ -267,6 +309,7 @@
         <button class="btn primary" id="pro_run">Рассчитать</button>
         <button class="btn ghost" id="pro_csv">Экспорт CSV</button>
         <button class="btn share" id="pro_share">Поделиться результатом в Telegram</button>
+        <button class="btn share" id="pro_share_wa">Поделиться результатом в WhatsApp</button>
       </div>
     </div>
 
@@ -300,12 +343,12 @@
 
   <!-- LIGHT -->
   <section class="tab" id="tab-light">
-    <div class="card">
+    <div class="card" style="position:relative">
       <div class="help-dot" data-help="light">?</div>
       <div class="help-pop" id="help-light">
         <b>Как пользоваться LIGHT</b>
         <p>1. Введи начальную сумму.</p>
-        <p>2. Укажи процент и периодичность процентной ставки.</p>
+        <p>2. Укажи процент и единицу: в день/в месяц/в год.</p>
         <p>3. Введи количество дней. Капитализация ежедневная.</p>
         <p>4. Жми Рассчитать. Ниже — таблица по дням и итог.</p>
       </div>
@@ -325,6 +368,7 @@
       <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn primary" id="light_run">Рассчитать</button>
         <button class="btn share" id="light_share">Поделиться результатом в Telegram</button>
+        <button class="btn share" id="light_share_wa">Поделиться результатом в WhatsApp</button>
       </div>
     </div>
 
@@ -347,11 +391,11 @@
 
   <!-- Сколько теряешь -->
   <section class="tab" id="tab-lose">
-    <div class="card">
+    <div class="card" style="position:relative">
       <div class="help-dot" data-help="lose">?</div>
       <div class="help-pop" id="help-lose">
         <b>Сколько ты теряешь, если хранишь деньги в банке</b>
-        <p>Сравни депозит и стратегию за выбранный срок. Хочешь — учти инфляцию.</p>
+        <p>Сравни депозит и стратегию за выбранный срок. При желании учти инфляцию.</p>
       </div>
 
       <div class="section-title">Сколько ты теряешь, если хранишь деньги в банке</div>
@@ -367,6 +411,7 @@
       <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn primary" id="lose_run">Посчитать разницу</button>
         <button class="btn share" id="lose_share">Поделиться результатом в Telegram</button>
+        <button class="btn share" id="lose_share_wa">Поделиться результатом в WhatsApp</button>
       </div>
     </div>
     <div class="grid4">
@@ -383,11 +428,11 @@
 
   <!-- Цели -->
   <section class="tab" id="tab-goals">
-    <div class="card">
+    <div class="card" style="position:relative">
       <div class="help-dot" data-help="goals">?</div>
       <div class="help-pop" id="help-goals">
         <b>Цели</b>
-        <p>Задай цель в рублях, срок и ставку. Посчитаем нужный ежемесячный взнос с учётом старта.</p>
+        <p>Задай цель в рублях, срок и ставку. Посчитаем нужный ежемесячный взнос с учётом стартовой суммы.</p>
       </div>
 
       <div class="section-title">Цель: сколько нужно вносить ежемесячно</div>
@@ -406,6 +451,7 @@
       <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn primary" id="goal_run">Рассчитать взнос</button>
         <button class="btn share" id="goal_share">Поделиться результатом в Telegram</button>
+        <button class="btn share" id="goal_share_wa">Поделиться результатом в WhatsApp</button>
       </div>
     </div>
     <div class="grid4">
@@ -418,7 +464,7 @@
 
   <!-- Стартовый капитал -->
   <section class="tab" id="tab-need">
-    <div class="card">
+    <div class="card" style="position:relative">
       <div class="help-dot" data-help="need">?</div>
       <div class="help-pop" id="help-need">
         <b>Стартовый капитал</b>
@@ -438,6 +484,7 @@
       <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn primary" id="need_run">Рассчитать стартовый капитал</button>
         <button class="btn share" id="need_share">Поделиться результатом в Telegram</button>
+        <button class="btn share" id="need_share_wa">Поделиться результатом в WhatsApp</button>
       </div>
     </div>
     <div class="grid4">
@@ -450,7 +497,7 @@
 
   <!-- Инфляция -->
   <section class="tab" id="tab-infl">
-    <div class="card">
+    <div class="card" style="position:relative">
       <div class="help-dot" data-help="infl">?</div>
       <div class="help-pop" id="help-infl">
         <b>Инфляция в стране и покупательская способность</b>
@@ -466,6 +513,7 @@
       <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn primary" id="infl_run">Посчитать</button>
         <button class="btn share" id="infl_share">Поделиться результатом в Telegram</button>
+        <button class="btn share" id="infl_share_wa">Поделиться результатом в WhatsApp</button>
       </div>
     </div>
     <div class="grid4">
@@ -488,8 +536,8 @@
     <details><summary>Что такое сложный процент?</summary><p>Это рост капитала, когда проценты прибавляются к телу и в будущем проценты начисляются на всю сумму.</p></details>
     <details><summary>Номинальная vs эффективная ставка?</summary><p>Номинальная — базовая годовая. Эффективная — с учётом частоты капитализации.</p></details>
     <details><summary>Ежедневная капитализация — это как?</summary><p>Проценты начисляются ежедневно и реинвестируются, усиливая рост.</p></details>
-    <details><summary>Зачем учитывать инфляцию?</summary><p>Чтобы понимать реальную покупательскую способность капитала в будущем, а не только номинальные цифры.</p></details>
-    <details><summary>Как поделиться результатом?</summary><p>Нажми Поделиться результатом в Telegram в любом разделе — расчёт уйдёт сообщением с ссылкой на сайт и канал.</p></details>
+    <details><summary>Зачем учитывать инфляцию?</summary><p>Чтобы понимать реальную покупательную способность капитала в будущем, а не только номинальные цифры.</p></details>
+    <details><summary>Как поделиться результатом?</summary><p>Нажми «Поделиться результатом в Telegram» или «…в WhatsApp» — расчёт уйдёт сообщением с ссылкой на сайт и канал.</p></details>
   </section>
 </main>
 
@@ -511,27 +559,38 @@
   </div>
 </footer>
 
+<!-- Плавающие кнопки шаринга -->
+<div class="fab">
+  <!-- Telegram -->
+  <a id="fab_tg" href="#" title="Поделиться в Telegram" aria-label="Поделиться в Telegram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 2L11 13" stroke-width="2"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke-width="2"/></svg>
+  </a>
+</div>
+
 <script>
   const $ = (id)=>document.getElementById(id);
   const fmt = (n)=>{ const num=Number(n); if(!isFinite(num)) return '0'; try{return num.toLocaleString('ru-RU',{maximumFractionDigits:2});}catch(e){return String(Math.round(num*100)/100).replace(/\B(?=(\d{3})+(?!\d))/g,' ');} };
 
-  // плавный скролл
+  // плавный скролл по якорям
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
-      const id=a.getAttribute('href').slice(1);
-      const el=document.getElementById(id);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      const href=a.getAttribute('href');
+      if(href==="#" || href==="#app" || href==="#faq"){ // разрешим вручную
+        const id=href.slice(1);
+        const el=id?document.getElementById(id):null;
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      }
     });
   });
 
-  // вкладки
+  // вкладки (без автопрокрутки; tabs — sticky)
   document.querySelectorAll('.tab-btn').forEach(b=>{
     b.addEventListener('click',()=>{
       document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
       b.classList.add('active');
       document.querySelectorAll('.tab').forEach(x=>x.classList.remove('visible'));
       document.getElementById('tab-'+b.dataset.tab).classList.add('visible');
-      document.getElementById('app').scrollIntoView({behavior:'smooth', block:'start'});
+      // убрано: scrollIntoView
     });
   });
 
@@ -555,7 +614,7 @@
   function monthlyFromAPR(apr, type){ const r=apr/100; return (type==='effective')? Math.pow(1+r,1/12)-1 : r/12; }
   function dailyFromAPR(apr, type){ const r=apr/100; return (type==='effective')? Math.pow(1+r,1/365)-1 : r/365; }
 
-  // PRO
+  // PRO симуляция
   function proSimulate(){
     const start=parseFloat(($('pro_start').value||'0').replace(',','.'));
     const P=parseFloat(($('pro_monthly').value||'0').replace(',','.'));
@@ -621,7 +680,7 @@
     drawCompare('compare_chart', years, apr, 12, 10, start, P, type);
   }
 
-  // свечные столбики
+  // свечные «столбики»
   function drawYearBars(id, labels, data){
     const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
     ctx.clearRect(0,0,W,H);
@@ -630,7 +689,7 @@
     if(!data.length) return;
     const max=Math.max(...data)*1.1 || 1; const n=data.length; const bw=(x1-x0)/(n*1.4); const gap=bw*0.4;
     ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
-    for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
+    for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.LineTo?0:0; ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
     for(let i=0;i<n;i++){ const v=data[i]; const x=x0+i*(bw+gap)+gap; const h=(v/max)*(y0-y1); const y=y0-h;
       ctx.fillStyle='#6D28D933'; ctx.strokeStyle='#6D28D9'; ctx.lineWidth=2;
       ctx.fillRect(x,y,bw,h); ctx.strokeRect(x,y,bw,h);
@@ -641,7 +700,7 @@
     }
   }
 
-  // сравнение стратегий
+  // сравнение линейно
   function drawCompare(id, years, aprStrat, aprBank, aprMarket, start, monthly, type){
     const labels=Array.from({length:years},(_,i)=>String(new Date().getFullYear()+i));
     const strat=[], bank=[], market=[];
@@ -662,7 +721,7 @@
     ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
     ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
     for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
-    function plot(arr, color){
+    function plot(arr,color){
       ctx.strokeStyle=color; ctx.lineWidth=2; ctx.beginPath();
       arr.forEach((v,i)=>{
         const x=x0+(x1-x0)*(i/(arr.length-1||1));
@@ -682,20 +741,42 @@
     const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='strategy_capital_pro.csv'; a.click(); URL.revokeObjectURL(url);
   }
 
-  // SHARE
+  // SHARE helpers
+  function currentUrl(){ return window.location.href.split('#')[0]; }
   function shareToTelegram(text){
-    const link=window.location.href;
-    const full=text+"\n\nСайт: "+link+"\nКанал: https://t.me/Struzhukcapital";
-    const url='https://t.me/share/url?url='+encodeURIComponent(link)+'&text='+encodeURIComponent(full);
+    const url='https://t.me/share/url?url='+encodeURIComponent(currentUrl())+'&text='+encodeURIComponent(text);
     window.open(url,'_blank');
   }
-  function proShare(){
-    const text=`Мой расчёт PRO:
+  function shareToWhatsApp(text){
+    const url='https://api.whatsapp.com/send?text='+encodeURIComponent(text+' '+currentUrl());
+    window.open(url,'_blank');
+  }
+
+  // PRO: расширенный текст для шаринга
+  function proBuildShare(){
+    const start = Number(($('pro_start').value||0));
+    const monthly = Number(($('pro_monthly').value||0));
+    const years = Number(($('pro_years').value||0));
+    const annual = Number(($('pro_annual').value||0));
+    const type = $('pro_annual_type').value==='effective' ? 'эффективная' : 'номинальная';
+    const comp = $('pro_comp').value==='daily' ? 'ежедневная' : 'ежемесячная';
+    const reinv = $('pro_reinv').value==='yes' ? 'с реинвестом' : 'без реинвеста';
+    const text = `Мой расчёт PRO:
+Стартовый капитал: ${fmt(start)} ₽
+Ежемесячный взнос: ${fmt(monthly)} ₽
+Срок: ${years} лет
+Годовая ставка (${type}): ${annual}%
+Капитализация: ${comp}, ${reinv}
+
 Итог: ${$('pro_final').textContent}
 Внесено: ${$('pro_deposits').textContent}
-Проценты: ${$('pro_interest').textContent}`;
-    shareToTelegram(text);
+Проценты: ${$('pro_interest').textContent}
+
+Канал: https://t.me/Struzhukcapital`;
+    return text;
   }
+  const proShare = ()=>shareToTelegram(proBuildShare());
+  const proShareWA = ()=>shareToWhatsApp(proBuildShare());
 
   // LIGHT
   function toDailyRate(value, unit){
@@ -722,12 +803,15 @@
     $('light_future').textContent=fmt(balance)+' ₽';
     $('light_interest').textContent=fmt(totalInterest)+' ₽';
   }
-  function lightShare(){
-    const text=`Мой расчёт LIGHT:
+  function lightBuildShare(){
+    return `LIGHT — ежедневные сложные проценты
 Итог: ${$('light_future').textContent}
-Процентов начислено: ${$('light_interest').textContent}`;
-    shareToTelegram(text);
+Процентов начислено: ${$('light_interest').textContent}
+
+Канал: https://t.me/Struzhukcapital`;
   }
+  const lightShare = ()=>shareToTelegram(lightBuildShare());
+  const lightShareWA = ()=>shareToWhatsApp(lightBuildShare());
 
   // Сколько теряешь
   function loseRun(){
@@ -748,14 +832,6 @@
     const arrStr=years.map(i=>fv(A,strat,i));
     drawLines('lose_chart', years.map(i=>String(i)), [arrBank,arrStr], ['Депозит','Стратегия'], ['#9ca3af','#6D28D9']);
   }
-  function loseShare(){
-    const text=`Сколько теряешь:
-Депозит: ${$('lose_bank_val').textContent}
-Стратегия: ${$('lose_strat_val').textContent}
-Разница: ${$('lose_diff').textContent}
-Реально (после инфляции): ${$('lose_real').textContent}`;
-    shareToTelegram(text);
-  }
   function drawLines(id, labels, series, names, colors){
     const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
     ctx.clearRect(0,0,W,H);
@@ -773,6 +849,17 @@
     ctx.fillStyle='#0b1220'; ctx.textAlign='center';
     labels.forEach((lab,i)=>{ const x=x0+(x1-x0)*(i/((labels.length-1)||1)); ctx.fillText(lab, x, y0+14); });
   }
+  function loseBuildShare(){
+    return `Сколько теряешь:
+Депозит: ${$('lose_bank_val').textContent}
+Стратегия: ${$('lose_strat_val').textContent}
+Разница: ${$('lose_diff').textContent}
+Реально (после инфляции): ${$('lose_real').textContent}
+
+Канал: https://t.me/Struzhukcapital`;
+  }
+  const loseShare = ()=>shareToTelegram(loseBuildShare());
+  const loseShareWA = ()=>shareToWhatsApp(loseBuildShare());
 
   // Цели
   function goalRun(){
@@ -789,12 +876,15 @@
     $('goal_interest_share').textContent=fmt(Math.max(0, T - (P*n + S0)))+' ₽';
     $('goal_eff').textContent=((Math.pow(1+i,12)-1)*100).toFixed(2)+'%';
   }
-  function goalShare(){
-    const text=`Моя цель: ${$('goal_name').value || '—'}
+  function goalBuildShare(){
+    return `Моя цель: ${$('goal_name').value || '—'}
 Цель: ${$('goal_target').value} ₽ за ${$('goal_years').value} лет
-Нужный ежемесячный взнос: ${$('goal_monthly').textContent}`;
-    shareToTelegram(text);
+Нужный ежемесячный взнос: ${$('goal_monthly').textContent}
+
+Канал: https://t.me/Struzhukcapital`;
   }
+  const goalShare = ()=>shareToTelegram(goalBuildShare());
+  const goalShareWA = ()=>shareToWhatsApp(goalBuildShare());
 
   // Стартовый капитал + срок достижения
   function needRun(){
@@ -819,14 +909,17 @@
     while(lo<hi){ const mid=Math.floor((lo+hi)/2); if(FV(mid)>=T) hi=mid; else lo=mid+1; }
     return lo;
   }
-  function needShare(){
-    const text=`Стартовый капитал:
+  function needBuildShare(){
+    return `Стартовый капитал:
 Цель: ${$('need_target').value} ₽
 Срок: ${$('need_years').value} лет
 Нужен старт: ${$('need_start').textContent}
-ETA при этих параметрах: ${$('need_time').textContent}`;
-    shareToTelegram(text);
+ETA при этих параметрах: ${$('need_time').textContent}
+
+Канал: https://t.me/Struzhukcapital`;
   }
+  const needShare = ()=>shareToTelegram(needBuildShare());
+  const needShareWA = ()=>shareToWhatsApp(needBuildShare());
 
   // Инфляция
   function inflRun(){
@@ -839,12 +932,15 @@ ETA при этих параметрах: ${$('need_time').textContent}`;
     $('infl_loss').textContent=fmt(Math.max(0, A-real))+' ₽';
     $('infl_note').textContent=`Через ${Y} лет купить получится на сумму, эквивалентную сегодняшним ${fmt(real)} ₽ при инфляции ${R}%`;
   }
-  function inflShare(){
-    const text=`Инфляция:
+  function inflBuildShare(){
+    return `Инфляция:
 Сумма сегодня: ${$('infl_amount').value} ₽
-Через ${$('infl_years').value} лет — покупательная способность: ${$('infl_real').textContent}`;
-    shareToTelegram(text);
+Через ${$('infl_years').value} лет — покупательная способность: ${$('infl_real').textContent}
+
+Канал: https://t.me/Struzhukcapital`;
   }
+  const inflShare = ()=>shareToTelegram(inflBuildShare());
+  const inflShareWA = ()=>shareToWhatsApp(inflBuildShare());
 
   // Мотивация
   function updateMotivation(){
@@ -868,24 +964,44 @@ ETA при этих параметрах: ${$('need_time').textContent}`;
     requestAnimationFrame(step);
   }
 
+  // FAB Telegram — шарит активную вкладку (если есть результат), иначе ссылку
+  $('fab_tg').addEventListener('click', (e)=>{
+    e.preventDefault();
+    const active = document.querySelector('.tab.visible')?.id || '';
+    if(active==='tab-pro') shareToTelegram(proBuildShare());
+    else if(active==='tab-light') shareToTelegram(lightBuildShare());
+    else if(active==='tab-lose') shareToTelegram(loseBuildShare());
+    else if(active==='tab-goals') shareToTelegram(goalBuildShare());
+    else if(active==='tab-need') shareToTelegram(needBuildShare());
+    else if(active==='tab-infl') shareToTelegram(inflBuildShare());
+    else shareToTelegram('Калькулятор инвестиций — Стратегия капитала\n\nКанал: https://t.me/Struzhukcapital');
+  });
+
   // wire
   $('pro_run').addEventListener('click', proSimulate);
   $('pro_csv').addEventListener('click', proExportCSV);
   $('pro_share').addEventListener('click', proShare);
+  $('pro_share_wa').addEventListener('click', proShareWA);
 
   $('light_run').addEventListener('click', lightRun);
   $('light_share').addEventListener('click', lightShare);
+  $('light_share_wa').addEventListener('click', lightShareWA);
 
   $('lose_run').addEventListener('click', loseRun);
   $('lose_share').addEventListener('click', loseShare);
+  $('lose_share_wa').addEventListener('click', loseShareWA);
 
   $('goal_run').addEventListener('click', goalRun);
   $('goal_share').addEventListener('click', goalShare);
+  $('goal_share_wa').addEventListener('click', goalShareWA);
 
   $('need_run').addEventListener('click', needRun);
   $('need_share').addEventListener('click', needShare);
+  $('need_share_wa').addEventListener('click', needShareWA);
 
   $('infl_run').addEventListener('click', inflRun);
+  $('infl_share').addEventListener('click', inflShare);
+  $('infl_share_wa').addEventListener('click', inflShareWA);
 
   // init
   proSimulate(); lightRun(); loseRun(); goalRun(); needRun(); inflRun(); updateMotivation(); startTicker();
