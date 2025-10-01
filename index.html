@@ -1,80 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>СТРАТЕГИЯ КАПИТАЛА — калькуляторы</title>
-<style>
-:root{
-  --bg:#ffffff; --text:#0b1220; --muted:#475569; --border:#e5e7eb;
-  --accent:#6D28D9; --accent-dark:#5a20b9;
-}
-*{box-sizing:border-box}
-body{margin:0;background:#fff;color:var(--text);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
-a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-/* HEADER (чёрный фон, белые тексты) */
-header{position:sticky;top:0;z-index:10;background:#0b0b0e;color:#fff;border-bottom:1px solid #111}
-.wrap-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:56px;height:56px;border-radius:10px;object-fit:cover}
-.brand h1{margin:0;font-size:20px;color:#fff}
-.author a{color:#fff;opacity:.9} .author a:hover{opacity:1}
-.cta a{display:inline-block;padding:10px 14px;border:1px solid #ffffff33;border-radius:10px;background:#ffffff12;color:#fff;font-weight:700}
+  <title>Стратегия капитала | Калькулятор инвестиций и сложных процентов</title>
+  <meta name="description" content="Онлайн калькуляторы инвестиций: сложный процент, ежедневная капитализация, цели, стартовый капитал, сравнение с депозитом и инфляцией. Стратегия капитала от Романа Стружука." />
+  <meta name="keywords" content="калькулятор сложных процентов, сложный процент онлайн, ежедневная капитализация, калькулятор инвестиций, реинвестирование, эффективная ставка, сколько вложить, финансовая цель, инфляция, стратегия капитала, Роман Стружук, Struzhukcapital" />
+  <link rel="canonical" href="https://calc.struzhuk.ru/" />
 
-/* LAYOUT */
-main{max-width:1200px;margin:20px auto;padding:0 16px}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.tab-btn{padding:10px 14px;border:2px solid var(--accent);border-radius:12px;background:#fff;color:var(--text);font-weight:800;cursor:pointer}
-.tab-btn.active{background:var(--accent);color:#fff}
-.card{background:#fff;border:2px solid var(--accent);border-radius:16px;padding:16px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-label{display:block;margin:8px 0 6px;font-weight:700}
-input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#fff;color:var(--text);font-size:15px}
-input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(109,40,217,.1)}
-.btn{padding:12px 14px;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:800;cursor:pointer}
-.btn:hover{background:var(--accent-dark)}
-.btn.ghost{background:#fff;color:var(--text);border:2px solid var(--accent)}
-.btn.tg{display:inline-flex;align-items:center;gap:8px}
-.btn.tg svg{width:18px;height:18px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
-.kpi{border:2px solid var(--accent);border-radius:16px;padding:12px;background:#fff}
-.kpi .label{color:var(--muted);font-size:13px} .kpi .value{font-size:22px;font-weight:900}
-.chart-wrap{margin-top:14px;border:2px solid var(--accent);border-radius:16px;padding:12px;background:#fff}
-canvas{width:100% !important;height:360px !important;background:#fff;border:1px dashed var(--border);border-radius:12px}
-table{width:100%;border-collapse:collapse;background:#fff}
-th,td{border-bottom:1px solid var(--border);padding:8px 10px;text-align:right;font-variant-numeric:tabular-nums}
-th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
-.section-title{font-weight:900;margin:4px 0 10px}
-.tab{display:none} .tab.visible{display:block}
-footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
-.footer-flex{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.footer-flex img.portrait{width:120px;height:120px;border-radius:12px;object-fit:cover}
-.icon-link{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
-.icon-link svg{width:20px;height:20px}
-@media(max-width:1000px){.row,.row3{grid-template-columns:1fr} .grid4{grid-template-columns:1fr 1fr}}
-/* маленький счётчик-баннер */
-.ticker{margin:16px 0;padding:12px;border:2px dashed var(--accent);border-radius:12px;background:#faf5ff}
-.ticker b{font-size:18px}
-</style>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Стратегия капитала | Калькулятор инвестиций" />
+  <meta property="og:description" content="Рассчитайте доходность под сложный процент, цели и стартовый капитал. Ежедневная/ежемесячная капитализация, инфляция, сравнение с депозитом." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://calc.struzhuk.ru/" />
+  <meta property="og:image" content="https://calc.struzhuk.ru/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Стратегия капитала | Калькулятор инвестиций" />
+  <meta name="twitter:description" content="Онлайн калькуляторы инвестиций и сложных процентов от Романа Стружука." />
+  <meta name="twitter:image" content="https://calc.struzhuk.ru/og-image.jpg" />
+
+  <!-- JSON-LD (WebSite + Organization + FAQPage) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Стратегия капитала",
+    "url":"https://calc.struzhuk.ru/",
+    "publisher":{
+      "@type":"Organization",
+      "name":"Стратегия капитала",
+      "logo":{"@type":"ImageObject","url":"https://calc.struzhuk.ru/logo.jpg"}
+    },
+    "author":{"@type":"Person","name":"Роман Стружук","sameAs":["https://t.me/Struzhukcapital","https://t.me/rstruzhuk","https://instagram.com/rstruzhuk"]},
+    "description":"Онлайн калькуляторы инвестиций и сложных процентов: PRO, LIGHT, цели, стартовый капитал, сравнение с депозитом и инфляцией."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Что такое сложный процент?","acceptedAnswer":{"@type":"Answer","text":"Это когда проценты прибавляются к основному капиталу и в дальнейшем проценты начисляются и на них."}},
+      {"@type":"Question","name":"В чем разница номинальной и эффективной ставки?","acceptedAnswer":{"@type":"Answer","text":"Номинальная — базовая годовая ставка без учета частоты капитализации. Эффективная — реальная доходность с учетом капитализации."}},
+      {"@type":"Question","name":"Как работает ежедневная капитализация?","acceptedAnswer":{"@type":"Answer","text":"Доход начисляется каждый день и прибавляется к балансу, что усиливает эффект сложных процентов."}},
+      {"@type":"Question","name":"Зачем учитывать инфляцию?","acceptedAnswer":{"@type":"Answer","text":"Инфляция снижает покупательную способность. Реальная доходность — это доход за вычетом влияния инфляции."}},
+      {"@type":"Question","name":"Можно ли поделиться расчетом?","acceptedAnswer":{"@type":"Answer","text":"Да, в каждом разделе есть кнопка «Поделиться результатом в Telegram»."}}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0b1220; --muted:#475569; --border:#e5e7eb;
+      --accent:#6D28D9; --accent-dark:#5a20b9;
+      --glass:#ffffff20; --glass-strong:#ffffff35;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:#fff;color:var(--text);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* HEADER — чёрная шапка с «жидким стеклом» на CTA */
+    header{position:sticky;top:0;z-index:10;background:#0b0b0e;color:#fff;border-bottom:1px solid #111}
+    .wrap-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:56px;height:56px;border-radius:10px;object-fit:cover}
+    .brand h1{margin:0;font-size:20px;color:#fff}
+    .author a{color:#fff;opacity:.9} .author a:hover{opacity:1}
+    .cta a{
+      display:inline-block;padding:12px 16px;border-radius:14px;
+      border:1px solid var(--glass-strong);
+      background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));
+      color:#fff;font-weight:800;position:relative;overflow:hidden;
+      backdrop-filter:saturate(160%) blur(12px);
+      box-shadow:0 10px 24px rgba(0,0,0,.15) inset 0 1px 0 rgba(255,255,255,.2);
+      transition:transform .12s ease,box-shadow .2s ease,background .2s ease;
+    }
+    .cta a:before{
+      content:""; position:absolute; left:-150%; top:-150%; width:200%; height:200%;
+      background:radial-gradient(ellipse at center, rgba(255,255,255,.7), transparent 60%);
+      opacity:.35; transform:translate(0,0);
+      animation:shine 7s linear infinite;
+      pointer-events:none;
+    }
+    .cta a:hover{transform:translateY(-1px); box-shadow:0 16px 30px rgba(0,0,0,.2)}
+    @keyframes shine{0%{transform:translate(-30%,-30%)}100%{transform:translate(30%,30%)}}
+
+    /* LAYOUT */
+    main{max-width:1200px;margin:20px auto;padding:0 16px}
+    .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;justify-content:center}
+    .tab-btn{
+      padding:10px 14px;border:2px solid var(--accent);border-radius:12px;
+      background:rgba(255,255,255,.6);color:var(--text);font-weight:800;cursor:pointer;
+      backdrop-filter:blur(8px); transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .tab-btn:hover{transform:translateY(-2px); box-shadow:0 8px 18px rgba(109,40,217,.15); background:rgba(255,255,255,.85)}
+    .tab-btn.active{background:var(--accent);color:#fff}
+    .card{position:relative;background:#fff;border:2px solid var(--accent);border-radius:16px;padding:16px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    label{display:block;margin:8px 0 6px;font-weight:700}
+    input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#fff;color:var(--text);font-size:15px}
+    input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(109,40,217,.1)}
+    .section-title{font-weight:900;margin:4px 0 10px}
+    .tab{display:none} .tab.visible{display:block}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+    .kpi{border:2px solid var(--accent);border-radius:16px;padding:12px;background:#fff}
+    .kpi .label{color:var(--muted);font-size:13px} .kpi .value{font-size:22px;font-weight:900}
+    .chart-wrap{margin-top:14px;border:2px solid var(--accent);border-radius:16px;padding:12px;background:#fff}
+    canvas{width:100% !important;height:360px !important;background:#fff;border:1px dashed var(--border);border-radius:12px}
+    table{width:100%;border-collapse:collapse;background:#fff}
+    th,td{border-bottom:1px solid var(--border);padding:8px 10px;text-align:right;font-variant-numeric:tabular-nums}
+    th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+    footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
+    .footer-flex{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer-flex img.portrait{width:120px;height:120px;border-radius:12px;object-fit:cover}
+    .icon-link{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
+    .icon-link svg{width:20px;height:20px}
+    .ticker{margin:16px 0;padding:12px;border:2px dashed var(--accent);border-radius:12px;background:#faf5ff}
+    .ticker b{font-size:18px}
+
+    /* Кнопки — «жидкое стекло» */
+    .btn{
+      position:relative; display:inline-flex; align-items:center; gap:8px;
+      padding:12px 14px; border-radius:12px; border:1px solid var(--accent);
+      background:rgba(255,255,255,.7); color:#0b1220; font-weight:800; cursor:pointer;
+      backdrop-filter:blur(10px) saturate(140%);
+      transition:transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      box-shadow:0 8px 24px rgba(13,10,44,.08) inset 0 1px 0 #fff1;
+    }
+    .btn.primary{border-color:transparent; background:linear-gradient(135deg,#a78bfa,#7c3aed); color:#fff}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(13,10,44,.15)}
+    .btn:active{transform:translateY(0)}
+    .btn.share{background:#fff; border:2px solid var(--accent); color:#0b1220}
+    .btn.ghost{background:#fff;color:var(--text);border:2px solid var(--accent)}
+
+    /* Значок вопроса и подсказки */
+    .help-dot{
+      position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;
+      border:2px solid var(--accent);display:grid;place-items:center;color:var(--accent);
+      font-weight:900;opacity:.65;background:#fff;cursor:pointer;
+      transition:opacity .15s ease, box-shadow .2s ease, transform .08s ease;
+    }
+    .help-dot:hover{opacity:1; box-shadow:0 6px 16px rgba(109,40,217,.18); transform:translateY(-1px)}
+    .help-pop{
+      position:absolute;top:42px;right:10px;min-width:260px;max-width:92vw;background:#fff;
+      border:2px solid var(--accent);border-radius:12px;padding:12px;box-shadow:0 12px 28px rgba(2,6,23,.12);
+      z-index:20;display:none; opacity:0; transform:translateY(-6px);
+      transition:opacity .18s ease, transform .18s ease;
+    }
+    .help-pop.visible{display:block; opacity:1; transform:translateY(0)}
+    .help-pop b{display:block;margin-bottom:6px}
+    .help-pop p{margin:6px 0;color:#334155;font-size:14px}
+
+    /* FAQ */
+    .faq{padding:26px 16px 40px;background:#f8fafc;border-top:1px solid var(--border);margin-top:26px}
+    .faq h2{text-align:center;margin:6px 0 16px}
+    details{margin:10px auto;max-width:1100px;border:1px solid #d1d5db;border-radius:10px;padding:10px;background:#fff}
+    summary{cursor:pointer;font-weight:800}
+    summary::-webkit-details-marker{display:none}
+    @media(max-width:1000px){.row,.row3{grid-template-columns:1fr} .grid4{grid-template-columns:1fr 1fr}}
+  </style>
 </head>
 <body>
 <header>
   <div class="wrap-header">
     <div class="brand">
-      <img src="logo.jpg" alt="логотип">
+      <img src="logo.jpg" alt="логотип «Стратегия капитала»">
       <div>
         <h1>СТРАТЕГИЯ КАПИТАЛА</h1>
-        <div class="author"><a href="https://t.me/rstruzhuk" target="_blank">автор Roman Struzhuk · @rstruzhuk</a></div>
+        <div class="author"><a href="https://t.me/rstruzhuk" target="_blank" rel="nofollow">автор Roman Struzhuk · @rstruzhuk</a></div>
       </div>
     </div>
-    <p class="cta"><a href="https://t.me/Struzhukcapital" target="_blank">Честный канал про стратегию капитала. Подпишись</a></p>
+    <p class="cta"><a href="https://t.me/Struzhukcapital" target="_blank" rel="nofollow">Честный канал про стратегию капитала. Подпишись</a></p>
   </div>
 </header>
 
 <main>
-  <!-- счётчик дохода пока смотришь сайт -->
+  <!-- live-счётчик -->
   <div class="ticker">
     За время просмотра страницы ты бы уже заработал(а) <b id="liveProfit">0 ₽</b> при капитале 100 000 ₽ и доходности 50% годовых.
   </div>
@@ -85,13 +192,22 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
     <button class="tab-btn" data-tab="light">LIGHT</button>
     <button class="tab-btn" data-tab="lose">Сколько теряешь</button>
     <button class="tab-btn" data-tab="goals">Цели</button>
-    <button class="tab-btn" data-tab="need">Сколько вложить</button>
+    <button class="tab-btn" data-tab="need">Стартовый капитал</button>
     <button class="tab-btn" data-tab="infl">Инфляция</button>
   </div>
 
   <!-- PRO -->
   <section class="tab visible" id="tab-pro">
     <div class="card">
+      <div class="help-dot" data-help="pro">?</div>
+      <div class="help-pop" id="help-pro">
+        <b>Как пользоваться разделом PRO</b>
+        <p>1. Введи стартовый капитал, ежемесячный взнос и срок в годах.</p>
+        <p>2. Выбери тип ставки: номинальная (делится на периоды) или эффективная (уже с капитализацией).</p>
+        <p>3. Капитализация: ежемесячно или ежедневно. Реинвест — проценты прибавляются к телу.</p>
+        <p>4. Нажми «Рассчитать». Ниже — KPI, графики и таблица.</p>
+      </div>
+
       <div class="section-title">Параметры</div>
       <div class="row3">
         <div><label>Стартовый капитал</label><input id="pro_start" type="number" value="0" min="0" step="0.01" inputmode="decimal"></div>
@@ -102,7 +218,7 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
         <div>
           <label>Тип годовой ставки</label>
           <select id="pro_annual_type"><option value="nominal" selected>Номинальная</option><option value="effective">Эффективная</option></select>
-          <div class="muted">Номинальная — указанная годовая без учёта периода начисления. Эффективная — реальная годовая с учётом капитализации.</div>
+          <div class="muted">Номинальная — без учёта периода. Эффективная — с учётом капитализации.</div>
         </div>
         <div><label>Годовая ставка, %</label><input id="pro_annual" type="number" value="50" step="0.0001" inputmode="decimal"></div>
       </div>
@@ -110,22 +226,17 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
         <div>
           <label>Капитализация</label>
           <select id="pro_comp"><option value="monthly" selected>Ежемесячно</option><option value="daily">Ежедневно</option></select>
-          <div class="muted">Ежемесячная — проценты раз в месяц. Ежедневная — каждый день, эффект сильнее.</div>
+          <div class="muted">Ежемесячная — проценты раз в месяц. Ежедневная — каждый день.</div>
         </div>
         <div>
           <label>Реинвестирование</label>
           <select id="pro_reinv"><option value="yes" selected>проценты в капитал</option><option value="no">проценты выводить</option></select>
-          <div class="muted">Реинвест — проценты добавляются к капиталу.</div>
         </div>
       </div>
-      <div class="row" style="margin-top:10px;">
-        <button class="btn" id="pro_run">Рассчитать</button>
+      <div class="row" style="margin-top:10px;gap:12px;flex-wrap:wrap">
+        <button class="btn primary" id="pro_run">Рассчитать</button>
         <button class="btn ghost" id="pro_csv">Экспорт CSV</button>
-        <button class="btn tg" id="pro_share">
-          <!-- иконка телеги -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 2L11 13" stroke-width="2"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke-width="2"/></svg>
-          Поделиться в Telegram
-        </button>
+        <button class="btn share" id="pro_share">Поделиться результатом в Telegram</button>
       </div>
     </div>
 
@@ -142,9 +253,8 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
     </div>
 
     <div class="chart-wrap">
-      <div class="section-title">Сравнение стратегий (линии)</div>
+      <div class="section-title">Сравнение стратегий (депозит 12%, рынок 10%, стратегия — ваша ставка)</div>
       <canvas id="compare_chart" width="1000" height="360"></canvas>
-      <div class="muted" style="margin-top:8px;">По умолчанию: депозит 12% годовых, рынок 10% годовых, стратегия 50% годовых. Параметры можно менять во вкладке PRO.</div>
     </div>
 
     <div class="card" style="margin-top:12px;">
@@ -158,9 +268,18 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
     </div>
   </section>
 
-  <!-- LIGHT (ежедневные проценты) -->
+  <!-- LIGHT -->
   <section class="tab" id="tab-light">
     <div class="card">
+      <div class="help-dot" data-help="light">?</div>
+      <div class="help-pop" id="help-light">
+        <b>Как пользоваться LIGHT</b>
+        <p>1. Введи начальную сумму.</p>
+        <p>2. Укажи процент и периодичность (% в день/месяц/год).</p>
+        <p>3. Введи количество дней. Капитализация — ежедневная.</p>
+        <p>4. Нажми «Рассчитать». Ниже — таблица по дням и итог.</p>
+      </div>
+
       <div class="section-title">Калькулятор ежедневных сложных процентов</div>
       <div class="row3">
         <div><label>Начальное значение, ₽</label><input id="light_initial" type="number" value="100000" min="0" step="0.01" inputmode="decimal"></div>
@@ -173,7 +292,10 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
         </div>
         <div><label>Время, дней</label><input id="light_days" type="number" value="365" min="1" step="1" inputmode="numeric"></div>
       </div>
-      <div style="margin-top:10px;"><button class="btn" id="light_run">Рассчитать</button></div>
+      <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn primary" id="light_run">Рассчитать</button>
+        <button class="btn share" id="light_share">Поделиться результатом в Telegram</button>
+      </div>
     </div>
 
     <div class="grid4">
@@ -189,13 +311,20 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
           <tbody></tbody>
         </table>
       </div>
+      <div class="muted" style="margin-top:8px">Формула: Баланс d+1 = Баланс d × (1 + r_d), где r_d — дневная ставка.</div>
     </div>
   </section>
 
   <!-- Сколько теряешь -->
   <section class="tab" id="tab-lose">
     <div class="card">
-      <div class="section-title">Сколько ты теряешь</div>
+      <div class="help-dot" data-help="lose">?</div>
+      <div class="help-pop" id="help-lose">
+        <b>Сколько ты теряешь, если хранишь деньги в банке</b>
+        <p>Сравниваем результат депозита и стратегии за выбранный срок. Можно учесть инфляцию для реальной покупательной способности.</p>
+      </div>
+
+      <div class="section-title">Сколько ты теряешь, если хранишь деньги в банке</div>
       <div class="row3">
         <div><label>Сумма, ₽</label><input id="lose_amount" type="number" value="100000" min="0" step="0.01"></div>
         <div><label>Срок, лет</label><input id="lose_years" type="number" value="5" min="1" step="1"></div>
@@ -205,7 +334,10 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
         <div><label>Стратегия, % годовых</label><input id="lose_strategy" type="number" value="50" step="0.01"></div>
         <div><label>Инфляция, % годовых</label><input id="lose_infl" type="number" value="8" step="0.01"></div>
       </div>
-      <div style="margin-top:10px;"><button class="btn" id="lose_run">Посчитать разницу</button></div>
+      <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn primary" id="lose_run">Посчитать разницу</button>
+        <button class="btn share" id="lose_share">Поделиться результатом в Telegram</button>
+      </div>
     </div>
     <div class="grid4">
       <div class="kpi"><div class="label">Итог по депозиту</div><div id="lose_bank_val" class="value">0 ₽</div></div>
@@ -222,17 +354,29 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
   <!-- Цели -->
   <section class="tab" id="tab-goals">
     <div class="card">
+      <div class="help-dot" data-help="goals">?</div>
+      <div class="help-pop" id="help-goals">
+        <b>Цели</b>
+        <p>Задай цель в рублях, срок и ставку. Мы посчитаем нужный ежемесячный взнос с учётом стартового капитала.</p>
+      </div>
+
       <div class="section-title">Цель: сколько нужно вносить ежемесячно</div>
       <div class="row3">
-        <div><label>Цель, ₽</label><input id="goal_target" type="number" value="1000000" min="1" step="1"></div>
+        <div><label>Напишите свою цель</label><input id="goal_name" type="text" placeholder="Квартира, машина, подушка безопасности…"></div>
+        <div><label>Цель в рублях, ₽</label><input id="goal_target" type="number" value="1000000" min="1" step="1"></div>
         <div><label>Срок, лет</label><input id="goal_years" type="number" value="5" min="1" step="1"></div>
-        <div><label>Годовая ставка, %</label><input id="goal_rate" type="number" value="50" step="0.01"></div>
       </div>
       <div class="row">
+        <div><label>Годовая ставка, %</label><input id="goal_rate" type="number" value="50" step="0.01"></div>
         <div><label>Стартовый капитал, ₽</label><input id="goal_start" type="number" value="0" min="0" step="0.01"></div>
+      </div>
+      <div class="row">
         <div><label>Тип ставки</label><select id="goal_type"><option value="effective" selected>Эффективная</option><option value="nominal">Номинальная</option></select></div>
       </div>
-      <div style="margin-top:10px;"><button class="btn" id="goal_run">Рассчитать взнос</button></div>
+      <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn primary" id="goal_run">Рассчитать взнос</button>
+        <button class="btn share" id="goal_share">Поделиться результатом в Telegram</button>
+      </div>
     </div>
     <div class="grid4">
       <div class="kpi"><div class="label">Необходимый ежемесячный взнос</div><div id="goal_monthly" class="value">0 ₽</div></div>
@@ -242,39 +386,57 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
     </div>
   </section>
 
-  <!-- Сколько вложить -->
+  <!-- Стартовый капитал -->
   <section class="tab" id="tab-need">
     <div class="card">
-      <div class="section-title">Сколько нужно вложить сегодня</div>
+      <div class="help-dot" data-help="need">?</div>
+      <div class="help-pop" id="help-need">
+        <b>Стартовый капитал</b>
+        <p>Ваша финансовая цель фиксирована. Посчитаем, сколько нужно вложить сегодня при заданной ставке и взносах, и за сколько она будет достигнута при этих параметрах.</p>
+      </div>
+
+      <div class="section-title">Сколько нужно вложить сегодня (под вашу финансовую цель)</div>
       <div class="row3">
         <div><label>Цель, ₽</label><input id="need_target" type="number" value="3000000" min="1" step="1"></div>
         <div><label>Срок, лет</label><input id="need_years" type="number" value="5" min="1" step="1"></div>
         <div><label>Годовая ставка, %</label><input id="need_rate" type="number" value="50" step="0.01"></div>
       </div>
       <div class="row">
-        <div><label>Ежемесячный взнос, ₽</label><input id="need_monthly" type="number" value="0" min="0" step="0.01"></div>
+        <div><label>Ежемесячный взнос, ₽</label><input id="need_monthly" type="number" value="15000" min="0" step="0.01"></div>
         <div><label>Тип ставки</label><select id="need_type"><option value="effective" selected>Эффективная</option><option value="nominal">Номинальная</option></select></div>
       </div>
-      <div style="margin-top:10px;"><button class="btn" id="need_run">Рассчитать стартовый капитал</button></div>
+      <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn primary" id="need_run">Рассчитать стартовый капитал</button>
+        <button class="btn share" id="need_share">Поделиться результатом в Telegram</button>
+      </div>
     </div>
     <div class="grid4">
       <div class="kpi"><div class="label">Необходимый стартовый капитал</div><div id="need_start" class="value">0 ₽</div></div>
       <div class="kpi"><div class="label">Всего внесёшь</div><div id="need_total_in" class="value">0 ₽</div></div>
       <div class="kpi"><div class="label">Доля реинвеста (оценка)</div><div id="need_interest_share" class="value">0 ₽</div></div>
-      <div class="kpi"><div class="label">Годовая эффективная</div><div id="need_eff" class="value">0%</div></div>
+      <div class="kpi"><div class="label">Срок достижения при этих параметрах</div><div id="need_time" class="value">—</div></div>
     </div>
   </section>
 
   <!-- Инфляция -->
   <section class="tab" id="tab-infl">
     <div class="card">
-      <div class="section-title">Инфляция и покупательная способность</div>
+      <div class="help-dot" data-help="infl">?</div>
+      <div class="help-pop" id="help-infl">
+        <b>Инфляция в стране и покупательская способность</b>
+        <p>Показываем, сколько твои деньги будут стоить «сегодняшними» через выбранный срок при указанной инфляции.</p>
+      </div>
+
+      <div class="section-title">Инфляция в стране и покупательская способность</div>
       <div class="row3">
         <div><label>Сумма сегодня, ₽</label><input id="infl_amount" type="number" value="100000" min="0" step="0.01"></div>
         <div><label>Срок, лет</label><input id="infl_years" type="number" value="5" min="1" step="1"></div>
         <div><label>Инфляция, % годовых</label><input id="infl_rate" type="number" value="8" step="0.01"></div>
       </div>
-      <div style="margin-top:10px;"><button class="btn" id="infl_run">Посчитать</button></div>
+      <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn primary" id="infl_run">Посчитать</button>
+        <button class="btn share" id="infl_share">Поделиться результатом в Telegram</button>
+      </div>
     </div>
     <div class="grid4">
       <div class="kpi"><div class="label">Будущая номинальная сумма</div><div id="infl_future" class="value">0 ₽</div></div>
@@ -289,20 +451,30 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
     <div class="section-title">Если бы ты инвестировал(а) 100 000 ₽ 5 лет назад под 50% годовых…</div>
     <div id="motivation" style="font-weight:800;font-size:18px;">Считаем…</div>
   </div>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <h2>FAQ — часто задаваемые вопросы</h2>
+    <details><summary>Что такое сложный процент?</summary><p>Это рост капитала, когда проценты прибавляются к телу и в будущем проценты начисляются на всю сумму.</p></details>
+    <details><summary>Номинальная vs эффективная ставка?</summary><p>Номинальная — базовая годовая; эффективная — с учётом частоты капитализации (ближе к реальности).</p></details>
+    <details><summary>Ежедневная капитализация — это как?</summary><p>Проценты начисляются ежедневно и реинвестируются, усиливая рост за счёт частоты начислений.</p></details>
+    <details><summary>Зачем учитывать инфляцию?</summary><p>Чтобы понимать реальную покупательную способность капитала в будущем, а не только номинальные цифры.</p></details>
+    <details><summary>Как поделиться результатом?</summary><p>Нажми «Поделиться результатом в Telegram» в любом разделе — расчёт уйдёт сообщением с ссылкой на сайт и канал.</p></details>
+  </section>
 </main>
 
 <footer>
   <div class="footer-flex">
     <img class="portrait" src="roman.jpg" alt="Roman Struzhuk">
-    <a class="icon-link" href="https://instagram.com/rstruzhuk" target="_blank" title="Instagram">
+    <a class="icon-link" href="https://instagram.com/rstruzhuk" target="_blank" rel="nofollow" title="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" stroke-width="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke-width="2"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"/></svg>
       <span>@rstruzhuk</span>
     </a>
-    <a class="icon-link" href="https://t.me/Struzhukcapital" target="_blank" title="Стратегия капитала">
+    <a class="icon-link" href="https://t.me/Struzhukcapital" target="_blank" rel="nofollow" title="Стратегия капитала">
       <img src="logo.jpg" alt="СК" style="width:20px;height:20px;border-radius:4px;object-fit:cover;">
       <span>Канал «Стратегия капитала»</span>
     </a>
-    <a class="icon-link" href="https://t.me/rstruzhuk" target="_blank" title="Telegram">
+    <a class="icon-link" href="https://t.me/rstruzhuk" target="_blank" rel="nofollow" title="Telegram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 2L11 13" stroke-width="2"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke-width="2"/></svg>
       <span>@rstruzhuk</span>
     </a>
@@ -310,373 +482,371 @@ footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
 </footer>
 
 <script>
-const $ = (id)=>document.getElementById(id);
-const fmt = (n)=>{ const num=Number(n); if(!isFinite(num)) return '0'; try{return num.toLocaleString('ru-RU',{maximumFractionDigits:2});}catch(e){return String(Math.round(num*100)/100).replace(/\B(?=(\d{3})+(?!\d))/g,' ');} };
+  const $ = (id)=>document.getElementById(id);
+  const fmt = (n)=>{ const num=Number(n); if(!isFinite(num)) return '0'; try{return num.toLocaleString('ru-RU',{maximumFractionDigits:2});}catch(e){return String(Math.round(num*100)/100).replace(/\B(?=(\d{3})+(?!\d))/g,' ');} };
 
-/* вкладки */
-document.querySelectorAll('.tab-btn').forEach(b=>{
-  b.addEventListener('click',()=>{
-    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('visible'));
-    document.getElementById('tab-'+b.dataset.tab).classList.add('visible');
+  // вкладки
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('visible'));
+      document.getElementById('tab-'+b.dataset.tab).classList.add('visible');
+    });
   });
-});
 
-/* расчёт ставок */
-function monthlyFromAPR(apr, type){
-  const r = apr/100;
-  if(type==='effective') return Math.pow(1+r,1/12)-1;
-  return r/12; // nominal
-}
-function dailyFromAPR(apr, type){
-  const r = apr/100;
-  if(type==='effective') return Math.pow(1+r,1/365)-1;
-  return r/365;
-}
-
-/* PRO симуляция */
-function proSimulate(){
-  const start = parseFloat(($('pro_start').value||'0').replace(',','.'));
-  const P = parseFloat(($('pro_monthly').value||'0').replace(',','.'));
-  const years = Math.max(1, parseInt($('pro_years').value||'10',10));
-  const type = $('pro_annual_type').value;
-  const apr = parseFloat(($('pro_annual').value||'0').replace(',','.'));
-  const comp = $('pro_comp').value;
-  const reinv = $('pro_reinv').value==='yes';
-
-  const rM = monthlyFromAPR(apr, type);
-  const rD = dailyFromAPR(apr, type);
-
-  let capital = start, interestPayout = 0, totalDeposits = start;
-  const startDate = new Date(); startDate.setHours(0,0,0,0); startDate.setDate(1);
-  const endDate = new Date(startDate); endDate.setFullYear(endDate.getFullYear()+years);
-
-  const rows=[]; let idx=0; const yearLabels=[]; const yearData=[];
-  function pushRow(label, dep, intr, bal){ rows.push({idx:++idx,label,deposit:dep||0,interest:intr||0,balance:bal||0}); }
-
-  if(comp==='monthly'){
-    let d = new Date(startDate);
-    while(d<endDate){
-      const label = new Date(d.getFullYear(), d.getMonth(), 1).toLocaleDateString('ru-RU',{year:'numeric',month:'2-digit'});
-      // взнос в начале месяца
-      capital += P; totalDeposits += P;
-      const intr = capital * (isFinite(rM)?rM:0);
-      if(reinv) capital += intr; else interestPayout += intr;
-      pushRow(label, P, intr, capital);
-      const next = new Date(d.getFullYear(), d.getMonth()+1, 1);
-      if(next.getFullYear()!==d.getFullYear()){ yearLabels.push(String(d.getFullYear())); yearData.push(capital); }
-      d = next;
+  // подсказки
+  const helpMap={pro:'help-pro', light:'help-light', lose:'help-lose', goals:'help-goals', need:'help-need', infl:'help-infl'};
+  document.querySelectorAll('.help-dot').forEach(h=>{
+    h.addEventListener('click', ()=>{
+      const key=h.dataset.help, id=helpMap[key];
+      if(!id) return;
+      document.querySelectorAll('.help-pop').forEach(p=>p.classList.remove('visible'));
+      $(id).classList.toggle('visible');
+    });
+  });
+  document.addEventListener('click',(e)=>{
+    if(!e.target.closest('.help-dot') && !e.target.closest('.help-pop')){
+      document.querySelectorAll('.help-pop').forEach(p=>p.classList.remove('visible'));
     }
-  }else{
-    let d=new Date(startDate); let month=d.getMonth(); let intr=0, dep=0;
-    while(d<endDate){
-      if(d.getDate()===1){ capital += P; totalDeposits += P; dep += P; }
-      const i = capital * (isFinite(rD)?rD:0);
-      if(reinv) capital += i; else interestPayout += i;
-      intr += i;
-      const next=new Date(d); next.setDate(d.getDate()+1);
-      if(next.getMonth()!==month){
+  });
+
+  // ставки
+  function monthlyFromAPR(apr, type){ const r=apr/100; return (type==='effective')? Math.pow(1+r,1/12)-1 : r/12; }
+  function dailyFromAPR(apr, type){ const r=apr/100; return (type==='effective')? Math.pow(1+r,1/365)-1 : r/365; }
+
+  // PRO
+  function proSimulate(){
+    const start=parseFloat(($('pro_start').value||'0').replace(',','.'));
+    const P=parseFloat(($('pro_monthly').value||'0').replace(',','.'));
+    const years=Math.max(1, parseInt($('pro_years').value||'10',10));
+    const type=$('pro_annual_type').value;
+    const apr=parseFloat(($('pro_annual').value||'0').replace(',','.'));
+    const comp=$('pro_comp').value;
+    const reinv=$('pro_reinv').value==='yes';
+
+    const rM=monthlyFromAPR(apr,type), rD=dailyFromAPR(apr,type);
+
+    let capital=start, interestPayout=0, totalDeposits=start;
+    const startDate=new Date(); startDate.setHours(0,0,0,0); startDate.setDate(1);
+    const endDate=new Date(startDate); endDate.setFullYear(endDate.getFullYear()+years);
+
+    const rows=[]; let idx=0; const yearLabels=[], yearData=[];
+    function pushRow(label, dep, intr, bal){ rows.push({idx:++idx,label,deposit:dep||0,interest:intr||0,balance:bal||0}); }
+
+    if(comp==='monthly'){
+      let d=new Date(startDate);
+      while(d<endDate){
         const label=new Date(d.getFullYear(), d.getMonth(), 1).toLocaleDateString('ru-RU',{year:'numeric',month:'2-digit'});
-        pushRow(label, dep, intr, capital); dep=0; intr=0;
+        capital += P; totalDeposits += P;
+        const intr=capital*(isFinite(rM)?rM:0);
+        if(reinv) capital+=intr; else interestPayout+=intr;
+        pushRow(label, P, intr, capital);
+        const next=new Date(d.getFullYear(), d.getMonth()+1, 1);
         if(next.getFullYear()!==d.getFullYear()){ yearLabels.push(String(d.getFullYear())); yearData.push(capital); }
-        month=next.getMonth();
+        d=next;
       }
-      d=next;
+    } else {
+      let d=new Date(startDate); let month=d.getMonth(); let intr=0, dep=0;
+      while(d<endDate){
+        if(d.getDate()===1){ capital+=P; totalDeposits+=P; dep+=P; }
+        const i=capital*(isFinite(rD)?rD:0);
+        if(reinv) capital+=i; else interestPayout+=i;
+        intr+=i;
+        const next=new Date(d); next.setDate(d.getDate()+1);
+        if(next.getMonth()!==month){
+          const label=new Date(d.getFullYear(), d.getMonth(), 1).toLocaleDateString('ru-RU',{year:'numeric',month:'2-digit'});
+          pushRow(label, dep, intr, capital); dep=0; intr=0;
+          if(next.getFullYear()!==d.getFullYear()){ yearLabels.push(String(d.getFullYear())); yearData.push(capital); }
+          month=next.getMonth();
+        }
+        d=next;
+      }
+    }
+
+    const finalSum=capital, totDep=totalDeposits, totInt=reinv?(finalSum-totDep):interestPayout;
+    $('pro_final').textContent=fmt(finalSum)+' ₽';
+    $('pro_deposits').textContent=fmt(totDep)+' ₽';
+    $('pro_interest').textContent=fmt(totInt)+' ₽';
+    $('pro_effapr').textContent=((Math.pow(1+(isFinite(rM)?rM:0),12)-1)*100).toFixed(2)+'%';
+
+    const tbody=document.querySelector('#pro_table tbody'); tbody.innerHTML='';
+    rows.forEach(r=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML='<td>'+r.idx+'</td><td>'+r.label+'</td><td>'+fmt(r.deposit)+'</td><td>'+fmt(r.interest)+'</td><td>'+fmt(r.balance)+'</td>';
+      tbody.appendChild(tr);
+    });
+
+    drawYearBars('pro_year_chart', yearLabels, yearData);
+    drawCompare('compare_chart', years, apr, 12, 10, start, P, type);
+  }
+
+  function drawYearBars(id, labels, data){
+    const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
+    ctx.clearRect(0,0,W,H);
+    const pad=40, x0=pad, y0=H-pad, x1=W-pad, y1=20;
+    ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
+    if(!data.length) return;
+    const max=Math.max(...data)*1.1 || 1; const n=data.length; const bw=(x1-x0)/(n*1.4); const gap=bw*0.4;
+    ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
+    for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
+    for(let i=0;i<n;i++){ const v=data[i]; const x=x0+i*(bw+gap)+gap; const h=(v/max)*(y0-y1); const y=y0-h;
+      ctx.fillStyle='#6D28D933'; ctx.strokeStyle='#6D28D9'; ctx.lineWidth=2;
+      ctx.fillRect(x,y,bw,h); ctx.strokeRect(x,y,bw,h);
+      ctx.fillStyle='#0b1220'; ctx.textAlign='center';
+      ctx.fillText(fmt(v)+' ₽', x+bw/2, y-6);
+      ctx.fillText(labels[i], x+bw/2, y0+14);
+      ctx.textAlign='start';
     }
   }
 
-  // KPI
-  const finalSum=capital, totDep=totalDeposits, totInt= reinv ? (finalSum - totDep) : interestPayout;
-  $('pro_final').textContent = fmt(finalSum)+' ₽';
-  $('pro_deposits').textContent = fmt(totDep)+' ₽';
-  $('pro_interest').textContent = fmt(totInt)+' ₽';
-  $('pro_effapr').textContent = ((Math.pow(1 + (isFinite(rM)?rM:0), 12) - 1)*100).toFixed(2) + '%';
-
-  // таблица
-  const tbody=document.querySelector('#pro_table tbody'); tbody.innerHTML='';
-  rows.forEach(r=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML='<td>'+r.idx+'</td><td>'+r.label+'</td><td>'+fmt(r.deposit)+'</td><td>'+fmt(r.interest)+'</td><td>'+fmt(r.balance)+'</td>';
-    tbody.appendChild(tr);
-  });
-
-  drawYearBars('pro_year_chart', yearLabels, yearData);
-
-  // сравнение стратегий (12% депозит, 10% рынок, стратегия apr)
-  drawCompare('compare_chart', years, apr, 12, 10, start, P, type);
-}
-
-/* свечи */
-function drawYearBars(id, labels, data){
-  const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
-  ctx.clearRect(0,0,W,H);
-  const pad=40, x0=pad, y0=H-pad, x1=W-pad, y1=20;
-  ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
-  if(!data.length) return;
-  const max=Math.max(...data)*1.1 || 1; const n=data.length; const bw=(x1-x0)/(n*1.4); const gap=bw*0.4;
-  ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
-  for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
-  for(let i=0;i<n;i++){ const v=data[i]; const x=x0+i*(bw+gap)+gap; const h=(v/max)*(y0-y1); const y=y0-h;
-    ctx.fillStyle='#6D28D933'; ctx.strokeStyle='#6D28D9'; ctx.lineWidth=2;
-    ctx.fillRect(x,y,bw,h); ctx.strokeRect(x,y,bw,h);
+  function drawCompare(id, years, aprStrat, aprBank, aprMarket, start, monthly, type){
+    const labels=Array.from({length:years},(_,i)=>String(new Date().getFullYear()+i));
+    const strat=[], bank=[], market=[];
+    let cs=start, cb=start, cm=start;
+    const rMs=monthlyFromAPR(aprStrat, type), rMb=monthlyFromAPR(aprBank,'effective'), rMm=monthlyFromAPR(aprMarket,'effective');
+    for(let y=0;y<years;y++){
+      for(let m=0;m<12;m++){
+        cs += monthly; cs += cs*rMs;
+        cb += monthly; cb += cb*rMb;
+        cm += monthly; cm += cm*rMm;
+      }
+      strat.push(cs); bank.push(cb); market.push(cm);
+    }
+    const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
+    ctx.clearRect(0,0,W,H);
+    const pad=40, x0=pad, y0=H-pad, x1=W-pad, y1=20;
+    const max=Math.max(...strat, ...bank, ...market)*1.1||1;
+    ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
+    ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
+    for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
+    function plot(arr, color){
+      ctx.strokeStyle=color; ctx.lineWidth=2; ctx.beginPath();
+      arr.forEach((v,i)=>{
+        const x=x0+(x1-x0)*(i/(arr.length-1||1));
+        const y=y0-(v/max)*(y0-y1);
+        if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }); ctx.stroke();
+    }
+    plot(bank, '#9ca3af'); plot(market, '#2563eb'); plot(strat, '#6D28D9');
     ctx.fillStyle='#0b1220'; ctx.textAlign='center';
-    ctx.fillText(fmt(v)+' ₽', x+bw/2, y-6);
-    ctx.fillText(labels[i], x+bw/2, y0+14);
-    ctx.textAlign='start';
+    labels.forEach((lab,i)=>{ const x=x0+(x1-x0)*(i/(labels.length-1||1)); ctx.fillText(lab, x, y0+14); });
   }
-}
 
-/* сравнение стратегий — простая линия по годам (месячная капитализация) */
-function futureWithMonthly(start, monthly, years, apr, type){
-  const rM = monthlyFromAPR(apr, type);
-  let cap = start;
-  for(let y=0; y<years; y++){
-    for(let m=0;m<12;m++){
-      cap += monthly;
-      cap += cap * rM;
+  function proExportCSV(){
+    const rows=[...document.querySelectorAll('#pro_table tbody tr')].map(tr=>[...tr.children].map(td=>td.textContent));
+    const header=['#','Период','Взнос, ₽','Проценты за период, ₽','Баланс, ₽'];
+    const blob=new Blob([[header.join(';')].concat(rows.map(r=>r.join(';'))).join('\n')],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='strategy_capital_pro.csv'; a.click(); URL.revokeObjectURL(url);
+  }
+
+  // SHARE
+  function shareToTelegram(text){
+    const link=window.location.href;
+    const full=text+"\n\nСайт: "+link+"\nКанал: https://t.me/Struzhukcapital";
+    const url='https://t.me/share/url?url='+encodeURIComponent(link)+'&text='+encodeURIComponent(full);
+    window.open(url,'_blank');
+  }
+  function proShare(){
+    const text=`Мой расчёт PRO:
+Итог: ${$('pro_final').textContent}
+Внесено: ${$('pro_deposits').textContent}
+Проценты: ${$('pro_interest').textContent}`;
+    shareToTelegram(text);
+  }
+
+  // LIGHT
+  function toDailyRate(value, unit){
+    const r=parseFloat(String(value).replace(',','.'))/100;
+    if(!isFinite(r)||r<0) return 0;
+    if(unit==='daily') return r;
+    if(unit==='monthly') return Math.pow(1+r,1/30)-1;
+    if(unit==='annual') return Math.pow(1+r,1/365)-1;
+    return 0;
+  }
+  function lightRun(){
+    const P=parseFloat(($('light_initial').value||'0').replace(',','.'));
+    const rate=parseFloat(($('light_rate').value||'0').replace(',','.'));
+    const unit=$('light_unit').value;
+    const days=Math.max(1, parseInt(($('light_days').value||'1'),10));
+    const rD=toDailyRate(rate, unit);
+    let balance=P, totalInterest=0;
+    const tbody=document.querySelector('#light_table tbody'); tbody.innerHTML='';
+    let tr0=document.createElement('tr'); tr0.innerHTML='<td>1</td><td>'+fmt(balance)+'</td><td>0</td>'; tbody.appendChild(tr0);
+    for(let d=2; d<=days; d++){
+      const interest=balance*rD; balance+=interest; totalInterest+=interest;
+      const tr=document.createElement('tr'); tr.innerHTML='<td>'+d+'</td><td>'+fmt(balance)+'</td><td>'+fmt(interest)+'</td>'; tbody.appendChild(tr);
     }
+    $('light_future').textContent=fmt(balance)+' ₽';
+    $('light_interest').textContent=fmt(totalInterest)+' ₽';
   }
-  return cap;
-}
-function drawCompare(id, years, aprStrat, aprBank, aprMarket, start, monthly, type){
-  const labels=Array.from({length:years},(_,i)=>String(new Date().getFullYear()+i));
-  const strat=[], bank=[], market=[];
-  let cs=start, cb=start, cm=start;
-  const rMs = monthlyFromAPR(aprStrat, type), rMb = monthlyFromAPR(aprBank,'effective'), rMm = monthlyFromAPR(aprMarket,'effective');
+  function lightShare(){
+    const text=`Мой расчёт LIGHT:
+Итог: ${$('light_future').textContent}
+Процентов начислено: ${$('light_interest').textContent}`;
+    shareToTelegram(text);
+  }
 
-  for(let y=0;y<years;y++){
-    for(let m=0;m<12;m++){
-      cs += monthly; cs += cs*rMs;
-      cb += monthly; cb += cb*rMb;
-      cm += monthly; cm += cm*rMm;
+  // Сколько теряешь
+  function loseRun(){
+    const A=parseFloat(($('lose_amount').value||'0').replace(',','.'));
+    const Y=Math.max(1, parseInt($('lose_years').value||'1',10));
+    const bank=parseFloat(($('lose_bank').value||'0').replace(',','.'));
+    const strat=parseFloat(($('lose_strategy').value||'0').replace(',','.'));
+    const infl=parseFloat(($('lose_infl').value||'0').replace(',','.'));
+    function fv(a,r,y){ return a*Math.pow(1+r/100,y); }
+    const bankVal=fv(A,bank,Y), stratVal=fv(A,strat,Y);
+    const diff=stratVal-bankVal, real=stratVal/Math.pow(1+infl/100,Y);
+    $('lose_bank_val').textContent=fmt(bankVal)+' ₽';
+    $('lose_strat_val').textContent=fmt(stratVal)+' ₽';
+    $('lose_diff').textContent=fmt(diff)+' ₽';
+    $('lose_real').textContent=fmt(real)+' ₽';
+    const years=Array.from({length:Y+1},(_,i)=>i);
+    const arrBank=years.map(i=>fv(A,bank,i));
+    const arrStr=years.map(i=>fv(A,strat,i));
+    drawLines('lose_chart', years.map(i=>String(i)), [arrBank,arrStr], ['Депозит','Стратегия'], ['#9ca3af','#6D28D9']);
+  }
+  function loseShare(){
+    const text=`Сколько теряешь:
+Депозит: ${$('lose_bank_val').textContent}
+Стратегия: ${$('lose_strat_val').textContent}
+Разница: ${$('lose_diff').textContent}
+Реально (после инфляции): ${$('lose_real').textContent}`;
+    shareToTelegram(text);
+  }
+  function drawLines(id, labels, series, names, colors){
+    const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
+    ctx.clearRect(0,0,W,H);
+    const pad=40, x0=pad, y0=H-pad, x1=W-pad, y1=20;
+    const max=Math.max(...series.flat())*1.1||1;
+    ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
+    ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
+    for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
+    function plot(arr,color){
+      ctx.strokeStyle=color; ctx.lineWidth=2; ctx.beginPath();
+      arr.forEach((v,i)=>{ const x=x0+(x1-x0)*(i/((arr.length-1)||1)); const y=y0-(v/max)*(y0-y1); if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
+      ctx.stroke();
     }
-    strat.push(cs); bank.push(cb); market.push(cm);
+    series.forEach((arr,i)=>plot(arr, colors[i]||'#000'));
+    ctx.fillStyle='#0b1220'; ctx.textAlign='center';
+    labels.forEach((lab,i)=>{ const x=x0+(x1-x0)*(i/((labels.length-1)||1)); ctx.fillText(lab, x, y0+14); });
   }
 
-  const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
-  ctx.clearRect(0,0,W,H);
-  const pad=40, x0=pad, y0=H-pad, x1=W-pad, y1=20;
-  const max=Math.max(...strat, ...bank, ...market)*1.1||1;
-
-  // grid
-  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
-  ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
-  for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
-
-  function plot(arr, color){
-    ctx.strokeStyle=color; ctx.lineWidth=2; ctx.beginPath();
-    arr.forEach((v,i)=>{
-      const x=x0 + (x1-x0)* (i/(arr.length-1||1));
-      const y=y0 - (v/max)*(y0-y1);
-      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-    });
-    ctx.stroke();
+  // Цели
+  function goalRun(){
+    const T=parseFloat(($('goal_target').value||'0').replace(',','.'));
+    const Y=Math.max(1, parseInt($('goal_years').value||'1',10));
+    const r=parseFloat(($('goal_rate').value||'0').replace(',','.'));
+    const S0=parseFloat(($('goal_start').value||'0').replace(',','.'));
+    const type=$('goal_type').value;
+    const n=Y*12, i=monthlyFromAPR(r,type), pow=Math.pow(1+i,n);
+    const numerator=(T - S0*pow)*i, denom=(pow-1);
+    const P=denom>0 ? Math.max(0, numerator/denom) : 0;
+    $('goal_monthly').textContent=fmt(P)+' ₽';
+    $('goal_total_in').textContent=fmt(P*n + S0)+' ₽';
+    $('goal_interest_share').textContent=fmt(Math.max(0, T - (P*n + S0)))+' ₽';
+    $('goal_eff').textContent=((Math.pow(1+i,12)-1)*100).toFixed(2)+'%';
   }
-  plot(bank, '#9ca3af'); // серый — депозит
-  plot(market, '#2563eb'); // синий — рынок
-  plot(strat, '#6D28D9'); // фиолет — стратегия
-
-  // подписи по оси X
-  ctx.fillStyle='#0b1220'; ctx.textAlign='center';
-  labels.forEach((lab,i)=>{
-    const x=x0 + (x1-x0)* (i/(labels.length-1||1));
-    ctx.fillText(lab, x, y0+14);
-  });
-}
-
-/* экспорт CSV из PRO */
-function proExportCSV(){
-  const rows=[...document.querySelectorAll('#pro_table tbody tr')].map(tr=>[...tr.children].map(td=>td.textContent));
-  const header=['#','Период','Взнос, ₽','Проценты за период, ₽','Баланс, ₽'];
-  const blob=new Blob([[header.join(';')].concat(rows.map(r=>r.join(';'))).join('\n')],{type:'text/csv;charset=utf-8;'});
-  const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='strategy_capital_pro.csv'; a.click(); URL.revokeObjectURL(url);
-}
-
-/* share в Telegram */
-function proShare(){
-  const text = `Мой расчёт по «Стратегии капитала»:\nИтог: ${$('pro_final').textContent}\nВнесено: ${$('pro_deposits').textContent}\nПроценты: ${$('pro_interest').textContent}\nПопробуй сам: https://t.me/Struzhukcapital`;
-  const url = 'https://t.me/share/url?url='+encodeURIComponent('https://t.me/Struzhukcapital')+'&text='+encodeURIComponent(text);
-  window.open(url,'_blank');
-}
-
-/* LIGHT */
-function toDailyRate(value, unit){
-  const r = parseFloat(String(value).replace(',','.'))/100;
-  if (!isFinite(r) || r<0) return 0;
-  if (unit==='daily') return r;
-  if (unit==='monthly') return Math.pow(1+r, 1/30)-1;
-  if (unit==='annual') return Math.pow(1+r, 1/365)-1;
-  return 0;
-}
-function lightRun(){
-  const P = parseFloat(($('light_initial').value||'0').replace(',','.'));
-  const rate = parseFloat(($('light_rate').value||'0').replace(',','.'));
-  const unit = $('light_unit').value;
-  const days = Math.max(1, parseInt($('light_days').value||'1',10));
-  const rD = toDailyRate(rate, unit);
-
-  let balance = P, totalInterest = 0;
-  const tbody = document.querySelector('#light_table tbody'); tbody.innerHTML='';
-  let tr0=document.createElement('tr'); tr0.innerHTML='<td>1</td><td>'+fmt(balance)+'</td><td>0</td>'; tbody.appendChild(tr0);
-  for (let d=2; d<=days; d++){
-    const interest = balance * rD;
-    balance += interest; totalInterest += interest;
-    const tr=document.createElement('tr'); tr.innerHTML = '<td>'+d+'</td><td>'+fmt(balance)+'</td><td>'+fmt(interest)+'</td>'; tbody.appendChild(tr);
+  function goalShare(){
+    const text=`Моя цель: ${$('goal_name').value || '—'}
+Цель: ${$('goal_target').value} ₽ за ${$('goal_years').value} лет
+Нужный ежемесячный взнос: ${$('goal_monthly').textContent}`;
+    shareToTelegram(text);
   }
-  $('light_future').textContent = fmt(balance) + ' ₽';
-  $('light_interest').textContent = fmt(totalInterest) + ' ₽';
-}
 
-/* Сколько теряешь */
-function loseRun(){
-  const A = parseFloat(($('lose_amount').value||'0').replace(',','.'));
-  const Y = Math.max(1, parseInt($('lose_years').value||'1',10));
-  const bank = parseFloat(($('lose_bank').value||'0').replace(',','.'));
-  const strat = parseFloat(($('lose_strategy').value||'0').replace(',','.'));
-  const infl = parseFloat(($('lose_infl').value||'0').replace(',','.'));
-
-  function fv(a,r,y){ return a*Math.pow(1+r/100,y); }
-
-  const bankVal = fv(A, bank, Y);
-  const stratVal = fv(A, strat, Y);
-  const diff = stratVal - bankVal;
-  const real = stratVal / Math.pow(1+infl/100, Y);
-
-  $('lose_bank_val').textContent = fmt(bankVal)+' ₽';
-  $('lose_strat_val').textContent = fmt(stratVal)+' ₽';
-  $('lose_diff').textContent = fmt(diff)+' ₽';
-  $('lose_real').textContent = fmt(real)+' ₽';
-
-  // график
-  const years = Array.from({length:Y+1},(_,i)=>i);
-  const arrBank = years.map(i=>fv(A,bank,i));
-  const arrStr = years.map(i=>fv(A,strat,i));
-  drawLines('lose_chart', years.map(i=>String(i)), [arrBank, arrStr], ['Депозит','Стратегия'], ['#9ca3af','#6D28D9']);
-}
-function drawLines(id, labels, series, names, colors){
-  const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
-  ctx.clearRect(0,0,W,H);
-  const pad=40, x0=pad, y0=H-pad, x1=W-pad, y1=20;
-  const max = Math.max(...series.flat())*1.1 || 1;
-  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.stroke();
-  ctx.fillStyle='#64748b'; ctx.font='12px Inter,system-ui,sans-serif';
-  for(let i=0;i<=5;i++){ const t=i/5; const y=y0-(y0-y1)*t; const val=max*t; ctx.strokeStyle='rgba(2,6,23,.08)'; ctx.beginPath(); ctx.moveTo(x0,y); ctx.lineTo(x1,y); ctx.stroke(); ctx.fillText(fmt(val),4,y+4); }
-  function plot(arr, color){
-    ctx.strokeStyle=color; ctx.lineWidth=2; ctx.beginPath();
-    arr.forEach((v,i)=>{
-      const x=x0 + (x1-x0)*(i/((arr.length-1)||1));
-      const y=y0 - (v/max)*(y0-y1);
-      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-    });
-    ctx.stroke();
+  // Стартовый капитал + срок достижения
+  function needRun(){
+    const T=parseFloat(($('need_target').value||'0').replace(',','.'));
+    const Y=Math.max(1, parseInt($('need_years').value||'1',10));
+    const r=parseFloat(($('need_rate').value||'0').replace(',','.'));
+    const P=parseFloat(($('need_monthly').value||'0').replace(',','.'));
+    const type=$('need_type').value;
+    const n=Y*12, i=monthlyFromAPR(r,type), pow=Math.pow(1+i,n), ann=i>0 ? (pow-1)/i : n;
+    const S0=(T - P*ann)/pow;
+    $('need_start').textContent=fmt(Math.max(0,S0))+' ₽';
+    $('need_total_in').textContent=fmt(P*n + Math.max(0,S0))+' ₽';
+    $('need_interest_share').textContent=fmt(Math.max(0, T - (P*n + Math.max(0,S0))))+' ₽';
+    const months=monthsToTarget(Math.max(0,S0), P, i, T);
+    const y=Math.floor(months/12), m=months%12;
+    $('need_time').textContent=(isFinite(months)? `${y} лет ${m} мес.` : '—');
   }
-  series.forEach((arr,i)=>plot(arr, colors[i]||'#000'));
-  // X labels
-  ctx.fillStyle='#0b1220'; ctx.textAlign='center';
-  labels.forEach((lab,i)=>{ const x=x0 + (x1-x0)*(i/((labels.length-1)||1)); ctx.fillText(lab, x, y0+14); });
-}
+  function monthsToTarget(S0, P, i, T){
+    if(S0<=0 && P<=0) return Infinity;
+    let lo=0, hi=600; // до 50 лет
+    function FV(n){ return S0*Math.pow(1+i,n) + (i>0? P*((Math.pow(1+i,n)-1)/i) : P*n); }
+    while(lo<hi){ const mid=Math.floor((lo+hi)/2); if(FV(mid)>=T) hi=mid; else lo=mid+1; }
+    return lo;
+  }
+  function needShare(){
+    const text=`Стартовый капитал:
+Цель: ${$('need_target').value} ₽
+Срок: ${$('need_years').value} лет
+Нужен старт: ${$('need_start').textContent}
+ETA при этих параметрах: ${$('need_time').textContent}`;
+    shareToTelegram(text);
+  }
 
-/* Цели — нужный ежемесячный взнос при заданной цели */
-function goalRun(){
-  const T = parseFloat(($('goal_target').value||'0').replace(',','.'));
-  const Y = Math.max(1, parseInt($('goal_years').value||'1',10));
-  const r = parseFloat(($('goal_rate').value||'0').replace(',','.'));
-  const S0 = parseFloat(($('goal_start').value||'0').replace(',','.'));
-  const type = $('goal_type').value;
+  // Инфляция
+  function inflRun(){
+    const A=parseFloat(($('infl_amount').value||'0').replace(',','.'));
+    const Y=Math.max(1, parseInt($('infl_years').value||'1',10));
+    const R=parseFloat(($('infl_rate').value||'0').replace(',','.'));
+    const real=A/Math.pow(1+R/100, Y);
+    $('infl_future').textContent=fmt(A)+' ₽';
+    $('infl_real').textContent=fmt(real)+' ₽';
+    $('infl_loss').textContent=fmt(Math.max(0, A-real))+' ₽';
+    $('infl_note').textContent=`Через ${Y} лет купить получится на сумму, эквивалентную сегодняшним ${fmt(real)} ₽ при инфляции ${R}%`;
+  }
+  function inflShare(){
+    const text=`Инфляция:
+Сумма сегодня: ${$('infl_amount').value} ₽
+Через ${$('infl_years').value} лет — покупательная способность: ${$('infl_real').textContent}`;
+    shareToTelegram(text);
+  }
 
-  const n = Y*12;
-  const i = monthlyFromAPR(r, type); // месячная ставка
-  // FV = S0*(1+i)^n + P * [((1+i)^n - 1)/i]
-  // => P = (FV - S0*(1+i)^n) * i / ((1+i)^n - 1)
-  const pow = Math.pow(1+i, n);
-  const numerator = (T - S0*pow) * i;
-  const denom = (pow - 1);
-  const P = denom>0 ? Math.max(0, numerator/denom) : 0;
+  // Мотивация
+  function updateMotivation(){
+    const P0=100000, years=5, apr=50;
+    const eff=Math.pow(1+apr/100, years);
+    const val=P0*eff;
+    $('motivation').textContent=`Сегодня это было бы ${fmt(val)} ₽ (без пополнений).`;
+  }
 
-  $('goal_monthly').textContent = fmt(P)+' ₽';
-  $('goal_total_in').textContent = fmt(P*n + S0)+' ₽';
-  $('goal_interest_share').textContent = fmt(Math.max(0, T - (P*n + S0)))+' ₽';
-  $('goal_eff').textContent = ((Math.pow(1+i,12) - 1)*100).toFixed(2)+'%';
-}
-
-/* Сколько вложить — требуемый старт при заданном ежемесячном взносе */
-function needRun(){
-  const T = parseFloat(($('need_target').value||'0').replace(',','.'));
-  const Y = Math.max(1, parseInt($('need_years').value||'1',10));
-  const r = parseFloat(($('need_rate').value||'0').replace(',','.'));
-  const P = parseFloat(($('need_monthly').value||'0').replace(',','.'));
-  const type = $('need_type').value;
-
-  const n = Y*12;
-  const i = monthlyFromAPR(r,type);
-  const pow = Math.pow(1+i, n);
-  // T = S0*pow + P * ((pow-1)/i)  => S0 = (T - P*((pow-1)/i))/pow
-  const ann = i>0 ? (pow-1)/i : n;
-  const S0 = (T - P*ann)/pow;
-
-  $('need_start').textContent = fmt(Math.max(0,S0))+' ₽';
-  $('need_total_in').textContent = fmt(P*n + Math.max(0,S0))+' ₽';
-  $('need_interest_share').textContent = fmt(Math.max(0, T - (P*n + Math.max(0,S0))))+' ₽';
-  $('need_eff').textContent = ((Math.pow(1+i,12) - 1)*100).toFixed(2)+'%';
-}
-
-/* Инфляция */
-function inflRun(){
-  const A = parseFloat(($('infl_amount').value||'0').replace(',','.'));
-  const Y = Math.max(1, parseInt($('infl_years').value||'1',10));
-  const R = parseFloat(($('infl_rate').value||'0').replace(',','.'));
-  const real = A / Math.pow(1+R/100, Y);
-  $('infl_future').textContent = fmt(A)+' ₽';
-  $('infl_real').textContent = fmt(real)+' ₽';
-  $('infl_loss').textContent = fmt(Math.max(0, A-real))+' ₽';
-  $('infl_note').textContent = `Через ${Y} лет купить получится на сумму, эквивалентную сегодняшним ${fmt(real)} ₽ при инфляции ${R}%`;
-}
-
-/* мотивационный блок */
-function updateMotivation(){
-  const P0 = 100000, years = 5, apr = 50;
-  const eff = Math.pow(1+apr/100, years);
-  const val = P0*eff;
-  $('motivation').textContent = `Сегодня это было бы ${fmt(val)} ₽ (без пополнений).`;
-}
-
-/* live-триггер дохода при 50% APR от 100 000 ₽ */
-function startTicker(){
-  const base = 100000;
-  const apr = 50; // эффективная годовая
-  const perSec = Math.pow(1+apr/100, 1/(365*24*3600)) - 1;
-  let t0 = performance.now();
-  let acc = 0;
-  function step(ts){
-    const dt = (ts - t0)/1000; t0 = ts;
-    acc += base * (Math.pow(1+perSec, dt) - 1);
-    $('liveProfit').textContent = fmt(acc)+' ₽';
+  // live ticker
+  function startTicker(){
+    const base=100000, apr=50;
+    const perSec=Math.pow(1+apr/100, 1/(365*24*3600)) - 1;
+    let t0=performance.now(), acc=0;
+    function step(ts){
+      const dt=(ts - t0)/1000; t0=ts;
+      acc += base * (Math.pow(1+perSec, dt) - 1);
+      $('liveProfit').textContent=fmt(acc)+' ₽';
+      requestAnimationFrame(step);
+    }
     requestAnimationFrame(step);
   }
-  requestAnimationFrame(step);
-}
 
-/* wire */
-$('pro_run').addEventListener('click', proSimulate);
-$('pro_csv').addEventListener('click', proExportCSV);
-$('pro_share').addEventListener('click', proShare);
+  // wire
+  $('pro_run').addEventListener('click', proSimulate);
+  $('pro_csv').addEventListener('click', proExportCSV);
+  $('pro_share').addEventListener('click', proShare);
 
-$('light_run').addEventListener('click', lightRun);
-$('lose_run').addEventListener('click', loseRun);
-$('goal_run').addEventListener('click', goalRun);
-$('need_run').addEventListener('click', needRun);
-$('infl_run').addEventListener('click', inflRun);
+  $('light_run').addEventListener('click', lightRun);
+  $('light_share').addEventListener('click', lightShare);
 
-/* первый запуск */
-proSimulate();
-lightRun();
-loseRun();
-goalRun();
-needRun();
-inflRun();
-updateMotivation();
-startTicker();
+  $('lose_run').addEventListener('click', loseRun);
+  $('lose_share').addEventListener('click', loseShare);
+
+  $('goal_run').addEventListener('click', goalRun);
+  $('goal_share').addEventListener('click', goalShare);
+
+  $('need_run').addEventListener('click', needRun);
+  $('need_share').addEventListener('click', needShare);
+
+  $('infl_run').addEventListener('click', inflRun);
+
+  // init
+  proSimulate(); lightRun(); loseRun(); goalRun(); needRun(); inflRun(); updateMotivation(); startTicker();
 </script>
 </body>
 </html>
