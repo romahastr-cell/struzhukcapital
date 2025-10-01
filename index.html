@@ -11,7 +11,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Стратегия капитала | Калькулятор инвестиций" />
-  <meta property="og:description" content="Рассчитайте доходность под сложный процент, цели и стартовый капитал. Ежедневная/ежемесячная капитализация, инфляция, сравнение с депозитом." />
+  <meta property="og:description" content="Рассчитайте доходность под сложный процент, цели и стартовый капитал. Ежедневная и ежемесячная капитализация, инфляция, сравнение с депозитом." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://calc.struzhuk.ru/" />
   <meta property="og:image" content="https://calc.struzhuk.ru/og-image.jpg" />
@@ -22,92 +22,109 @@
   <meta name="twitter:description" content="Онлайн калькуляторы инвестиций и сложных процентов от Романа Стружука." />
   <meta name="twitter:image" content="https://calc.struzhuk.ru/og-image.jpg" />
 
-  <!-- JSON-LD (WebSite + Organization + FAQPage) -->
+  <!-- JSON-LD (WebSite + FAQ) -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"Стратегия капитала",
-    "url":"https://calc.struzhuk.ru/",
-    "publisher":{
-      "@type":"Organization",
-      "name":"Стратегия капитала",
-      "logo":{"@type":"ImageObject","url":"https://calc.struzhuk.ru/logo.jpg"}
-    },
-    "author":{"@type":"Person","name":"Роман Стружук","sameAs":["https://t.me/Struzhukcapital","https://t.me/rstruzhuk","https://instagram.com/rstruzhuk"]},
-    "description":"Онлайн калькуляторы инвестиций и сложных процентов: PRO, LIGHT, цели, стартовый капитал, сравнение с депозитом и инфляцией."
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"Стратегия капитала","url":"https://calc.struzhuk.ru/","publisher":{"@type":"Organization","name":"Стратегия капитала","logo":{"@type":"ImageObject","url":"https://calc.struzhuk.ru/logo.jpg"}},"author":{"@type":"Person","name":"Роман Стружук","sameAs":["https://t.me/Struzhukcapital","https://t.me/rstruzhuk","https://instagram.com/rstruzhuk"]},"description":"Онлайн калькуляторы инвестиций и сложных процентов: PRO, LIGHT, цели, стартовый капитал, сравнение с депозитом и инфляцией."}
   </script>
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Что такое сложный процент?","acceptedAnswer":{"@type":"Answer","text":"Это когда проценты прибавляются к основному капиталу и в дальнейшем проценты начисляются и на них."}},
-      {"@type":"Question","name":"В чем разница номинальной и эффективной ставки?","acceptedAnswer":{"@type":"Answer","text":"Номинальная — базовая годовая ставка без учета частоты капитализации. Эффективная — реальная доходность с учетом капитализации."}},
-      {"@type":"Question","name":"Как работает ежедневная капитализация?","acceptedAnswer":{"@type":"Answer","text":"Доход начисляется каждый день и прибавляется к балансу, что усиливает эффект сложных процентов."}},
-      {"@type":"Question","name":"Зачем учитывать инфляцию?","acceptedAnswer":{"@type":"Answer","text":"Инфляция снижает покупательную способность. Реальная доходность — это доход за вычетом влияния инфляции."}},
-      {"@type":"Question","name":"Можно ли поделиться расчетом?","acceptedAnswer":{"@type":"Answer","text":"Да, в каждом разделе есть кнопка «Поделиться результатом в Telegram»."}}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Что такое сложный процент?","acceptedAnswer":{"@type":"Answer","text":"Это когда проценты прибавляются к телу капитала и дальше проценты начисляются на всю сумму."}},
+    {"@type":"Question","name":"Номинальная и эффективная ставка — разница?","acceptedAnswer":{"@type":"Answer","text":"Номинальная — без учёта частоты капитализации. Эффективная учитывает капитализацию и ближе к реальной доходности."}},
+    {"@type":"Question","name":"Как работает ежедневная капитализация?","acceptedAnswer":{"@type":"Answer","text":"Доход прибавляется к балансу каждый день, усиливая эффект сложного процента."}},
+    {"@type":"Question","name":"Зачем учитывать инфляцию?","acceptedAnswer":{"@type":"Answer","text":"Чтобы понимать реальную покупательную способность суммы в будущем, а не только номинальные цифры."}},
+    {"@type":"Question","name":"Можно ли делиться результатом?","acceptedAnswer":{"@type":"Answer","text":"Да, есть кнопка Поделиться результатом в Telegram в каждом разделе."}}
+  ]}
   </script>
 
   <style>
     :root{
       --bg:#ffffff; --text:#0b1220; --muted:#475569; --border:#e5e7eb;
-      --accent:#6D28D9; --accent-dark:#5a20b9;
-      --glass:#ffffff20; --glass-strong:#ffffff35;
+      --accent:#6D28D9; --accent-dark:#5a20b9; --accent-2:#7c3aed;
+      --glass:#ffffff22; --glass-strong:#ffffff3a;
     }
     *{box-sizing:border-box}
     body{margin:0;background:#fff;color:var(--text);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* HEADER — чёрная шапка с «жидким стеклом» на CTA */
-    header{position:sticky;top:0;z-index:10;background:#0b0b0e;color:#fff;border-bottom:1px solid #111}
+    /* HEADER — чёрная шапка с мягкой анимацией */
+    header{position:sticky;top:0;z-index:20;color:#fff;border-bottom:1px solid #0e0e12;
+      background:linear-gradient(120deg,#0b0b0e 0%, #0e0e15 40%, #111124 100%);
+      background-size:200% 200%; animation:headerFlow 14s ease-in-out infinite;}
+    @keyframes headerFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .wrap-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:56px;height:56px;border-radius:10px;object-fit:cover}
     .brand h1{margin:0;font-size:20px;color:#fff}
     .author a{color:#fff;opacity:.9} .author a:hover{opacity:1}
-    .cta a{
-      display:inline-block;padding:12px 16px;border-radius:14px;
-      border:1px solid var(--glass-strong);
-      background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));
-      color:#fff;font-weight:800;position:relative;overflow:hidden;
-      backdrop-filter:saturate(160%) blur(12px);
-      box-shadow:0 10px 24px rgba(0,0,0,.15) inset 0 1px 0 rgba(255,255,255,.2);
-      transition:transform .12s ease,box-shadow .2s ease,background .2s ease;
-    }
-    .cta a:before{
-      content:""; position:absolute; left:-150%; top:-150%; width:200%; height:200%;
-      background:radial-gradient(ellipse at center, rgba(255,255,255,.7), transparent 60%);
-      opacity:.35; transform:translate(0,0);
-      animation:shine 7s linear infinite;
-      pointer-events:none;
-    }
-    .cta a:hover{transform:translateY(-1px); box-shadow:0 16px 30px rgba(0,0,0,.2)}
-    @keyframes shine{0%{transform:translate(-30%,-30%)}100%{transform:translate(30%,30%)}}
 
-    /* LAYOUT */
-    main{max-width:1200px;margin:20px auto;padding:0 16px}
-    .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;justify-content:center}
-    .tab-btn{
-      padding:10px 14px;border:2px solid var(--accent);border-radius:12px;
-      background:rgba(255,255,255,.6);color:var(--text);font-weight:800;cursor:pointer;
-      backdrop-filter:blur(8px); transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
+    /* CTA — «жидкое стекло», парит, всегда заметна */
+    .cta a{
+      display:inline-block;padding:12px 16px;border-radius:16px;border:1px solid var(--glass-strong);
+      background:linear-gradient(135deg,rgba(255,255,255,.24),rgba(255,255,255,.10));
+      color:#fff;font-weight:800;position:relative;overflow:hidden;backdrop-filter:saturate(160%) blur(14px);
+      box-shadow:0 12px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.25);
+      transition:transform .12s ease,box-shadow .2s ease,background .2s ease, filter .2s ease;
+      animation:floaty 6s ease-in-out infinite;
     }
-    .tab-btn:hover{transform:translateY(-2px); box-shadow:0 8px 18px rgba(109,40,217,.15); background:rgba(255,255,255,.85)}
-    .tab-btn.active{background:var(--accent);color:#fff}
-    .card{position:relative;background:#fff;border:2px solid var(--accent);border-radius:16px;padding:16px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+    .cta a:before{
+      content:""; position:absolute; left:-150%; top:-150%; width:220%; height:220%;
+      background:radial-gradient(ellipse at center, rgba(255,255,255,.85), transparent 60%);
+      opacity:.33; animation:shine 7.5s linear infinite;
+    }
+    @keyframes shine{0%{transform:translate(-30%,-30%)}100%{transform:translate(30%,30%)}}
+    .cta a:hover{box-shadow:0 16px 40px rgba(0,0,0,.35); filter:saturate(120%)}
+
+    /* HERO — лендинг-зона */
+    .hero{background:linear-gradient(180deg,#0b0b0e 0%, #12122c 100%);color:#fff;padding:42px 16px 56px}
+    .hero .inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .hero h2{margin:0 0 12px;font-size:36px;line-height:1.15}
+    .hero p{margin:0 0 18px;opacity:.92}
+    .hero .actions{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Кнопки — усиленное стекло + блик + парение */
+    .btn{
+      position:relative; display:inline-flex; align-items:center; gap:8px;
+      padding:12px 16px; border-radius:14px; border:1.5px solid var(--accent);
+      background:linear-gradient(135deg, rgba(255,255,255,.80), rgba(255,255,255,.62));
+      color:#0b1220; font-weight:900; cursor:pointer;
+      backdrop-filter:blur(12px) saturate(140%);
+      transition:transform .1s ease, box-shadow .25s ease, background .2s ease, border-color .2s ease, filter .2s ease;
+      box-shadow:0 10px 28px rgba(13,10,44,.10), inset 0 1px 0 hsla(0,0%,100%,.4);
+      animation:btnFloat 7s ease-in-out infinite;
+    }
+    @keyframes btnFloat{0%{transform:translateY(0)}50%{transform:translateY(-1.5px)}100%{transform:translateY(0)}}
+    .btn:after{
+      content:""; position:absolute; inset:-40% -40% auto auto;
+      width:160%; height:160%; pointer-events:none; opacity:.0;
+      background:radial-gradient(ellipse at center, rgba(255,255,255,.9), transparent 60%);
+      transition:opacity .25s ease, transform .25s ease;
+      transform:translate(-10%,-10%);
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 16px 36px rgba(13,10,44,.18); filter:saturate(115%)}
+    .btn:hover:after{opacity:.35; transform:translate(0,0)}
+    .btn.primary{border-color:transparent; background:linear-gradient(135deg,#b39bff,#7c3aed); color:#fff}
+    .btn.share{background:#fff; border:2px solid var(--accent); color:#0b1220}
+    .btn.ghost{background:#fff; color:var(--text); border:2px solid var(--accent)}
+
+    .card{background:#fff;border:2px solid var(--accent);border-radius:16px;padding:16px}
+    .card h3{margin:0 0 10px}
     label{display:block;margin:8px 0 6px;font-weight:700}
     input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#fff;color:var(--text);font-size:15px}
-    input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(109,40,217,.1)}
-    .section-title{font-weight:900;margin:4px 0 10px}
+    input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(109,40,217,.12)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+    /* Основной контейнер и вкладки */
+    main{max-width:1200px;margin:22px auto;padding:0 16px}
+    .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 12px;justify-content:center}
+    .tab-btn{padding:10px 14px;border:2px solid var(--accent);border-radius:12px;background:rgba(255,255,255,.7);color:var(--text);font-weight:800;cursor:pointer;backdrop-filter:blur(8px);transition:transform .08s ease, box-shadow .2s ease, background .2s ease}
+    .tab-btn:hover{transform:translateY(-2px); box-shadow:0 8px 18px rgba(109,40,217,.15); background:rgba(255,255,255,.9)}
+    .tab-btn.active{background:var(--accent);color:#fff}
+
     .tab{display:none} .tab.visible{display:block}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    .section-title{font-weight:900;margin:4px 0 10px}
     .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
     .kpi{border:2px solid var(--accent);border-radius:16px;padding:12px;background:#fff}
     .kpi .label{color:var(--muted);font-size:13px} .kpi .value{font-size:22px;font-weight:900}
@@ -116,44 +133,21 @@
     table{width:100%;border-collapse:collapse;background:#fff}
     th,td{border-bottom:1px solid var(--border);padding:8px 10px;text-align:right;font-variant-numeric:tabular-nums}
     th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+
+    /* Вспомогательные блоки */
+    .ticker{max-width:1200px;margin:16px auto;padding:12px;border:2px dashed var(--accent);border-radius:12px;background:#faf5ff}
+    .ticker b{font-size:18px}
     footer{margin:30px 0;padding:16px;border-top:1px solid var(--border)}
     .footer-flex{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
     .footer-flex img.portrait{width:120px;height:120px;border-radius:12px;object-fit:cover}
     .icon-link{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
     .icon-link svg{width:20px;height:20px}
-    .ticker{margin:16px 0;padding:12px;border:2px dashed var(--accent);border-radius:12px;background:#faf5ff}
-    .ticker b{font-size:18px}
-
-    /* Кнопки — «жидкое стекло» */
-    .btn{
-      position:relative; display:inline-flex; align-items:center; gap:8px;
-      padding:12px 14px; border-radius:12px; border:1px solid var(--accent);
-      background:rgba(255,255,255,.7); color:#0b1220; font-weight:800; cursor:pointer;
-      backdrop-filter:blur(10px) saturate(140%);
-      transition:transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
-      box-shadow:0 8px 24px rgba(13,10,44,.08) inset 0 1px 0 #fff1;
-    }
-    .btn.primary{border-color:transparent; background:linear-gradient(135deg,#a78bfa,#7c3aed); color:#fff}
-    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(13,10,44,.15)}
-    .btn:active{transform:translateY(0)}
-    .btn.share{background:#fff; border:2px solid var(--accent); color:#0b1220}
-    .btn.ghost{background:#fff;color:var(--text);border:2px solid var(--accent)}
 
     /* Значок вопроса и подсказки */
-    .help-dot{
-      position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;
-      border:2px solid var(--accent);display:grid;place-items:center;color:var(--accent);
-      font-weight:900;opacity:.65;background:#fff;cursor:pointer;
-      transition:opacity .15s ease, box-shadow .2s ease, transform .08s ease;
-    }
+    .help-dot{position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;border:2px solid var(--accent);display:grid;place-items:center;color:var(--accent);font-weight:900;opacity:.65;background:#fff;cursor:pointer;transition:opacity .15s ease, box-shadow .2s ease, transform .08s ease}
     .help-dot:hover{opacity:1; box-shadow:0 6px 16px rgba(109,40,217,.18); transform:translateY(-1px)}
-    .help-pop{
-      position:absolute;top:42px;right:10px;min-width:260px;max-width:92vw;background:#fff;
-      border:2px solid var(--accent);border-radius:12px;padding:12px;box-shadow:0 12px 28px rgba(2,6,23,.12);
-      z-index:20;display:none; opacity:0; transform:translateY(-6px);
-      transition:opacity .18s ease, transform .18s ease;
-    }
-    .help-pop.visible{display:block; opacity:1; transform:translateY(0)}
+    .help-pop{position:absolute;top:42px;right:10px;min-width:260px;max-width:92vw;background:#fff;border:2px solid var(--accent);border-radius:12px;padding:12px;box-shadow:0 12px 28px rgba(2,6,23,.12);z-index:20;display:none; opacity:0; transform:translateY(-6px);transition:opacity .18s ease, transform .18s ease}
+    .help-pop.visible{display:block;opacity:1;transform:translateY(0)}
     .help-pop b{display:block;margin-bottom:6px}
     .help-pop p{margin:6px 0;color:#334155;font-size:14px}
 
@@ -163,14 +157,21 @@
     details{margin:10px auto;max-width:1100px;border:1px solid #d1d5db;border-radius:10px;padding:10px;background:#fff}
     summary{cursor:pointer;font-weight:800}
     summary::-webkit-details-marker{display:none}
-    @media(max-width:1000px){.row,.row3{grid-template-columns:1fr} .grid4{grid-template-columns:1fr 1fr}}
+
+    @media(max-width:1000px){
+      .hero .inner{grid-template-columns:1fr}
+      .row,.row3{grid-template-columns:1fr}
+      .grid4{grid-template-columns:1fr 1fr}
+    }
   </style>
 </head>
 <body>
+
+<!-- Шапка -->
 <header>
   <div class="wrap-header">
     <div class="brand">
-      <img src="logo.jpg" alt="логотип «Стратегия капитала»">
+      <img src="logo.jpg" alt="логотип Стратегия капитала">
       <div>
         <h1>СТРАТЕГИЯ КАПИТАЛА</h1>
         <div class="author"><a href="https://t.me/rstruzhuk" target="_blank" rel="nofollow">автор Roman Struzhuk · @rstruzhuk</a></div>
@@ -180,12 +181,41 @@
   </div>
 </header>
 
-<main>
-  <!-- live-счётчик -->
-  <div class="ticker">
-    За время просмотра страницы ты бы уже заработал(а) <b id="liveProfit">0 ₽</b> при капитале 100 000 ₽ и доходности 50% годовых.
-  </div>
+<!-- Лендинг-зона -->
+<section class="hero" id="home">
+  <div class="inner">
+    <div>
+      <h2>Рассчитай свою стратегию капитала за 1 минуту</h2>
+      <p>Сложный процент, ежедневная и ежемесячная капитализация, цели и инфляция. Понятный интерфейс, наглядные графики, шэринг в Telegram.</p>
+      <div class="actions">
+        <a class="btn primary" href="#app">Начать расчёт</a>
+        <a class="btn ghost" href="#faq">Как это работает?</a>
+      </div>
+    </div>
 
+    <!-- Быстрый калькулятор (превью) -->
+    <div class="card">
+      <h3>Быстрый калькулятор</h3>
+      <div class="grid">
+        <div><label>Сумма, ₽</label><input type="number" placeholder="Например, 100000"></div>
+        <div><label>Срок, лет</label><input type="number" placeholder="Например, 5"></div>
+        <div><label>Ставка, % годовых</label><input type="number" placeholder="Например, 50"></div>
+        <div><label>Капитализация</label><select><option>Ежемесячно</option><option>Ежедневно</option></select></div>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn primary" href="#app">Рассчитать</a>
+        <a class="btn" href="https://t.me/share/url?url=https://calc.struzhuk.ru/&text=Калькулятор%20инвестиций%20—%20Стратегия%20капитала" target="_blank" rel="nofollow">Поделиться в Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Счётчик вовлечения -->
+<div class="ticker">
+  За время просмотра страницы ты бы уже заработал(а) <b id="liveProfit">0 ₽</b> при капитале 100 000 ₽ и доходности 50% годовых.
+</div>
+
+<main id="app">
   <!-- вкладки -->
   <div class="tabs" id="tabs">
     <button class="tab-btn active" data-tab="pro">PRO</button>
@@ -203,9 +233,9 @@
       <div class="help-pop" id="help-pro">
         <b>Как пользоваться разделом PRO</b>
         <p>1. Введи стартовый капитал, ежемесячный взнос и срок в годах.</p>
-        <p>2. Выбери тип ставки: номинальная (делится на периоды) или эффективная (уже с капитализацией).</p>
-        <p>3. Капитализация: ежемесячно или ежедневно. Реинвест — проценты прибавляются к телу.</p>
-        <p>4. Нажми «Рассчитать». Ниже — KPI, графики и таблица.</p>
+        <p>2. Выбери тип ставки: номинальная или эффективная.</p>
+        <p>3. Капитализация: ежемесячно или ежедневно. Реинвест — проценты в капитал.</p>
+        <p>4. Жми Рассчитать. Ниже — KPI, графики и таблица.</p>
       </div>
 
       <div class="section-title">Параметры</div>
@@ -275,9 +305,9 @@
       <div class="help-pop" id="help-light">
         <b>Как пользоваться LIGHT</b>
         <p>1. Введи начальную сумму.</p>
-        <p>2. Укажи процент и периодичность (% в день/месяц/год).</p>
-        <p>3. Введи количество дней. Капитализация — ежедневная.</p>
-        <p>4. Нажми «Рассчитать». Ниже — таблица по дням и итог.</p>
+        <p>2. Укажи процент и периодичность процентной ставки.</p>
+        <p>3. Введи количество дней. Капитализация ежедневная.</p>
+        <p>4. Жми Рассчитать. Ниже — таблица по дням и итог.</p>
       </div>
 
       <div class="section-title">Калькулятор ежедневных сложных процентов</div>
@@ -321,7 +351,7 @@
       <div class="help-dot" data-help="lose">?</div>
       <div class="help-pop" id="help-lose">
         <b>Сколько ты теряешь, если хранишь деньги в банке</b>
-        <p>Сравниваем результат депозита и стратегии за выбранный срок. Можно учесть инфляцию для реальной покупательной способности.</p>
+        <p>Сравни депозит и стратегию за выбранный срок. Хочешь — учти инфляцию.</p>
       </div>
 
       <div class="section-title">Сколько ты теряешь, если хранишь деньги в банке</div>
@@ -357,7 +387,7 @@
       <div class="help-dot" data-help="goals">?</div>
       <div class="help-pop" id="help-goals">
         <b>Цели</b>
-        <p>Задай цель в рублях, срок и ставку. Мы посчитаем нужный ежемесячный взнос с учётом стартового капитала.</p>
+        <p>Задай цель в рублях, срок и ставку. Посчитаем нужный ежемесячный взнос с учётом старта.</p>
       </div>
 
       <div class="section-title">Цель: сколько нужно вносить ежемесячно</div>
@@ -392,7 +422,7 @@
       <div class="help-dot" data-help="need">?</div>
       <div class="help-pop" id="help-need">
         <b>Стартовый капитал</b>
-        <p>Ваша финансовая цель фиксирована. Посчитаем, сколько нужно вложить сегодня при заданной ставке и взносах, и за сколько она будет достигнута при этих параметрах.</p>
+        <p>Посчитаем, сколько нужно вложить сегодня под вашу цель и за сколько она будет достигнута при выбранных параметрах.</p>
       </div>
 
       <div class="section-title">Сколько нужно вложить сегодня (под вашу финансовую цель)</div>
@@ -424,7 +454,7 @@
       <div class="help-dot" data-help="infl">?</div>
       <div class="help-pop" id="help-infl">
         <b>Инфляция в стране и покупательская способность</b>
-        <p>Показываем, сколько твои деньги будут стоить «сегодняшними» через выбранный срок при указанной инфляции.</p>
+        <p>Показываем, сколько деньги будут стоить сегодняшними через выбранный срок при указанной инфляции.</p>
       </div>
 
       <div class="section-title">Инфляция в стране и покупательская способность</div>
@@ -446,7 +476,7 @@
     </div>
   </section>
 
-  <!-- Мотивационный блок -->
+  <!-- Мотивация -->
   <div class="card" style="margin-top:16px;">
     <div class="section-title">Если бы ты инвестировал(а) 100 000 ₽ 5 лет назад под 50% годовых…</div>
     <div id="motivation" style="font-weight:800;font-size:18px;">Считаем…</div>
@@ -456,10 +486,10 @@
   <section class="faq" id="faq">
     <h2>FAQ — часто задаваемые вопросы</h2>
     <details><summary>Что такое сложный процент?</summary><p>Это рост капитала, когда проценты прибавляются к телу и в будущем проценты начисляются на всю сумму.</p></details>
-    <details><summary>Номинальная vs эффективная ставка?</summary><p>Номинальная — базовая годовая; эффективная — с учётом частоты капитализации (ближе к реальности).</p></details>
-    <details><summary>Ежедневная капитализация — это как?</summary><p>Проценты начисляются ежедневно и реинвестируются, усиливая рост за счёт частоты начислений.</p></details>
-    <details><summary>Зачем учитывать инфляцию?</summary><p>Чтобы понимать реальную покупательную способность капитала в будущем, а не только номинальные цифры.</p></details>
-    <details><summary>Как поделиться результатом?</summary><p>Нажми «Поделиться результатом в Telegram» в любом разделе — расчёт уйдёт сообщением с ссылкой на сайт и канал.</p></details>
+    <details><summary>Номинальная vs эффективная ставка?</summary><p>Номинальная — базовая годовая. Эффективная — с учётом частоты капитализации.</p></details>
+    <details><summary>Ежедневная капитализация — это как?</summary><p>Проценты начисляются ежедневно и реинвестируются, усиливая рост.</p></details>
+    <details><summary>Зачем учитывать инфляцию?</summary><p>Чтобы понимать реальную покупательскую способность капитала в будущем, а не только номинальные цифры.</p></details>
+    <details><summary>Как поделиться результатом?</summary><p>Нажми Поделиться результатом в Telegram в любом разделе — расчёт уйдёт сообщением с ссылкой на сайт и канал.</p></details>
   </section>
 </main>
 
@@ -472,7 +502,7 @@
     </a>
     <a class="icon-link" href="https://t.me/Struzhukcapital" target="_blank" rel="nofollow" title="Стратегия капитала">
       <img src="logo.jpg" alt="СК" style="width:20px;height:20px;border-radius:4px;object-fit:cover;">
-      <span>Канал «Стратегия капитала»</span>
+      <span>Канал Стратегия капитала</span>
     </a>
     <a class="icon-link" href="https://t.me/rstruzhuk" target="_blank" rel="nofollow" title="Telegram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 2L11 13" stroke-width="2"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke-width="2"/></svg>
@@ -485,6 +515,15 @@
   const $ = (id)=>document.getElementById(id);
   const fmt = (n)=>{ const num=Number(n); if(!isFinite(num)) return '0'; try{return num.toLocaleString('ru-RU',{maximumFractionDigits:2});}catch(e){return String(Math.round(num*100)/100).replace(/\B(?=(\d{3})+(?!\d))/g,' ');} };
 
+  // плавный скролл
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href').slice(1);
+      const el=document.getElementById(id);
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+
   // вкладки
   document.querySelectorAll('.tab-btn').forEach(b=>{
     b.addEventListener('click',()=>{
@@ -492,6 +531,7 @@
       b.classList.add('active');
       document.querySelectorAll('.tab').forEach(x=>x.classList.remove('visible'));
       document.getElementById('tab-'+b.dataset.tab).classList.add('visible');
+      document.getElementById('app').scrollIntoView({behavior:'smooth', block:'start'});
     });
   });
 
@@ -581,6 +621,7 @@
     drawCompare('compare_chart', years, apr, 12, 10, start, P, type);
   }
 
+  // свечные столбики
   function drawYearBars(id, labels, data){
     const c=$(id), ctx=c.getContext('2d'), W=c.width, H=c.height;
     ctx.clearRect(0,0,W,H);
@@ -600,6 +641,7 @@
     }
   }
 
+  // сравнение стратегий
   function drawCompare(id, years, aprStrat, aprBank, aprMarket, start, monthly, type){
     const labels=Array.from({length:years},(_,i)=>String(new Date().getFullYear()+i));
     const strat=[], bank=[], market=[];
@@ -809,7 +851,7 @@ ETA при этих параметрах: ${$('need_time').textContent}`;
     const P0=100000, years=5, apr=50;
     const eff=Math.pow(1+apr/100, years);
     const val=P0*eff;
-    $('motivation').textContent=`Сегодня это было бы ${fmt(val)} ₽ (без пополнений).`;
+    $('motivation').textContent=`Сегодня это было бы ${fmt(val)} ₽ без пополнений.`;
   }
 
   // live ticker
