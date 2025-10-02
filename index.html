@@ -16,7 +16,6 @@
 html,body{height:100%}
 body{margin:0;background:#fff;color:var(--text);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
 a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-
 /* шапка закреплена */
 header{position:sticky;top:0;z-index:50;height:var(--header-h);display:flex;align-items:center;gap:14px;padding:12px 16px;color:#fff;
   background:radial-gradient(1200px 220px at 20% -10%,#1b1537,#0b0b12)}
@@ -27,7 +26,6 @@ header img.logo{width:40px;height:40px;border-radius:10px;object-fit:cover}
 .author a{color:#fff;border-bottom:1px dotted rgba(255,255,255,.35)}
 .cta{margin-left:16px;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;border:1.5px solid rgba(255,255,255,.35);
   background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(255,255,255,.65));color:#0b1220;font-weight:900;text-decoration:none}
-
 /* герой (тёмный блок сверху) */
 .hero{padding:34px 16px 16px;color:#fff;background:linear-gradient(180deg,#0b0b12,#12122c)}
 .hero .inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
@@ -35,7 +33,6 @@ header img.logo{width:40px;height:40px;border-radius:10px;object-fit:cover}
 h2{margin:0 0 10px;font-size:34px;line-height:1.15}
 p.lead{margin:0 0 12px;color:#e2e8f0}
 #hero-tape{display:block;width:100%;height:90px;border:2px solid rgba(124,58,237,.6);border-radius:12px;background:linear-gradient(180deg,#0d0d17,#11112a)}
-
 /* карточки / формы */
 .card{background:#fff;color:#111;border:2px solid var(--accent);border-radius:16px;padding:16px;position:relative}
 .head{display:flex;align-items:center;gap:10px;justify-content:space-between}
@@ -49,28 +46,23 @@ input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 
   background:#fff;color:#0b1220;font-weight:900;text-decoration:none;cursor:pointer;transition:.1s;box-shadow:0 10px 28px rgba(13,10,44,.06)}
 .btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(13,10,44,.12)}
 .btn.primary{border-color:transparent;background:linear-gradient(135deg,#b39bff,#7c3aed);color:#fff}
-
 /* help-кнопка в правом верхнем углу блока */
 .help-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;
   background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.45);color:#6D28D9;font-weight:800;cursor:pointer;animation:hbreathe 6s ease-in-out infinite}
 @keyframes hbreathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.1)}}
-
 /* табы */
 .tabs-wrap{position:sticky;top:var(--header-h);z-index:40;background:#fff;border-bottom:1px solid var(--border)}
 .tabs{max-width:1100px;margin:0 auto;display:flex;gap:8px;overflow:auto;padding:10px 16px}
 .tab{padding:10px 14px;border-radius:12px;border:2px solid var(--accent);white-space:nowrap;cursor:pointer;background:#fff;color:#111}
 .tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
-
 main{max-width:1100px;margin:18px auto;padding:0 16px 90px}
 section.panel{padding:16px 4px 20px;background:#fff}
-
 /* KPI */
 .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
 @media(max-width:900px){.kpi{grid-template-columns:1fr 1fr}}
 .km{background:#fff;border:2px solid var(--accent);border-radius:12px;padding:10px;text-align:center}
 .km small{display:block;color:var(--muted)}
 .km b{display:block;font-size:20px;margin-top:4px}
-
 /* бары (адаптив + пульс) */
 .bars{display:grid;gap:10px;align-items:end;margin-top:12px}
 @media(max-width:640px){.bars{gap:6px}}
@@ -79,7 +71,6 @@ section.panel{padding:16px 4px 20px;background:#fff}
 @keyframes barPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.08)}}
 .bar-label{font:12px/1.2 Inter;color:#111;white-space:nowrap;transform:translateY(-4px)}
 .bar-year{font:12px/1.2 Inter;color:#64748b;white-space:nowrap}
-
 /* круговая 3D + пульс */
 .pie-wrap{margin-top:14px;border:2px solid var(--accent);border-radius:16px;padding:12px;background:#fff}
 .pie-holder{position:relative;max-width:420px;margin:0 auto}
@@ -89,25 +80,21 @@ canvas.pie{width:100%;height:auto;display:block;aspect-ratio:1/1;border-radius:5
 .pie-legend{margin-top:10px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;color:#111}
 .pie-legend .item{display:flex;align-items:center;gap:6px}
 .pie-legend .dot{width:10px;height:10px;border-radius:50%}
-
 /* LIGHT таблица */
 .table-wrap{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:#fff;overflow:auto;max-height:420px}
 table.light-daily{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 table.light-daily th,table.light-daily td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap}
 table.light-daily th:first-child,table.light-daily td:first-child{text-align:left}
 table.light-daily thead th{position:sticky;top:0;background:#f8fafc;z-index:1}
-
 /* список-итоги по годам (всегда раскрыт) */
 .yearbox{margin:10px 0 6px;border:1px solid var(--border);border-radius:12px;background:#fff;max-height:260px;overflow:auto}
 .yearbox table{width:100%;border-collapse:collapse}
 .yearbox th,.yearbox td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:right}
 .yearbox th:first-child,.yearbox td:first-child{text-align:left}
-
 /* модал помощь/инструкция */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:90}
 .modal.show{display:flex}
 .modal__box{margin:auto;background:#fff;color:#111;max-width:720px;width:calc(100% - 32px);border-radius:16px;border:2px solid var(--accent);padding:16px}
-
 /* тикер и низ */
 .ticker{max-width:1100px;margin:16px auto;padding:12px;border:2px dashed var(--accent);border-radius:12px;background:#faf5ff;color:#111}
 footer{max-width:1100px;margin:20px auto 80px;padding:0 16px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
@@ -118,16 +105,20 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
 .fab{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#fff,#f5f5ff);border:2px solid var(--accent);color:#0b1220;text-decoration:none;box-shadow:0 10px 28px rgba(13,10,44,.16)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 14px;border-radius:10px;border:1px solid #111827;box-shadow:0 12px 28px rgba(0,0,0,.3);display:none;z-index:100}
 .toast.show{display:block}
+/* Для демо-торговли */
+@keyframes fadeIn {0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+.progress-wrap{border:1px solid var(--border);border-radius:6px;background:#f0f3ff;height:12px;overflow:hidden}
+@media(max-width:520px){.kpi{grid-template-columns:1fr 1fr}}
+.deposit-ticker{margin-top:8px;text-align:center;color:var(--muted);font-size:14px}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-
 <header>
   <div class="brand"><img class="logo" src="logo.jpg" alt="СК"><h1>СТРАТЕГИЯ КАПИТАЛА</h1></div>
   <a class="cta" href="https://t.me/Struzhukcapital" target="_blank" rel="nofollow">Честный канал про стратегию капитала — подпишись</a>
   <div class="author">Автор: <a href="https://t.me/rstruzhuk" target="_blank" rel="nofollow">@rstruzhuk</a></div>
 </header>
-
 <section class="hero">
   <div class="inner">
     <div>
@@ -139,7 +130,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
         <a class="btn" id="how-btn" href="#">Как это работает?</a>
       </div>
     </div>
-
     <div class="card">
       <div class="head"><h3 style="margin:0">Быстрый калькулятор</h3><button class="help-btn" data-help="quick">?</button></div>
       <div class="grid">
@@ -162,13 +152,11 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
     </div>
   </div>
 </section>
-
 <div class="ticker">
   <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
     <div>Пока вы были на сайте, ваш капитал мог вырасти на <b id="liveProfit">0,00 ₽</b> при 500 000 ₽ и 50% годовых.</div>
   </div>
 </div>
-
 <div class="tabs-wrap" id="app">
   <div class="tabs">
     <button type="button" class="tab active" data-tab="pro">PRO</button>
@@ -179,9 +167,9 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
     <button type="button" class="tab" data-tab="infl">Инфляция</button>
     <button type="button" class="tab" data-tab="blog">Блог</button>
     <button type="button" class="tab" data-tab="faq">FAQ</button>
+    <button type="button" class="tab" data-tab="demo">Демо-торговля</button>
   </div>
 </div>
-
 <main>
   <!-- PRO -->
   <section class="panel" data-panel="pro">
@@ -197,14 +185,12 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
         <div><label>Реинвестирование</label><select id="p-reinv"><option value="yes">Да</option><option value="no">Нет</option></select></div>
         <div style="display:flex;align-items:end"><a class="btn primary" style="width:100%" onclick="calcPRO()">Рассчитать</a></div>
       </div>
-
       <div class="kpi">
         <div class="km"><small>Итог</small><b id="p-sum">0</b></div>
         <div class="km"><small>Внесено</small><b id="p-own">0</b></div>
         <div class="km"><small>Доход</small><b id="p-profit">0</b></div>
         <div class="km"><small>Эффективная годовая</small><b id="p-eff">0%</b></div>
       </div>
-
       <!-- всегда раскрытый список: итоги по годам -->
       <div class="yearbox">
         <table id="yearTable">
@@ -212,10 +198,8 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
           <tbody></tbody>
         </table>
       </div>
-
       <!-- столбики -->
       <div id="p-bars" class="bars" style="grid-template-columns:repeat(1,minmax(8px,1fr))"></div>
-
       <!-- круговая -->
       <div class="pie-wrap">
         <b>Свои деньги vs проценты</b>
@@ -225,14 +209,12 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
         </div>
         <div class="pie-legend" id="pie-legend"></div>
       </div>
-
       <div class="buttons-row">
         <a class="btn" id="p-share-tg" target="_blank" rel="nofollow">Поделиться результатом в Telegram</a>
         <a class="btn" id="p-share-wa" target="_blank" rel="nofollow">Поделиться результатом в WhatsApp</a>
       </div>
     </div>
   </section>
-
   <!-- LIGHT -->
   <section class="panel" data-panel="light" hidden>
     <div class="card">
@@ -243,19 +225,16 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
         <div><label>Время (дней)</label><input id="l-days" type="number" value="365"></div>
         <div style="display:flex;align-items:end"><a class="btn primary" style="width:100%" onclick="calcLIGHT()">Рассчитать</a></div>
       </div>
-
       <div class="kpi" style="grid-template-columns:repeat(3,1fr)">
         <div class="km"><small>Итог</small><b id="l-sum">0</b></div>
         <div class="km"><small>Доход</small><b id="l-profit">0</b></div>
         <div class="km"><small>Ставка/период</small><b id="l-meta">—</b></div>
       </div>
-
       <div class="buttons-row">
         <a class="btn" id="l-csv">Скачать в Excel (CSV)</a>
         <a class="btn" id="l-share-tg-table" target="_blank" rel="nofollow">Поделиться таблицей в Telegram</a>
         <a class="btn" id="l-share-wa-table" target="_blank" rel="nofollow">Поделиться таблицей в WhatsApp</a>
       </div>
-
       <div class="table-wrap">
         <table class="light-daily" id="l-table">
           <thead><tr><th>День</th><th>Баланс, ₽</th><th>Заработано за день</th></tr></thead>
@@ -264,7 +243,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       </div>
     </div>
   </section>
-
   <!-- Сколько теряешь -->
   <section class="panel" data-panel="lose" hidden>
     <div class="card">
@@ -288,7 +266,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       </div>
     </div>
   </section>
-
   <!-- Цели -->
   <section class="panel" data-panel="goal" hidden>
     <div class="card">
@@ -313,7 +290,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       </div>
     </div>
   </section>
-
   <!-- Сколько вложить -->
   <section class="panel" data-panel="need" hidden>
     <div class="card">
@@ -337,7 +313,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       </div>
     </div>
   </section>
-
   <!-- Инфляция -->
   <section class="panel" data-panel="infl" hidden>
     <div class="card">
@@ -360,7 +335,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       </div>
     </div>
   </section>
-
   <!-- Блог -->
   <section class="panel" data-panel="blog" hidden>
     <div class="card">
@@ -372,7 +346,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       <p><b>Период начисления</b> — при прочих равных чем чаще начисления, тем выше итог.</p>
     </div>
   </section>
-
   <!-- FAQ -->
   <section class="panel" data-panel="faq" hidden id="faq">
     <div class="card">
@@ -383,8 +356,44 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       <details><summary><b>Как поделиться расчётом?</b></summary><p>Кнопки Telegram/WhatsApp формируют сообщение со ссылкой на сайт и канал.</p></details>
     </div>
   </section>
+  <!-- Демо-торговля -->
+  <section class="panel" data-panel="demo" hidden>
+    <div class="card">
+      <div class="head"><h3 style="margin:0">Демо-торговля: Симулятор крипто-биржи</h3><button class="help-btn" data-help="demo">?</button></div>
+      <p style="margin:0 0 12px;color:var(--muted)">Экспериментируй с депозитом, смотри реальные ордера и расти как трейдер! Уровни и награды за успехи. Заходи чаще чтобы смотреть результат.</p>
+      <div class="grid">
+        <div><label title="Начальная сумма в рублях — сколько инвестируешь в демо. Зачем: чтобы протестировать рост на разных стартах.">Сумма для инвестирования, ₽</label><input id="d-amount" type="number" value="100000" placeholder="Например, 100000 — начни с малого!"></div>
+        <div><label title="Срок симуляции в годах — как долго длится 'игра'. Зачем: чтобы увидеть долгосрочный рост и достичь целей.">Срок, лет</label><input id="d-term" type="number" value="5" placeholder="Например, 5 — смотри, как растёт капитал!"></div>
+        <div><label title="Ожидаемый процент годовых — средняя доходность. Зачем: тестируй разные ставки для wow-результатов.">Процент годовых</label><input id="d-rate" type="number" value="50" placeholder="Например, 50% — агрессивный рост!"></div>
+        <div><label title="Выберите криптоактив для графика">Криптоактив</label><select id="d-crypto"><option value="bitcoin">BTC</option><option value="ethereum">ETH</option></select></div>
+        <div style="display:flex;align-items:end"><a class="btn primary" style="width:100%" onclick="startDemo()" title="Запусти симуляцию — ордера начнут открываться автоматически.">Начать игру</a></div>
+      </div>
+      <div class="kpi" style="margin-top:12px">
+        <div class="km"><small title="Текущий баланс в рублях — растёт в реал-тайм от ордеров.">Баланс</small><b id="d-balance">0 ₽</b></div>
+        <div class="km"><small title="Общий доход от всех ордеров — мотивирует на новые тесты.">Доход</small><b id="d-profit">0 ₽</b></div>
+        <div class="km"><small title="Время с запуска — показывает прогресс к цели.">Время</small><b id="d-time">0 дней</b></div>
+        <div class="km"><small title="Твой уровень трейдера — растёт с прибылью, unlocks награды.">Уровень</small><b id="d-level">Новичок</b></div>
+      </div>
+      <div style="margin-top:12px"><b title="Прогресс к цели — заполняется по мере роста баланса.">Прогресс к цели</b><div class="progress-wrap"><div id="d-progress" class="bar" style="width:0%;height:12px;background:var(--accent);border-radius:6px;transition:width 0.6s"></div></div></div>
+      <div style="margin-top:12px"><b title="Реальный график цены криптоактива — обновляется каждые 5 сек.">График цены</b></div>
+      <canvas id="d-chart" width="400" height="200" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px" title="Реальный график цены: обновляется в реал-тайм."></canvas>
+      <div class="deposit-ticker" id="d-ticker">Депозит: 0 ₽ | Прирост за сделку: 0 ₽</div>
+      <div style="margin-top:12px"><b title="Последние ордера — обновляются в реал-тайм, зеленый для прибыли.">Ордера</b></div>
+      <div class="table-wrap" style="max-height:200px">
+        <table class="light-daily" id="d-orders">
+          <thead><tr><th>Время</th><th>Тип</th><th>Крипта</th><th>Сумма, ₽</th><th>Статус</th><th>Прибыль, ₽</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" onclick="resetDemo()" title="Сбрось и попробуй новые параметры — экспериментируй!">Новый сценарий</a>
+        <a class="btn" id="d-share-tg" target="_blank" rel="nofollow" title="Поделись в Telegram: 'Смотри! Если бы я вложил N, заработал бы X!' + твои результаты.">В TG</a>
+        <a class="btn" id="d-share-wa" target="_blank" rel="nofollow" title="Поделись в WhatsApp: 'Смотри! Если бы я вложил N, заработал бы X!' + твои результаты.">В WA</a>
+      </div>
+      <div id="d-achievements" style="margin-top:12px;color:var(--success);display:none"><b>Достижение unlocked!</b> <span id="d-ach-text"></span></div>
+    </div>
+  </section>
 </main>
-
 <footer>
   <div class="me">
     <img src="roman.jpg" alt="Roman Struzhuk">
@@ -403,35 +412,28 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
     <span>@rstruzhuk</span>
   </a>
 </footer>
-
 <!-- модал помощь/инструкция -->
 <div class="modal" id="helpModal"><div class="modal__box"><h3 id="helpTitle" style="margin:0 0 8px">Помощь</h3><div id="helpBody"></div><div style="text-align:right;margin-top:12px"><a class="btn" id="helpClose" href="#">Понятно</a></div></div></div>
-
 <!-- FAB -->
 <div class="fab-wrap" aria-label="Поделиться сайтом">
   <a class="fab" id="fab-tg" href="https://t.me/share/url?url=https://calc.struzhuk.ru/&text=Калькулятор%20инвестиций.%20Канал:%20https://t.me/Struzhukcapital" target="_blank" rel="nofollow" title="Telegram">TG</a>
   <a class="fab" id="fab-wa" href="https://api.whatsapp.com/send?text=%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20%E2%80%94%20https%3A%2F%2Fcalc.struzhuk.ru%2F%20%D0%9A%D0%B0%D0%BD%D0%B0%D0%BB:%20https%3A%2F%2Ft.me%2FStruzhukcapital" target="_blank" rel="nofollow" title="WhatsApp">WA</a>
 </div>
-
 <div class="toast" id="toast">Готово ✔</div>
-
 <script>
 /* ===== утилы ===== */
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 const fmt=n=>Number(n||0).toLocaleString('ru-RU');
 const compact=(n)=>{n=+n||0; if(n>=1e9) return (n/1e9).toFixed(n<1e10?2:1)+' млрд ₽'; if(n>=1e6) return (n/1e6).toFixed(n<1e7?2:1)+' млн ₽'; if(n>=1e3) return Math.round(n/1e3)+' тыс ₽'; return fmt(n)+' ₽';};
 function toast(msg='Готово'){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
-
 /* вкладки */
 (function(){const tabs=$$('.tab'), panels=$$('.panel'); tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');panels.forEach(p=>p.hidden=(p.dataset.panel!==t.dataset.tab));history.replaceState(null,'',`#${t.dataset.tab}`)}));
 const h=location.hash.replace('#','');if(h){const tt=[...tabs].find(x=>x.dataset.tab===h);if(tt) tt.click();}})();
-
 /* модал помощь */
 const helpModal = $('#helpModal'), helpTitle=$('#helpTitle'), helpBody=$('#helpBody'), helpClose=$('#helpClose');
 function openHelp(title, html){ helpTitle.textContent=title; helpBody.innerHTML=html; helpModal.classList.add('show'); }
 helpClose.addEventListener('click', e=>{e.preventDefault(); helpModal.classList.remove('show')});
 helpModal.addEventListener('click', e=>{ if(e.target===helpModal) helpModal.classList.remove('show'); });
-
 $('#how-btn').addEventListener('click', e=>{
   e.preventDefault();
   openHelp('Как это работает', `
@@ -445,7 +447,6 @@ $('#how-btn').addEventListener('click', e=>{
     </ul>
   `);
 });
-
 $$('.help-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     const k=btn.dataset.help;
@@ -457,23 +458,22 @@ $$('.help-btn').forEach(btn=>{
       goal:'Задай цель/срок/ставку — получишь взнос/мес и прогресс по годам.',
       need:'Посчитаем стартовую сумму и ориентировочную дату достижения цели.',
       infl:'Рассчитаем покупательную способность по годам при выбранной инфляции.',
-      blog:'Короткие статьи про сложный процент, инфляцию, реинвест.'
+      blog:'Короткие статьи про сложный процент, инфляцию, реинвест.',
+      demo:'Играй в трейдера: вводи параметры, запускай — ордера идут автоматически с реальными ценами. Подсказки в полях. Уровни, награды для fun. Тестируй варианты! Не закрывай окно чтобы следить за результатом или зайди через 5 минут чтобы проверить результат.'
     }[k] || 'Подсказка';
     openHelp('Инструкция', `<p>${text}</p>`);
   });
 });
-
 /* биржевая лента в герое */
 (function(){const c=document.getElementById('hero-tape');if(!c) return;const ctx=c.getContext('2d');let W=c.width,H=c.height;const COLS=36,GAP=6,BW=Math.floor((W-(COLS+1)*GAP)/COLS);let last=H*0.55;
 function spawn(){const step=(Math.random()-0.5)*18+(Math.random()<0.06?(Math.random()<0.5?-24:24):0);const close=Math.max(12,Math.min(H-12,last+step)),high=close+Math.random()*16,low=close-Math.random()*16,open=last;last=close;return{open,close,high,low}}
 const bars=Array.from({length:COLS},spawn);
 function draw(){ctx.clearRect(0,0,W,H);let x=GAP;bars.forEach(b=>{const up=b.close>=b.open,color=up?'#16a34a':'#ef4444';const top=up?b.close:b.open,bot=up?b.open:b.close;ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x+BW/2,H-b.high);ctx.lineTo(x+BW/2,H-b.low);ctx.stroke();ctx.fillStyle=color+'cc';ctx.fillRect(x,H-top,BW,Math.max(2,(top-bot)));x+=BW+GAP})}
 let acc=0;function tick(){acc++;if(acc>10){acc=0;bars.shift();bars.push(spawn())}draw();requestAnimationFrame(tick)}draw();requestAnimationFrame(tick)})();
-
 /* тикер с копейками, база 500 000 ₽ */
 (function(){
   const BASE = 500_000;
-  const APR  = 0.50;  // 50% годовых
+  const APR = 0.50; // 50% годовых
   const YEAR_SECONDS = 365*24*3600;
   const out = document.getElementById('liveProfit'); if(!out) return;
   const money2 = x => x.toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' ₽';
@@ -486,21 +486,17 @@ let acc=0;function tick(){acc++;if(acc>10){acc=0;bars.shift();bars.push(spawn())
   }
   requestAnimationFrame(frame);
 })();
-
 /* счётчик сценариев (необязательный) */
 (async function bumpCounter(){try{const r=await fetch('https://api.countapi.xyz/hit/struzhukcapital/calc_scenarios_today'); const j=await r.json(); const el=$('#scenarios'); if(el) el.textContent=(j&&j.value)?fmt(j.value):'1';}catch(e){const el=$('#scenarios'); if(el){el.textContent=fmt(+el.textContent.replace(/\s/g,'')+1)}}})();
-
 /* рисователь столбиков (адаптивные подписи) */
 function drawBars(containerId, values, labels){
   const root=document.getElementById(containerId); root.innerHTML='';
   if(!values.length){root.style.gridTemplateColumns='repeat(1,minmax(8px,1fr))'; return;}
   const n=values.length, max=Math.max(...values,1);
   root.style.gridTemplateColumns=`repeat(${n}, minmax(8px,1fr))`;
-
   // на узких экранах показываем подпись через шаг
   const vw=Math.max(document.documentElement.clientWidth,window.innerWidth||0);
   let step=1; if(vw<480 && n>8) step=Math.ceil(n/8);
-
   values.forEach((v,i)=>{
     const wrap=document.createElement('div'); wrap.className='bar-item';
     const lab=document.createElement('div'); lab.className='bar-label'; lab.title=fmt(Math.round(v))+' ₽';
@@ -512,13 +508,11 @@ function drawBars(containerId, values, labels){
     const h=Math.max(10, Math.round((v/max)*180)); setTimeout(()=>{bar.style.height=h+'px'}, 30*i);
   });
 }
-
 /* круговая 3D + пульс + подписи */
 function animatePie(id, own, interest){
   const c=document.getElementById(id), ctx=c.getContext('2d');
   const W=c.width, H=c.height, R=Math.min(W,H)/2 - 12, cx=W/2, cy=H/2;
   const total=Math.max(own+interest,1), pOwn=(own/total*100), pInt=(interest/total*100);
-
   const parts=[{v:own,col1:'#b39bff',col2:'#6D28D9'},{v:interest,col1:'#6ee7b7',col2:'#16a34a'}];
   const target=parts.map(p=>2*Math.PI*(p.v/total));
   function draw(p){
@@ -526,7 +520,6 @@ function animatePie(id, own, interest){
     const grdBG=ctx.createRadialGradient(cx,cy,R*0.2, cx,cy,R);
     grdBG.addColorStop(0,'#ffffff'); grdBG.addColorStop(1,'#f0f3ff');
     ctx.fillStyle=grdBG; ctx.beginPath(); ctx.arc(cx,cy,R,0,2*Math.PI); ctx.fill();
-
     let a0=-Math.PI/2;
     parts.forEach((part,i)=>{
       const a=a0+target[i]*p;
@@ -539,14 +532,12 @@ function animatePie(id, own, interest){
     ctx.beginPath(); ctx.arc(cx,cy,R*0.94,0,2*Math.PI); ctx.strokeStyle='#e5e7eb'; ctx.lineWidth=2; ctx.stroke();
   }
   const t0=performance.now(), dur=900; (function loop(t){const p=Math.min(1,(t-t0)/dur);draw(p); if(p<1) requestAnimationFrame(loop)})(t0);
-
   const L = document.getElementById('pie-legend');
   if(L){ L.innerHTML = `
     <div class="item"><span class="dot" style="background:#6D28D9"></span> Свои: <b>${fmt(Math.round(own))} ₽</b> (${pOwn.toFixed(1)}%)</div>
     <div class="item"><span class="dot" style="background:#16a34a"></span> Проценты: <b>${fmt(Math.round(interest))} ₽</b> (${pInt.toFixed(1)}%)</div>
   `;}
 }
-
 /* быстрый кальк */
 function quickCalc(){
   const P=+$('#q-start').value||0, years=+$('#q-years').value||0, r=+$('#q-rate').value||0, per=$('#q-ratep').value;
@@ -558,7 +549,6 @@ function quickCalc(){
   $('#q-share-tg').href='https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
   $('#q-share-wa').href='https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
 }
-
 /* PRO с годовым разрезом */
 function monthlyFromAPR(apr, type){const r=apr/100;return type==='eff'?Math.pow(1+r,1/12)-1:r/12}
 function dailyFromAPR(apr, type){const r=apr/100;return type==='eff'?Math.pow(1+r,1/365)-1:r/365}
@@ -567,7 +557,6 @@ function calcPRO(){
   const type=$('#p-rateType').value, cap=$('#p-cap').value, reinv=$('#p-reinv').value==='yes';
   const months=Y*12;
   let im=monthlyFromAPR(apr,type); if(cap==='day'){const id=dailyFromAPR(apr,type); im=Math.pow(1+id,30.4167)-1}
-
   let bal=S0, own=S0, vals=[], labs=[], pieOwn=S0;
   let yearInterest=0, yearIndex=1; const yearRows=[];
   for(let m=1;m<=months;m++){
@@ -575,7 +564,6 @@ function calcPRO(){
     const intr = bal*im;
     if(reinv) bal += intr;
     yearInterest += intr;
-
     if(m%12===0){
       vals.push(Math.round(bal)); labs.push(`${m/12} год`);
       yearRows.push({year:yearIndex, balance:Math.round(bal), earned:Math.round(yearInterest), deposit:12*P});
@@ -585,11 +573,9 @@ function calcPRO(){
   const FV=Math.round(bal), profit=FV-own;
   $('#p-sum').textContent=fmt(FV); $('#p-own').textContent=fmt(own); $('#p-profit').textContent=fmt(profit);
   $('#p-eff').textContent=((Math.pow(1+im,12)-1)*100).toFixed(2)+'%';
-
   drawBars('p-bars', vals, labs);
   animatePie('pie', pieOwn, Math.max(0,FV-pieOwn));
   fillYearTable(yearRows);
-
   const site='https://calc.struzhuk.ru/', ch='https://t.me/Struzhukcapital';
   const tx=`PRO: старт ${fmt(S0)} ₽, взнос/мес ${fmt(P)} ₽, срок ${Y} лет, ${apr}% ${type==='eff'?'эфф.':'ном.'}, кап=${cap}, реинвест=${reinv?'да':'нет'}.\nИтог: ${fmt(FV)} ₽ (внесено: ${fmt(own)} ₽, доход: ${fmt(FV-own)} ₽).\nКанал: ${ch}\nСайт: ${site}`;
   $('#p-share-tg').href='https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
@@ -604,16 +590,13 @@ function fillYearTable(rows){
     tb.appendChild(tr);
   });
 }
-
 /* LIGHT — таблица/экспорт/шэринг */
 function calcLIGHT(){
   const P=+$('#l-start').value||0, rate=+$('#l-rate').value||0, per=$('#l-ratep').value, days=+$('#l-days').value||0;
   let rD=rate/100; if(per==='month') rD=Math.pow(1+rD,1/30.4167)-1; if(per==='year') rD=Math.pow(1+rD,1/365)-1;
-
   // KPI
   let bal=P, total=0; for(let d=1; d<=days; d++){const i=bal*rD; bal+=i; total+=i;}
   $('#l-sum').textContent=fmt(Math.round(bal)); $('#l-profit').textContent=fmt(Math.round(total)); $('#l-meta').textContent=rate+'% '+(per==='day'?'в день':per==='month'?'в месяц':'в год');
-
   // Таблица
   const tbody=$('#l-table tbody'); tbody.innerHTML=''; bal=P;
   for(let d=1; d<=days; d++){
@@ -622,7 +605,6 @@ function calcLIGHT(){
     tr.innerHTML=`<td>${d}</td><td>${fmt(Math.round(next))}</td><td>${fmt(intr.toFixed(2))} ₽ (${(rD*100).toFixed(4)}%)</td>`;
     tbody.appendChild(tr); bal=next;
   }
-
   // CSV + share
   buildLightCSVandShare(P, rate, per, days, rD);
 }
@@ -632,12 +614,11 @@ function buildLightCSVandShare(P, rate, per, days, rD){
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}), url=URL.createObjectURL(blob);
   $('#l-csv').onclick=(e)=>{e.preventDefault(); const a=document.createElement('a'); a.href=url; a.download=`light_daily_${days}d.csv`; a.click();};
   const lines=csv.split('\n').slice(0,52).join('\n'); const site='https://calc.struzhuk.ru/', ch='https://t.me/Struzhukcapital';
-  const head=`LIGHT — ежедневные сложные проценты\nСтарт: ${fmt(P)} ₽; Ставка: ${rate}% ${per==='day'?'в день':per==='month'?'в месяц':'в год'}; Дней: ${days}\n`; 
+  const head=`LIGHT — ежедневные сложные проценты\nСтарт: ${fmt(P)} ₽; Ставка: ${rate}% ${per==='day'?'в день':per==='month'?'в месяц':'в год'}; Дней: ${days}\n`;
   const text=head+'--- CSV (фрагмент) ---\n'+lines+'\n…см. файл CSV на странице.\nКанал: '+ch+'\nСайт: '+site;
   $('#l-share-tg-table').onclick=(e)=>{e.preventDefault(); window.open('https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(text),'_blank');};
   $('#l-share-wa-table').onclick=(e)=>{e.preventDefault(); window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(text),'_blank');};
 }
-
 /* LOSE */
 function calcLOSE(){
   const S=+$('#lo-start').value||0, rb=+$('#lo-bank').value/100, ra=+$('#lo-alt').value/100, y=+$('#lo-years').value||0;
@@ -649,7 +630,6 @@ function calcLOSE(){
   $('#lo-share-tg').href='https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
   $('#lo-share-wa').href='https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
 }
-
 /* GOAL */
 function calcGOAL(){
   const T=+$('#g-target').value||0, y=+$('#g-years').value||0, r=+$('#g-rate').value/100, cap=$('#g-cap').value, desc=$('#g-desc').value||'—';
@@ -663,7 +643,6 @@ function calcGOAL(){
   $('#g-share-tg').href='https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
   $('#g-share-wa').href='https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
 }
-
 /* NEED */
 function calcNEED(){
   const T=+$('#n-target').value||0, y=+$('#n-years').value||0, r=+$('#n-rate').value/100, M=+$('#n-monthly').value||0;
@@ -680,7 +659,6 @@ function calcNEED(){
   $('#n-share-tg').href='https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
   $('#n-share-wa').href='https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
 }
-
 /* INFL */
 function calcINFL(){
   const S=+$('#i-sum').value||0, r=+$('#i-rate').value/100, y=+$('#i-years').value||0;
@@ -689,8 +667,279 @@ function calcINFL(){
   const vals=[], labs=[]; for(let yr=1; yr<=y; yr++){ vals.push(Math.round(S/Math.pow(1+r,yr))); labs.push(`${yr} год`); }
   drawBars('i-bars',vals,labs);
 }
-</script>
+/* Демо-торговля с геймификацией */
+const DEMO_KEY = 'demo_trade_data';
+let demoInterval, orderInterval, toastInterval, priceInterval, pnlInterval;
+let prevBalance = 0, level = 'Новичок', achievements = [], lastPnl = 0;
 
+async function getPrice(crypto) {
+  try {
+    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto.toLowerCase()}&vs_currencies=rub`);
+    const data = await res.json();
+    return data[crypto.toLowerCase()].rub;
+  } catch (e) {
+    console.error('API error:', e);
+    return Math.random() * 100000 + 50000; // Fallback
+  }
+}
+
+async function getHistory(crypto) {
+  try {
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=rub&days=0.0417`); // ~1 hour
+    const data = await res.json();
+    return data.prices.map(p => ({time: p[0], price: p[1]}));
+  } catch (e) {
+    console.error('History error:', e);
+    return Array.from({length: 10}, (_, i) => ({time: Date.now() - i*60000, price: 50000 + Math.random()*10000}));
+  }
+}
+
+function loadDemo(){
+  const data = JSON.parse(localStorage.getItem(DEMO_KEY)) || {};
+  if(data.startTime){
+    updateDemo(data);
+    clearIntervals();
+    demoInterval = setInterval(() => updateDemo(data), 10000);
+    orderInterval = setInterval(() => simulateOrder(data), 30000);
+    toastInterval = setInterval(() => showProfitToast(data), 300000);
+    priceInterval = setInterval(() => updatePriceChart(data), 5000); // Every 5 sec update price
+    pnlInterval = setInterval(() => updateOpenPnl(data), 2000); // Every 2 sec update open PNL
+    $('#d-amount').value = data.amount;
+    $('#d-term').value = data.term;
+    $('#d-rate').value = data.rate * 100;
+    $('#d-crypto').value = data.crypto || 'bitcoin';
+    initPriceChart(data);
+  } else {
+    resetUI();
+  }
+}
+
+function startDemo(){
+  const amount = +$('#d-amount').value || 100000;
+  const term = +$('#d-term').value || 5;
+  const rate = (+$('#d-rate').value || 50) / 100;
+  const crypto = $('#d-crypto').value;
+  const data = { amount, term, rate, startTime: Date.now(), orders: [], balance: amount, profit: 0, lastType: 'long', balanceHistory: [{time: Date.now(), balance: amount}], achievements: [], priceHistory: [], crypto };
+  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+  loadDemo();
+  toast('Игра запущена! График цены загружается...');
+  confettiAnim();
+}
+
+function resetDemo(){
+  clearIntervals();
+  localStorage.removeItem(DEMO_KEY);
+  resetUI();
+  $('#d-amount').value = 100000;
+  $('#d-term').value = 5;
+  $('#d-rate').value = 50;
+  $('#d-crypto').value = 'bitcoin';
+  toast('Новый раунд — попробуй другой депозит!');
+}
+
+function clearIntervals(){
+  clearInterval(demoInterval);
+  clearInterval(orderInterval);
+  clearInterval(toastInterval);
+  clearInterval(priceInterval);
+  clearInterval(pnlInterval);
+}
+
+function resetUI(){
+  $('#d-balance').textContent = '0 ₽';
+  $('#d-profit').textContent = '0 ₽';
+  $('#d-time').textContent = '0 дней';
+  drawDemoChart([]);
+  $('#d-orders tbody').innerHTML = '';
+  $('#d-level').textContent = 'Новичок';
+  $('#d-progress').style.width = '0%';
+  $('#d-achievements').style.display = 'none';
+  $('#d-ticker').textContent = 'Депозит: 0 ₽ | Прирост за сделку: 0 ₽';
+}
+
+async function initPriceChart(data){
+  data.priceHistory = await getHistory(data.crypto);
+  drawDemoChart(data.priceHistory);
+}
+
+async function updatePriceChart(data){
+  const currentPrice = await getPrice(data.crypto);
+  data.priceHistory.push({time: Date.now(), price: currentPrice});
+  if(data.priceHistory.length > 200) data.priceHistory.shift();
+  drawDemoChart(data.priceHistory);
+  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+  updateOpenPnl(data); // Update PNL with new price
+}
+
+async function updateOpenPnl(data){
+  const currentPrices = {};
+  for(const crypto of ['bitcoin', 'ethereum']){
+    currentPrices[crypto] = await getPrice(crypto);
+  }
+  data.orders.forEach(o => {
+    if(o.status === 'Open'){
+      const closePrice = currentPrices[o.crypto.toLowerCase()];
+      let pnl = 0;
+      if(o.type === 'LONG') {
+        pnl = (closePrice / o.openPrice - 1) * o.amount;
+      } else {
+        pnl = (1 - closePrice / o.openPrice) * o.amount;
+      }
+      o.profit = Math.round(Math.max(0, pnl)); // Positive dynamics
+    }
+  });
+  renderOrders(data.orders);
+  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+}
+
+function updateDemo(data){
+  const now = Date.now();
+  const elapsedYears = (now - data.startTime) / (1000 * 60 * 60 * 24 * 365);
+  if(elapsedYears > data.term) {
+    clearIntervals();
+    toast('Срок демо истёк!');
+    return;
+  }
+  const days = Math.floor((now - data.startTime) / (1000 * 60 * 60 * 24));
+
+  $('#d-balance').textContent = fmt(data.balance) + ' ₽';
+  $('#d-profit').textContent = fmt(data.profit) + ' ₽';
+  $('#d-time').textContent = days + ' дней';
+
+  const target = data.amount * Math.pow(1 + data.rate, data.term);
+  const prog = Math.min(100, (data.balance / target) * 100);
+  $('#d-progress').style.width = prog + '%';
+
+  if(data.profit > 10000 && level === 'Новичок') { level = 'Трейдер'; unlockAch('Уровень Трейдер!'); }
+  if(data.profit > 50000 && level === 'Трейдер') { level = 'Мастер'; unlockAch('Уровень Мастер!'); }
+  $('#d-level').textContent = level;
+
+  if(data.orders.length >= 5 && !achievements.includes('5orders')) { unlockAch('Серия из 5 ордеров!'); achievements.push('5orders'); }
+
+  renderOrders(data.orders);
+  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+  updateShareLinks(data);
+}
+
+async function simulateOrder(data){
+  const cryptos = ['bitcoin', 'ethereum'];
+  const crypto = cryptos[Math.floor(Math.random() * cryptos.length)];
+  const type = data.lastType === 'long' ? 'short' : 'long';
+  data.lastType = type;
+  const orderAmount = Math.round(Math.random() * (data.balance * 0.1) + 1000);
+  const openTime = new Date().toLocaleString('ru-RU');
+  const openPrice = await getPrice(crypto);
+
+  const order = { time: openTime, type: type.toUpperCase(), crypto: crypto.toUpperCase(), amount: orderAmount, status: 'Open', profit: 0, openPrice };
+  data.orders.unshift(order);
+  if(data.orders.length > 50) data.orders.pop();
+  renderOrders(data.orders);
+
+  const closeDelay = (Math.random() * 4 + 1) * 60000;
+  setTimeout(async () => {
+    const closePrice = await getPrice(crypto);
+    let pnl = 0;
+    if(type === 'long') {
+      pnl = (closePrice / openPrice - 1) * orderAmount;
+    } else {
+      pnl = (1 - closePrice / openPrice) * orderAmount;
+    }
+    pnl = Math.max(0, pnl); // Ensure positive for demo
+    order.profit = Math.round(pnl);
+    order.status = 'Closed';
+
+    data.balance += order.profit;
+    data.profit += order.profit;
+    lastPnl = order.profit;
+
+    $('#d-ticker').textContent = `Депозит: ${fmt(data.balance)} ₽ | Прирост за сделку: ${fmt(lastPnl)} ₽`;
+
+    renderOrders(data.orders);
+    localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+    toast(`Ордер закрыт: ${type.toUpperCase()} ${crypto.toUpperCase()} на ${fmt(orderAmount)} ₽, прибыль ${fmt(order.profit)} ₽`);
+    if(order.profit > 0) confettiAnim();
+  }, closeDelay);
+
+  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+}
+
+function renderOrders(orders){
+  const tbody = $('#d-orders tbody');
+  tbody.innerHTML = '';
+  orders.forEach(o => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${o.time}</td><td>${o.type}</td><td>${o.crypto}</td><td>${fmt(o.amount)}</td><td>${o.status}</td><td style="color:${o.profit > 0 ? 'var(--success)' : 'var(--danger)'}">${fmt(o.profit)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function showProfitToast(data){
+  const profitSinceLast = data.balance - prevBalance;
+  prevBalance = data.balance;
+  if(profitSinceLast !== 0){
+    toast(`Вы заработали ${fmt(profitSinceLast)} рублей к вашему депозиту!`);
+  }
+}
+
+function unlockAch(text){
+  $('#d-ach-text').textContent = text;
+  $('#d-achievements').style.display = 'block';
+  $('#d-achievements').style.animation = 'pulse 1s';
+  toast(text);
+  confettiAnim();
+}
+
+function confettiAnim(){
+  confetti({particleCount:100,spread:70,origin:{y:0.6}});
+}
+
+function updateShareLinks(data){
+  const N = fmt(data.amount);
+  const X = fmt(data.profit);
+  const site = 'https://calc.struzhuk.ru/';
+  const ch = 'https://t.me/Struzhukcapital';
+  const tx = `Смотри! Если бы я вложил ${N} сумму, я бы заработал уже ${X} сумму. Заходи потестировать и подпишись на канал.\nКанал: ${ch}\nСайт: ${site}`;
+  $('#d-share-tg').href = 'https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
+  $('#d-share-wa').href = 'https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
+}
+
+function drawDemoChart(history){
+  const c = $('#d-chart');
+  const ctx = c.getContext('2d');
+  const W = c.width, H = c.height;
+  ctx.clearRect(0, 0, W, H);
+
+  if(history.length < 2) return;
+
+  const minPrice = Math.min(...history.map(h => h.price));
+  const maxPrice = Math.max(...history.map(h => h.price));
+  const range = maxPrice - minPrice || 1;
+
+  ctx.beginPath();
+  ctx.moveTo(0, H - ((history[0].price - minPrice) / range * H));
+  for(let i = 1; i < history.length; i++){
+    const x = (i / (history.length - 1)) * W;
+    const y = H - ((history[i].price - minPrice) / range * H);
+    ctx.lineTo(x, y);
+  }
+  const grd = ctx.createLinearGradient(0, 0, 0, H);
+  grd.addColorStop(0, 'rgba(109,40,217,0.8)');
+  grd.addColorStop(1, 'rgba(109,40,217,0.2)');
+  ctx.strokeStyle = grd;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  c.style.animation = 'barPulse 3.6s ease-in-out infinite';
+}
+
+// Загрузка
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = $$('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    if(t.dataset.tab === 'demo') loadDemo();
+  }));
+});
+</script>
   <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -699,11 +948,10 @@ function calcINFL(){
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104339336', 'ym');
-
     ym(104339336, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/104339336" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-  
+ 
 </body>
 </html>
