@@ -111,7 +111,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
 @media(max-width:520px){.kpi{grid-template-columns:1fr 1fr}}
 .deposit-ticker{margin-top:8px;text-align:center;color:var(--muted);font-size:14px}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 <header>
@@ -167,7 +166,7 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
     <button type="button" class="tab" data-tab="infl">Инфляция</button>
     <button type="button" class="tab" data-tab="blog">Блог</button>
     <button type="button" class="tab" data-tab="faq">FAQ</button>
-    <button type="button" class="tab" data-tab="demo">Демо-торговля</button>
+    <button type="button" class="tab" data-tab="game">Struzhuk Capital</button>
   </div>
 </div>
 <main>
@@ -356,41 +355,40 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       <details><summary><b>Как поделиться расчётом?</b></summary><p>Кнопки Telegram/WhatsApp формируют сообщение со ссылкой на сайт и канал.</p></details>
     </div>
   </section>
-  <!-- Демо-торговля -->
-  <section class="panel" data-panel="demo" hidden>
+  <!-- Struzhuk Capital (игра) -->
+  <section class="panel" data-panel="game" hidden>
     <div class="card">
-      <div class="head"><h3 style="margin:0">Демо-торговля: Симулятор крипто-биржи</h3><button class="help-btn" data-help="demo">?</button></div>
-      <p style="margin:0 0 12px;color:var(--muted)">Экспериментируй с депозитом, смотри реальные ордера и расти как трейдер! Уровни и награды за успехи.</p>
+      <div class="head"><h3 style="margin:0">Struzhuk Capital</h3><button class="help-btn" data-help="game">?</button></div>
+      <p style="margin:0 0 12px;color:var(--muted)">Стань магнатом: инвестируй, переживай события и накопи богатство! Выбери стратегию и следи за ростом.</p>
       <div class="grid">
-        <div><label title="Начальная сумма в рублях — сколько инвестируешь в демо. Зачем: чтобы протестировать рост на разных стартах.">Сумма для инвестирования, ₽</label><input id="d-amount" type="number" value="100000" placeholder="Например, 100000 — начни с малого!"></div>
-        <div><label title="Срок симуляции в годах — как долго длится 'игра'. Зачем: чтобы увидеть долгосрочный рост и достичь целей.">Срок, лет</label><input id="d-term" type="number" value="5" placeholder="Например, 5 — смотри, как растёт капитал!"></div>
-        <div><label title="Ожидаемый процент годовых — средняя доходность. Зачем: тестируй разные ставки для wow-результатов.">Процент годовых</label><input id="d-rate" type="number" value="50" placeholder="Например, 50% — агрессивный рост!"></div>
-        <div><label title="Выберите криптоактив для графика">Криптоактив</label><select id="d-crypto"><option value="bitcoin">BTC</option><option value="ethereum">ETH</option></select></div>
-        <div style="display:flex;align-items:end"><a class="btn primary" style="width:100%" onclick="startDemo()" title="Запусти симуляцию — ордера начнут открываться автоматически.">Начать игру</a></div>
+        <div><label title="Начальный капитал в рублях — твоя стартовая сумма в квесте.">Начальный капитал, ₽</label><input id="g-amount" type="number" value="100000" placeholder="Например, 100000"></div>
+        <div><label title="Срок квеста в годах — как долго длится игра.">Срок квеста, лет</label><input id="g-term" type="number" value="5" placeholder="Например, 5"></div>
+        <div><label title="Стратегия инвестиций — влияет на риск и доход.">Стратегия</label><select id="g-strategy"><option value="conservative">Консервативная (низкий риск)</option><option value="aggressive">Агрессивная (высокий %)</option></select></div>
+        <div style="display:flex;align-items:end"><a class="btn primary" style="width:100%" onclick="startGame()" title="Запусти квест — инвестиции начнут работать!">Начать квест</a></div>
       </div>
       <div class="kpi" style="margin-top:12px">
-        <div class="km"><small title="Текущий баланс в рублях — растёт в реал-тайм от ордеров.">Баланс</small><b id="d-balance">0 ₽</b></div>
-        <div class="km"><small title="Общий доход от всех ордеров — мотивирует на новые тесты.">Доход</small><b id="d-profit">0 ₽</b></div>
-        <div class="km"><small title="Время с запуска — показывает прогресс к цели.">Время</small><b id="d-time">0 дней</b></div>
-        <div class="km"><small title="Твой уровень трейдера — растёт с прибылью, unlocks награды.">Уровень</small><b id="d-level">Новичок</b></div>
+        <div class="km"><small>Баланс</small><b id="g-balance">0 ₽</b></div>
+        <div class="km"><small>Доход</small><b id="g-profit">0 ₽</b></div>
+        <div class="km"><small>Время</small><b id="g-time">0 дней</b></div>
+        <div class="km"><small>Уровень</small><b id="g-level">Новичок</b></div>
       </div>
-      <div style="margin-top:12px"><b title="Прогресс к цели — заполняется по мере роста баланса.">Прогресс к цели</b><div class="progress-wrap"><div id="d-progress" class="bar" style="width:0%;height:12px;background:var(--accent);border-radius:6px;transition:width 0.6s"></div></div></div>
-      <div style="margin-top:12px"><b title="Реальный график цены криптоактива — обновляется каждые 5 сек.">График цены</b></div>
-      <canvas id="d-chart" width="400" height="200" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px" title="Реальный график цены: обновляется в реал-тайм."></canvas>
-      <div class="deposit-ticker" id="d-ticker">Депозит: 0 ₽ | Прирост за сделку: 0 ₽</div>
-      <div style="margin-top:12px"><b title="Последние ордера — обновляются в реал-тайм, зеленый для прибыли.">Ордера</b></div>
+      <div style="margin-top:12px"><b>Прогресс к цели</b><div class="progress-wrap"><div id="g-progress" class="bar" style="width:0%;height:12px;background:var(--accent);border-radius:6px;transition:width 0.6s"></div></div></div>
+      <div style="margin-top:12px"><b>График инвестиций</b></div>
+      <canvas id="g-chart" width="400" height="200" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px"></canvas>
+      <div class="deposit-ticker" id="g-ticker">Депозит: 0 ₽ | Прирост: 0 ₽</div>
+      <div style="margin-top:12px"><b>События и ордера</b></div>
       <div class="table-wrap" style="max-height:200px">
-        <table class="light-daily" id="d-orders">
-          <thead><tr><th>Время</th><th>Тип</th><th>Крипта</th><th>Сумма, ₽</th><th>Статус</th><th>Прибыль, ₽</th></tr></thead>
+        <table class="light-daily" id="g-events">
+          <thead><tr><th>Время</th><th>Событие/Ордер</th><th>Эффект, ₽</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
       <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn" onclick="resetDemo()" title="Сбрось и попробуй новые параметры — экспериментируй!">Новый сценарий</a>
-        <a class="btn" id="d-share-tg" target="_blank" rel="nofollow" title="Поделись в Telegram: 'Смотри! Если бы я вложил N, заработал бы X!' + твои результаты.">В TG</a>
-        <a class="btn" id="d-share-wa" target="_blank" rel="nofollow" title="Поделись в WhatsApp: 'Смотри! Если бы я вложил N, заработал бы X!' + твои результаты.">В WA</a>
+        <a class="btn" onclick="resetGame()" title="Сбрось и начни новый квест!">Новый квест</a>
+        <a class="btn" id="g-share-tg" target="_blank" rel="nofollow">В TG</a>
+        <a class="btn" id="g-share-wa" target="_blank" rel="nofollow">В WA</a>
       </div>
-      <div id="d-achievements" style="margin-top:12px;color:var(--success);display:none"><b>Достижение unlocked!</b> <span id="d-ach-text"></span></div>
+      <div id="g-achievements" style="margin-top:12px;color:var(--success);display:none"><b>Достижение unlocked!</b> <span id="g-ach-text"></span></div>
     </div>
   </section>
 </main>
@@ -459,7 +457,7 @@ $$('.help-btn').forEach(btn=>{
       need:'Посчитаем стартовую сумму и ориентировочную дату достижения цели.',
       infl:'Рассчитаем покупательную способность по годам при выбранной инфляции.',
       blog:'Короткие статьи про сложный процент, инфляцию, реинвест.',
-      demo:'Играй в трейдера: вводи параметры, запускай — ордера идут автоматически с реальными ценами. Подсказки в полях. Уровни, награды для fun. Тестируй варианты!'
+      game:'Struzhuk Capital: Выбери стратегию, инвестируй и переживай события рынка. Накопи богатство, чтобы стать магнатом!'
     }[k] || 'Подсказка';
     openHelp('Инструкция', `<p>${text}</p>`);
   });
@@ -667,11 +665,10 @@ function calcINFL(){
   const vals=[], labs=[]; for(let yr=1; yr<=y; yr++){ vals.push(Math.round(S/Math.pow(1+r,yr))); labs.push(`${yr} год`); }
   drawBars('i-bars',vals,labs);
 }
-/* Демо-торговля с геймификацией */
-const DEMO_KEY = 'demo_trade_data';
-let demoInterval, orderInterval, toastInterval, priceInterval, pnlInterval;
-let prevBalance = 0, level = 'Новичок', achievements = [], lastPnl = 0;
-
+/* Struzhuk Capital (игра) */
+const GAME_KEY = 'game_data';
+let gameInterval, eventInterval, orderInterval, toastInterval;
+let prevBalance = 0, level = 'Новичок', achievements = [];
 async function getPrice(crypto) {
   try {
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto.toLowerCase()}&vs_currencies=rub`);
@@ -682,244 +679,194 @@ async function getPrice(crypto) {
     return Math.random() * 100000 + 50000; // Fallback
   }
 }
-
-async function getHistory(crypto) {
-  try {
-    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=rub&days=0.0417`); // ~1 hour
-    const data = await res.json();
-    return data.prices.map(p => ({time: p[0], price: p[1]}));
-  } catch (e) {
-    console.error('History error:', e);
-    return Array.from({length: 10}, (_, i) => ({time: Date.now() - i*60000, price: 50000 + Math.random()*10000}));
-  }
-}
-
-function loadDemo(){
-  const data = JSON.parse(localStorage.getItem(DEMO_KEY)) || {};
+function loadGame(){
+  const data = JSON.parse(localStorage.getItem(GAME_KEY)) || {};
   if(data.startTime){
-    updateDemo(data);
-    clearIntervals();
-    demoInterval = setInterval(() => updateDemo(data), 10000);
-    orderInterval = setInterval(() => simulateOrder(data), 30000);
+    updateGame(data);
+    clearGameIntervals();
+    gameInterval = setInterval(() => updateGame(data), 10000);
+    orderInterval = setInterval(() => simulateGameOrder(data), 30000);
+    eventInterval = setInterval(() => triggerEvent(data), Math.random()*120000 + 60000); // 1-2 мин
     toastInterval = setInterval(() => showProfitToast(data), 300000);
-    priceInterval = setInterval(() => updatePriceChart(data), 5000); // Every 5 sec update price
-    pnlInterval = setInterval(() => updateOpenPnl(data), 2000); // Every 2 sec update open PNL
-    $('#d-amount').value = data.amount;
-    $('#d-term').value = data.term;
-    $('#d-rate').value = data.rate * 100;
-    $('#d-crypto').value = data.crypto || 'bitcoin';
-    initPriceChart(data);
+    $('#g-amount').value = data.amount;
+    $('#g-term').value = data.term;
+    $('#g-strategy').value = data.strategy || 'conservative';
   } else {
-    resetUI();
+    resetGameUI();
   }
 }
-
-function startDemo(){
-  const amount = +$('#d-amount').value || 100000;
-  const term = +$('#d-term').value || 5;
-  const rate = (+$('#d-rate').value || 50) / 100;
-  const crypto = $('#d-crypto').value;
-  const data = { amount, term, rate, startTime: Date.now(), orders: [], balance: amount, profit: 0, lastType: 'long', balanceHistory: [{time: Date.now(), balance: amount}], achievements: [], priceHistory: [], crypto };
-  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
-  loadDemo();
-  toast('Игра запущена! График цены загружается...');
+function startGame(){
+  const amount = +$('#g-amount').value || 100000;
+  const term = +$('#g-term').value || 5;
+  const strategy = $('#g-strategy').value;
+  const data = { amount, term, strategy, startTime: Date.now(), events: [], balance: amount, profit: 0, balanceHistory: [{time: Date.now(), balance: amount}], achievements: [] };
+  localStorage.setItem(GAME_KEY, JSON.stringify(data));
+  loadGame();
+  toast('Квест запущен! Инвестиции работают...');
   confettiAnim();
 }
-
-function resetDemo(){
-  clearIntervals();
-  localStorage.removeItem(DEMO_KEY);
-  resetUI();
-  $('#d-amount').value = 100000;
-  $('#d-term').value = 5;
-  $('#d-rate').value = 50;
-  $('#d-crypto').value = 'bitcoin';
-  toast('Новый раунд — попробуй другой депозит!');
+function resetGame(){
+  clearGameIntervals();
+  localStorage.removeItem(GAME_KEY);
+  resetGameUI();
+  $('#g-amount').value = 100000;
+  $('#g-term').value = 5;
+  $('#g-strategy').value = 'conservative';
+  toast('Новый квест — удачи!');
 }
-
-function clearIntervals(){
-  clearInterval(demoInterval);
+function clearGameIntervals(){
+  clearInterval(gameInterval);
   clearInterval(orderInterval);
+  clearInterval(eventInterval);
   clearInterval(toastInterval);
-  clearInterval(priceInterval);
-  clearInterval(pnlInterval);
 }
-
-function resetUI(){
-  $('#d-balance').textContent = '0 ₽';
-  $('#d-profit').textContent = '0 ₽';
-  $('#d-time').textContent = '0 дней';
-  drawDemoChart([]);
-  $('#d-orders tbody').innerHTML = '';
-  $('#d-level').textContent = 'Новичок';
-  $('#d-progress').style.width = '0%';
-  $('#d-achievements').style.display = 'none';
-  $('#d-ticker').textContent = 'Депозит: 0 ₽ | Прирост за сделку: 0 ₽';
+function resetGameUI(){
+  $('#g-balance').textContent = '0 ₽';
+  $('#g-profit').textContent = '0 ₽';
+  $('#g-time').textContent = '0 дней';
+  $('#g-level').textContent = 'Новичок';
+  $('#g-progress').style.width = '0%';
+  $('#g-achievements').style.display = 'none';
+  $('#g-ticker').textContent = 'Депозит: 0 ₽ | Прирост: 0 ₽';
+  $('#g-events tbody').innerHTML = '';
+  drawGameChart([]);
 }
-
-async function initPriceChart(data){
-  data.priceHistory = await getHistory(data.crypto);
-  drawDemoChart(data.priceHistory);
-}
-
-async function updatePriceChart(data){
-  const currentPrice = await getPrice(data.crypto);
-  data.priceHistory.push({time: Date.now(), price: currentPrice});
-  if(data.priceHistory.length > 200) data.priceHistory.shift();
-  drawDemoChart(data.priceHistory);
-  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
-  updateOpenPnl(data); // Update PNL with new price
-}
-
-async function updateOpenPnl(data){
-  const currentPrices = {};
-  for(const crypto of ['bitcoin', 'ethereum']){
-    currentPrices[crypto] = await getPrice(crypto);
-  }
-  data.orders.forEach(o => {
-    if(o.status === 'Open'){
-      const closePrice = currentPrices[o.crypto.toLowerCase()];
-      let pnl = 0;
-      if(o.type === 'LONG') {
-        pnl = (closePrice / o.openPrice - 1) * o.amount;
-      } else {
-        pnl = (1 - closePrice / o.openPrice) * o.amount;
-      }
-      o.profit = Math.round(Math.max(0, pnl)); // Positive dynamics
-    }
-  });
-  renderOrders(data.orders);
-  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
-}
-
-function updateDemo(data){
+function updateGame(data){
   const now = Date.now();
   const elapsedYears = (now - data.startTime) / (1000 * 60 * 60 * 24 * 365);
   if(elapsedYears > data.term) {
-    clearIntervals();
-    toast('Срок демо истёк!');
+    clearGameIntervals();
+    toast('Квест завершён! Итог: ' + fmt(data.balance) + ' ₽');
     return;
   }
   const days = Math.floor((now - data.startTime) / (1000 * 60 * 60 * 24));
 
-  $('#d-balance').textContent = fmt(data.balance) + ' ₽';
-  $('#d-profit').textContent = fmt(data.profit) + ' ₽';
-  $('#d-time').textContent = days + ' дней';
+  // Симулируем рост каждые 10 сек
+  const growthRate = (data.strategy === 'aggressive' ? 0.001 : 0.0005) + Math.random() * 0.0005;
+  data.balance = Math.round(data.balance * (1 + growthRate));
+  data.profit = data.balance - data.amount;
 
-  const target = data.amount * Math.pow(1 + data.rate, data.term);
+  $('#g-balance').textContent = fmt(data.balance) + ' ₽';
+  $('#g-profit').textContent = fmt(data.profit) + ' ₽';
+  $('#g-time').textContent = days + ' дней';
+
+  data.balanceHistory.push({time: now, balance: data.balance});
+  if(data.balanceHistory.length > 200) data.balanceHistory.shift();
+  drawGameChart(data.balanceHistory);
+
+  const target = data.amount * Math.pow(1 + (data.strategy === 'aggressive' ? 0.5 : 0.2), data.term);
   const prog = Math.min(100, (data.balance / target) * 100);
-  $('#d-progress').style.width = prog + '%';
+  $('#g-progress').style.width = prog + '%';
 
-  if(data.profit > 10000 && level === 'Новичок') { level = 'Трейдер'; unlockAch('Уровень Трейдер!'); }
-  if(data.profit > 50000 && level === 'Трейдер') { level = 'Мастер'; unlockAch('Уровень Мастер!'); }
-  $('#d-level').textContent = level;
+  if(data.profit > 10000 && level === 'Новичок') { level = 'Трейдер'; unlockGameAch('Уровень Трейдер!'); }
+  if(data.profit > 50000 && level === 'Трейдер') { level = 'Магнат'; unlockGameAch('Уровень Магнат!'); }
+  $('#g-level').textContent = level;
 
-  if(data.orders.length >= 5 && !achievements.includes('5orders')) { unlockAch('Серия из 5 ордеров!'); achievements.push('5orders'); }
+  if(data.events.length >= 5 && !achievements.includes('5events')) { unlockGameAch('Выжил 5 событий!'); achievements.push('5events'); }
 
-  renderOrders(data.orders);
-  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
-  updateShareLinks(data);
+  renderGameEvents(data.events);
+  localStorage.setItem(GAME_KEY, JSON.stringify(data));
+  updateGameShareLinks(data);
 }
-
-async function simulateOrder(data){
+async function simulateGameOrder(data){
   const cryptos = ['bitcoin', 'ethereum'];
   const crypto = cryptos[Math.floor(Math.random() * cryptos.length)];
-  const type = data.lastType === 'long' ? 'short' : 'long';
-  data.lastType = type;
+  const type = Math.random() > 0.5 ? 'LONG' : 'SHORT';
   const orderAmount = Math.round(Math.random() * (data.balance * 0.1) + 1000);
   const openTime = new Date().toLocaleString('ru-RU');
   const openPrice = await getPrice(crypto);
-
-  const order = { time: openTime, type: type.toUpperCase(), crypto: crypto.toUpperCase(), amount: orderAmount, status: 'Open', profit: 0, openPrice };
-  data.orders.unshift(order);
-  if(data.orders.length > 50) data.orders.pop();
-  renderOrders(data.orders);
-
+  const order = { time: openTime, type, crypto: crypto.toUpperCase(), amount: orderAmount, status: 'Open', profit: 0, openPrice };
+  data.events.unshift({ time: openTime, desc: `Ордер ${type} ${crypto.toUpperCase()} на ${fmt(orderAmount)} ₽`, effect: 0 });
+  renderGameEvents(data.events);
   const closeDelay = (Math.random() * 4 + 1) * 60000;
   setTimeout(async () => {
     const closePrice = await getPrice(crypto);
     let pnl = 0;
-    if(type === 'long') {
+    if(type === 'LONG') {
       pnl = (closePrice / openPrice - 1) * orderAmount;
     } else {
       pnl = (1 - closePrice / openPrice) * orderAmount;
     }
-    pnl = Math.max(0, pnl); // Ensure positive for demo
+    pnl = Math.max(0, pnl * (data.strategy === 'aggressive' ? 1.5 : 0.5)); // Adjust by strategy, positive
     order.profit = Math.round(pnl);
     order.status = 'Closed';
-
     data.balance += order.profit;
     data.profit += order.profit;
-    lastPnl = order.profit;
-
-    $('#d-ticker').textContent = `Депозит: ${fmt(data.balance)} ₽ | Прирост за сделку: ${fmt(lastPnl)} ₽`;
-
-    renderOrders(data.orders);
-    localStorage.setItem(DEMO_KEY, JSON.stringify(data));
-    toast(`Ордер закрыт: ${type.toUpperCase()} ${crypto.toUpperCase()} на ${fmt(orderAmount)} ₽, прибыль ${fmt(order.profit)} ₽`);
+    data.events[0].effect = order.profit;
+    data.events[0].desc += ` (Закрыт, прибыль ${fmt(order.profit)} ₽)`;
+    renderGameEvents(data.events);
+    localStorage.setItem(GAME_KEY, JSON.stringify(data));
+    toast(`Ордер закрыт, прибыль ${fmt(order.profit)} ₽`);
     if(order.profit > 0) confettiAnim();
   }, closeDelay);
-
-  localStorage.setItem(DEMO_KEY, JSON.stringify(data));
+  localStorage.setItem(GAME_KEY, JSON.stringify(data));
 }
-
-function renderOrders(orders){
-  const tbody = $('#d-orders tbody');
+function triggerEvent(data){
+  const events = [
+    {name: 'Рыночный бум', effect: d => d.balance *= 1.15, msg: 'Бум! +15% к балансу'},
+    {name: 'Кризис', effect: d => d.balance *= 0.95, msg: 'Кризис! -5% к балансу'},
+    {name: 'Бонус дивиденды', effect: d => d.balance += Math.round(d.amount * 0.05), msg: 'Дивиденды! +5% от старта'}
+  ];
+  const evt = events[Math.floor(Math.random() * events.length)];
+  const oldBalance = data.balance;
+  evt.effect(data);
+  const change = data.balance - oldBalance;
+  data.events.unshift({ time: new Date().toLocaleString('ru-RU'), desc: evt.name, effect: change });
+  data.profit += change;
+  renderGameEvents(data.events);
+  toast(evt.msg);
+  localStorage.setItem(GAME_KEY, JSON.stringify(data));
+  if(change > 0) confettiAnim();
+}
+function renderGameEvents(events){
+  const tbody = $('#g-events tbody');
   tbody.innerHTML = '';
-  orders.forEach(o => {
+  events.forEach(e => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${o.time}</td><td>${o.type}</td><td>${o.crypto}</td><td>${fmt(o.amount)}</td><td>${o.status}</td><td style="color:${o.profit > 0 ? 'var(--success)' : 'var(--danger)'}">${fmt(o.profit)}</td>`;
+    tr.innerHTML = `<td>${e.time}</td><td>${e.desc}</td><td style="color:${e.effect > 0 ? 'var(--success)' : 'var(--danger)'}">${fmt(e.effect)}</td>`;
     tbody.appendChild(tr);
   });
 }
-
 function showProfitToast(data){
   const profitSinceLast = data.balance - prevBalance;
   prevBalance = data.balance;
   if(profitSinceLast !== 0){
-    toast(`Вы заработали ${fmt(profitSinceLast)} рублей к вашему депозиту!`);
+    toast(`Прирост: ${fmt(profitSinceLast)} ₽`);
   }
 }
-
-function unlockAch(text){
-  $('#d-ach-text').textContent = text;
-  $('#d-achievements').style.display = 'block';
-  $('#d-achievements').style.animation = 'pulse 1s';
+function unlockGameAch(text){
+  $('#g-ach-text').textContent = text;
+  $('#g-achievements').style.display = 'block';
+  $('#g-achievements').style.animation = 'pulse 1s';
   toast(text);
   confettiAnim();
 }
-
-function confettiAnim(){
-  confetti({particleCount:100,spread:70,origin:{y:0.6}});
-}
-
-function updateShareLinks(data){
+function updateGameShareLinks(data){
   const N = fmt(data.amount);
   const X = fmt(data.profit);
   const site = 'https://calc.struzhuk.ru/';
   const ch = 'https://t.me/Struzhukcapital';
-  const tx = `Смотри! Если бы я вложил ${N} сумму, я бы заработал уже ${X} сумму.\nКанал: ${ch}\nСайт: ${site}`;
-  $('#d-share-tg').href = 'https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
-  $('#d-share-wa').href = 'https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
+  const tx = `В Struzhuk Capital я накопил ${X} с ${N}! Попробуй сам.\nКанал: ${ch}\nСайт: ${site}`;
+  $('#g-share-tg').href = 'https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
+  $('#g-share-wa').href = 'https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
 }
-
-function drawDemoChart(history){
-  const c = $('#d-chart');
+function drawGameChart(history){
+  const c = $('#g-chart');
   const ctx = c.getContext('2d');
   const W = c.width, H = c.height;
   ctx.clearRect(0, 0, W, H);
 
   if(history.length < 2) return;
 
-  const minPrice = Math.min(...history.map(h => h.price));
-  const maxPrice = Math.max(...history.map(h => h.price));
-  const range = maxPrice - minPrice || 1;
+  const minBal = Math.min(...history.map(h => h.balance));
+  const maxBal = Math.max(...history.map(h => h.balance));
+  const range = maxBal - minBal || 1;
 
   ctx.beginPath();
-  ctx.moveTo(0, H - ((history[0].price - minPrice) / range * H));
+  ctx.moveTo(0, H - ((history[0].balance - minBal) / range * H));
   for(let i = 1; i < history.length; i++){
     const x = (i / (history.length - 1)) * W;
-    const y = H - ((history[i].price - minPrice) / range * H);
+    const y = H - ((history[i].balance - minBal) / range * H);
     ctx.lineTo(x, y);
   }
   const grd = ctx.createLinearGradient(0, 0, 0, H);
@@ -937,6 +884,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabs = $$('.tab');
   tabs.forEach(t => t.addEventListener('click', () => {
     if(t.dataset.tab === 'demo') loadDemo();
+    if(t.dataset.tab === 'game') loadGame();
   }));
 });
 </script>
