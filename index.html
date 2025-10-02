@@ -81,7 +81,7 @@ canvas.pie{width:100%;height:auto;display:block;aspect-ratio:1/1;border-radius:5
 .pie-legend .item{display:flex;align-items:center;gap:6px}
 .pie-legend .dot{width:10px;height:10px;border-radius:50%}
 /* LIGHT таблица */
-.table-wrap{margin-top:14px;border:1px solid var(--border);border-radius:12px;background:#fff;overflow:auto;max-height:420px}
+.table-wrap{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:#fff;overflow:auto;max-height:420px}
 table.light-daily{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 table.light-daily th,table.light-daily td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap}
 table.light-daily th:first-child,table.light-daily td:first-child{text-align:left}
@@ -168,7 +168,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
     <button type="button" class="tab" data-tab="blog">Блог</button>
     <button type="button" class="tab" data-tab="faq">FAQ</button>
     <button type="button" class="tab" data-tab="demo">Демо-торговля</button>
-    <button type="button" class="tab" data-tab="game">Struzhuk Capital</button>
   </div>
 </div>
 <main>
@@ -394,42 +393,6 @@ footer .me img{width:60px;height:60px;border-radius:12px;object-fit:cover}
       <div id="d-achievements" style="margin-top:12px;color:var(--success);display:none"><b>Достижение unlocked!</b> <span id="d-ach-text"></span></div>
     </div>
   </section>
-  <!-- Struzhuk Capital (игра) -->
-  <section class="panel" data-panel="game" hidden>
-    <div class="card">
-      <div class="head"><h3 style="margin:0">Struzhuk Capital</h3><button class="help-btn" data-help="game">?</button></div>
-      <p style="margin:0 0 12px;color:var(--muted)">Стань магнатом: инвестируй, переживай события и накопи богатство! Выбери стратегию и следи за ростом.</p>
-      <div class="grid">
-        <div><label title="Начальный капитал в рублях — твоя стартовая сумма в квесте.">Начальный капитал, ₽</label><input id="g-amount" type="number" value="100000" placeholder="Например, 100000"></div>
-        <div><label title="Срок квеста в годах — как долго длится игра.">Срок квеста, лет</label><input id="g-term" type="number" value="5" placeholder="Например, 5"></div>
-        <div><label title="Стратегия инвестиций — влияет на риск и доход.">Стратегия</label><select id="g-strategy"><option value="conservative">Консервативная (низкий риск)</option><option value="aggressive">Агрессивная (высокий %)</option></select></div>
-        <div style="display:flex;align-items:end"><a class="btn primary" style="width:100%" onclick="startGame()" title="Запусти квест — инвестиции начнут работать!">Начать квест</a></div>
-      </div>
-      <div class="kpi" style="margin-top:12px">
-        <div class="km"><small>Баланс</small><b id="g-balance">0 ₽</b></div>
-        <div class="km"><small>Доход</small><b id="g-profit">0 ₽</b></div>
-        <div class="km"><small>Время</small><b id="g-time">0 дней</b></div>
-        <div class="km"><small>Уровень</small><b id="g-level">Новичок</b></div>
-      </div>
-      <div style="margin-top:12px"><b>Прогресс к цели</b><div class="progress-wrap"><div id="g-progress" class="bar" style="width:0%;height:12px;background:var(--accent);border-radius:6px;transition:width 0.6s"></div></div></div>
-      <div style="margin-top:12px"><b>График инвестиций</b></div>
-      <canvas id="g-chart" width="400" height="200" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px"></canvas>
-      <div class="deposit-ticker" id="g-ticker">Депозит: 0 ₽ | Прирост: 0 ₽</div>
-      <div style="margin-top:12px"><b>События и ордера</b></div>
-      <div class="table-wrap" style="max-height:200px">
-        <table class="light-daily" id="g-events">
-          <thead><tr><th>Время</th><th>Событие/Ордер</th><th>Эффект, ₽</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn" onclick="resetGame()" title="Сбрось и начни новый квест!">Новый квест</a>
-        <a class="btn" id="g-share-tg" target="_blank" rel="nofollow">В TG</a>
-        <a class="btn" id="g-share-wa" target="_blank" rel="nofollow">В WA</a>
-      </div>
-      <div id="g-achievements" style="margin-top:12px;color:var(--success);display:none"><b>Достижение unlocked!</b> <span id="g-ach-text"></span></div>
-    </div>
-  </section>
 </main>
 <footer>
   <div class="me">
@@ -496,8 +459,7 @@ $$('.help-btn').forEach(btn=>{
       need:'Посчитаем стартовую сумму и ориентировочную дату достижения цели.',
       infl:'Рассчитаем покупательную способность по годам при выбранной инфляции.',
       blog:'Короткие статьи про сложный процент, инфляцию, реинвест.',
-      demo:'Играй в трейдера: вводи параметры, запускай — ордера идут автоматически с реальными ценами. Подсказки в полях. Уровни, награды для fun. Тестируй варианты!',
-      game:'Struzhuk Capital: Выбери стратегию, инвестируй и переживай события рынка. Накопи богатство, чтобы стать магнатом!'
+      demo:'Играй в трейдера: вводи параметры, запускай — ордера идут автоматически с реальными ценами. Подсказки в полях. Уровни, награды для fun. Тестируй варианты!'
     }[k] || 'Подсказка';
     openHelp('Инструкция', `<p>${text}</p>`);
   });
@@ -792,7 +754,7 @@ function resetUI(){
   $('#d-level').textContent = 'Новичок';
   $('#d-progress').style.width = '0%';
   $('#d-achievements').style.display = 'none';
-  $('#d-ticker').textContent = 'Депозит: 0 ₽ | Прирост: 0 ₽';
+  $('#d-ticker').textContent = 'Депозит: 0 ₽ | Прирост за сделку: 0 ₽';
 }
 
 async function initPriceChart(data){
@@ -814,7 +776,6 @@ async function updateOpenPnl(data){
   for(const crypto of ['bitcoin', 'ethereum']){
     currentPrices[crypto] = await getPrice(crypto);
   }
-  let totalOpenPnl = 0;
   data.orders.forEach(o => {
     if(o.status === 'Open'){
       const closePrice = currentPrices[o.crypto.toLowerCase()];
@@ -825,10 +786,8 @@ async function updateOpenPnl(data){
         pnl = (1 - closePrice / o.openPrice) * o.amount;
       }
       o.profit = Math.round(Math.max(0, pnl)); // Positive dynamics
-      totalOpenPnl += o.profit;
     }
   });
-  $('#d-ticker').textContent = `Депозит: ${fmt(data.balance)} ₽ | Прирост: ${fmt(totalOpenPnl)} ₽`;
   renderOrders(data.orders);
   localStorage.setItem(DEMO_KEY, JSON.stringify(data));
 }
@@ -885,12 +844,15 @@ async function simulateOrder(data){
     } else {
       pnl = (1 - closePrice / openPrice) * orderAmount;
     }
-    pnl = Math.max(0, pnl); // Positive for demo
+    pnl = Math.max(0, pnl); // Ensure positive for demo
     order.profit = Math.round(pnl);
     order.status = 'Closed';
 
     data.balance += order.profit;
     data.profit += order.profit;
+    lastPnl = order.profit;
+
+    $('#d-ticker').textContent = `Депозит: ${fmt(data.balance)} ₽ | Прирост за сделку: ${fmt(lastPnl)} ₽`;
 
     renderOrders(data.orders);
     localStorage.setItem(DEMO_KEY, JSON.stringify(data));
@@ -975,237 +937,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabs = $$('.tab');
   tabs.forEach(t => t.addEventListener('click', () => {
     if(t.dataset.tab === 'demo') loadDemo();
-    if(t.dataset.tab === 'game') loadGame();
-  }));
-});
-/* Struzhuk Capital (игра) */
-const GAME_KEY = 'game_data';
-let gameInterval, eventInterval, orderInterval, toastInterval;
-let prevBalance = 0, level = 'Новичок', achievements = [];
-
-function loadGame(){
-  const data = JSON.parse(localStorage.getItem(GAME_KEY)) || {};
-  if(data.startTime){
-    updateGame(data);
-    clearGameIntervals();
-    gameInterval = setInterval(() => updateGame(data), 10000);
-    orderInterval = setInterval(() => simulateGameOrder(data), 30000);
-    eventInterval = setInterval(() => triggerEvent(data), Math.random()*120000 + 60000); // 1-2 мин
-    toastInterval = setInterval(() => showProfitToast(data), 300000);
-    $('#g-amount').value = data.amount;
-    $('#g-term').value = data.term;
-    $('#g-strategy').value = data.strategy || 'conservative';
-  } else {
-    resetGameUI();
-  }
-}
-
-function startGame(){
-  const amount = +$('#g-amount').value || 100000;
-  const term = +$('#g-term').value || 5;
-  const strategy = $('#g-strategy').value;
-  const data = { amount, term, strategy, startTime: Date.now(), events: [], balance: amount, profit: 0, balanceHistory: [{time: Date.now(), balance: amount}], achievements: [] };
-  localStorage.setItem(GAME_KEY, JSON.stringify(data));
-  loadGame();
-  toast('Квест запущен! Инвестиции работают...');
-  confettiAnim();
-}
-
-function resetGame(){
-  clearGameIntervals();
-  localStorage.removeItem(GAME_KEY);
-  resetGameUI();
-  $('#g-amount').value = 100000;
-  $('#g-term').value = 5;
-  $('#g-strategy').value = 'conservative';
-  toast('Новый квест — удачи!');
-}
-
-function clearGameIntervals(){
-  clearInterval(gameInterval);
-  clearInterval(orderInterval);
-  clearInterval(eventInterval);
-  clearInterval(toastInterval);
-}
-
-function resetGameUI(){
-  $('#g-balance').textContent = '0 ₽';
-  $('#g-profit').textContent = '0 ₽';
-  $('#g-time').textContent = '0 дней';
-  $('#g-level').textContent = 'Новичок';
-  $('#g-progress').style.width = '0%';
-  $('#g-achievements').style.display = 'none';
-  $('#g-ticker').textContent = 'Депозит: 0 ₽ | Прирост: 0 ₽';
-  $('#g-events tbody').innerHTML = '';
-  drawGameChart([]);
-}
-
-function updateGame(data){
-  const now = Date.now();
-  const elapsedYears = (now - data.startTime) / (1000 * 60 * 60 * 24 * 365);
-  if(elapsedYears > data.term) {
-    clearGameIntervals();
-    toast('Квест завершён! Итог: ' + fmt(data.balance) + ' ₽');
-    return;
-  }
-  const days = Math.floor((now - data.startTime) / (1000 * 60 * 60 * 24));
-
-  // Симулируем рост каждые 10 сек
-  const growthRate = (data.strategy === 'aggressive' ? 0.001 : 0.0005) + Math.random() * 0.0005;
-  data.balance = Math.round(data.balance * (1 + growthRate));
-  data.profit = data.balance - data.amount;
-
-  $('#g-balance').textContent = fmt(data.balance) + ' ₽';
-  $('#g-profit').textContent = fmt(data.profit) + ' ₽';
-  $('#g-time').textContent = days + ' дней';
-
-  data.balanceHistory.push({time: now, balance: data.balance});
-  if(data.balanceHistory.length > 200) data.balanceHistory.shift();
-  drawGameChart(data.balanceHistory);
-
-  const target = data.amount * Math.pow(1 + (data.strategy === 'aggressive' ? 0.5 : 0.2), data.term);
-  const prog = Math.min(100, (data.balance / target) * 100);
-  $('#g-progress').style.width = prog + '%';
-
-  if(data.profit > 10000 && level === 'Новичок') { level = 'Трейдер'; unlockGameAch('Уровень Трейдер!'); }
-  if(data.profit > 50000 && level === 'Трейдер') { level = 'Магнат'; unlockGameAch('Уровень Магнат!'); }
-  $('#g-level').textContent = level;
-
-  if(data.events.length >= 5 && !achievements.includes('5events')) { unlockGameAch('Выжил 5 событий!'); achievements.push('5events'); }
-
-  renderGameEvents(data.events);
-  localStorage.setItem(GAME_KEY, JSON.stringify(data));
-  updateGameShareLinks(data);
-}
-
-async function simulateGameOrder(data){
-  const cryptos = ['bitcoin', 'ethereum'];
-  const crypto = cryptos[Math.floor(Math.random() * cryptos.length)];
-  const type = Math.random() > 0.5 ? 'LONG' : 'SHORT';
-  const orderAmount = Math.round(Math.random() * (data.balance * 0.1) + 1000);
-  const openTime = new Date().toLocaleString('ru-RU');
-  const openPrice = await getPrice(crypto);
-
-  const order = { time: openTime, type, crypto: crypto.toUpperCase(), amount: orderAmount, status: 'Open', profit: 0, openPrice };
-  data.events.unshift({ time: openTime, desc: `Ордер ${type} ${crypto.toUpperCase()} на ${fmt(orderAmount)} ₽`, effect: 0 });
-  renderGameEvents(data.events);
-
-  const closeDelay = (Math.random() * 4 + 1) * 60000;
-  setTimeout(async () => {
-    const closePrice = await getPrice(crypto);
-    let pnl = 0;
-    if(type === 'LONG') {
-      pnl = (closePrice / openPrice - 1) * orderAmount;
-    } else {
-      pnl = (1 - closePrice / openPrice) * orderAmount;
-    }
-    pnl = Math.max(0, pnl * (data.strategy === 'aggressive' ? 1.5 : 0.5)); // Adjust by strategy, positive
-    order.profit = Math.round(pnl);
-    order.status = 'Closed';
-
-    data.balance += order.profit;
-    data.profit += order.profit;
-
-    data.events[0].effect = order.profit;
-    data.events[0].desc += ` (Закрыт, прибыль ${fmt(order.profit)} ₽)`;
-    renderGameEvents(data.events);
-    localStorage.setItem(GAME_KEY, JSON.stringify(data));
-    toast(`Ордер закрыт, прибыль ${fmt(order.profit)} ₽`);
-    if(order.profit > 0) confettiAnim();
-  }, closeDelay);
-
-  localStorage.setItem(GAME_KEY, JSON.stringify(data));
-}
-
-function triggerEvent(data){
-  const events = [
-    {name: 'Рыночный бум', effect: d => d.balance *= 1.15, msg: 'Бум! +15% к балансу'},
-    {name: 'Кризис', effect: d => d.balance *= 0.95, msg: 'Кризис! -5% к балансу'},
-    {name: 'Бонус дивиденды', effect: d => d.balance += Math.round(d.amount * 0.05), msg: 'Дивиденды! +5% от старта'}
-  ];
-  const evt = events[Math.floor(Math.random() * events.length)];
-  const oldBalance = data.balance;
-  evt.effect(data);
-  const change = data.balance - oldBalance;
-  data.events.unshift({ time: new Date().toLocaleString('ru-RU'), desc: evt.name, effect: change });
-  data.profit += change;
-  renderGameEvents(data.events);
-  toast(evt.msg);
-  localStorage.setItem(GAME_KEY, JSON.stringify(data));
-  if(change > 0) confettiAnim();
-}
-
-function renderGameEvents(events){
-  const tbody = $('#g-events tbody');
-  tbody.innerHTML = '';
-  events.forEach(e => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${e.time}</td><td>${e.desc}</td><td style="color:${e.effect > 0 ? 'var(--success)' : 'var(--danger)'}">${fmt(e.effect)}</td>`;
-    tbody.appendChild(tr);
-  });
-}
-
-function showProfitToast(data){
-  const profitSinceLast = data.balance - prevBalance;
-  prevBalance = data.balance;
-  if(profitSinceLast !== 0){
-    toast(`Прирост: ${fmt(profitSinceLast)} ₽`);
-  }
-}
-
-function unlockGameAch(text){
-  $('#g-ach-text').textContent = text;
-  $('#g-achievements').style.display = 'block';
-  $('#g-achievements').style.animation = 'pulse 1s';
-  toast(text);
-  confettiAnim();
-}
-
-function updateGameShareLinks(data){
-  const N = fmt(data.amount);
-  const X = fmt(data.profit);
-  const site = 'https://calc.struzhuk.ru/';
-  const ch = 'https://t.me/Struzhukcapital';
-  const tx = `В Struzhuk Capital я накопил ${X} с ${N}! Попробуй сам.\nКанал: ${ch}\nСайт: ${site}`;
-  $('#g-share-tg').href = 'https://t.me/share/url?url='+encodeURIComponent(site)+'&text='+encodeURIComponent(tx);
-  $('#g-share-wa').href = 'https://api.whatsapp.com/send?text='+encodeURIComponent(tx);
-}
-
-function drawGameChart(history){
-  const c = $('#g-chart');
-  const ctx = c.getContext('2d');
-  const W = c.width, H = c.height;
-  ctx.clearRect(0, 0, W, H);
-
-  if(history.length < 2) return;
-
-  const minBal = Math.min(...history.map(h => h.balance));
-  const maxBal = Math.max(...history.map(h => h.balance));
-  const range = maxBal - minBal || 1;
-
-  ctx.beginPath();
-  ctx.moveTo(0, H - ((history[0].balance - minBal) / range * H));
-  for(let i = 1; i < history.length; i++){
-    const x = (i / (history.length - 1)) * W;
-    const y = H - ((history[i].balance - minBal) / range * H);
-    ctx.lineTo(x, y);
-  }
-  const grd = ctx.createLinearGradient(0, 0, 0, H);
-  grd.addColorStop(0, 'rgba(109,40,217,0.8)');
-  grd.addColorStop(1, 'rgba(109,40,217,0.2)');
-  ctx.strokeStyle = grd;
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  c.style.animation = 'barPulse 3.6s ease-in-out infinite';
-}
-
-// Загрузка
-document.addEventListener('DOMContentLoaded', () => {
-  const tabs = $$('.tab');
-  tabs.forEach(t => t.addEventListener('click', () => {
-    if(t.dataset.tab === 'demo') loadDemo();
-    if(t.dataset.tab === 'game') loadGame();
   }));
 });
 </script>
