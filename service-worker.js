@@ -1,22 +1,48 @@
-const CACHE = 'sk-v1';
-const ASSETS = [
-  '/', '/index.html', '/logo.jpg', '/og-image.jpg', '/favicon.ico', '/manifest.json'
+const CACHE = 'sk-v2-2026';
+const STATIC_ASSETS = [
+  '/logo.jpg', '/og-image.jpg', '/favicon.ico', '/manifest.json'
 ];
 
-self.addEventListener('install', e=>{
-  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then(cache => cache.addAll(STATIC_ASSETS))
+      .then(() => self.skipWaiting())
+  );
 });
-self.addEventListener('activate', e=>{
-  e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))); 
-  self.clients.claim();
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
+  );
 });
-self.addEventListener('fetch', e=>{
-  const url = new URL(e.request.url);
-  if(url.origin === location.origin){
-    e.respondWith(caches.match(e.request).then(res=> res || fetch(e.request).then(r=>{
-      const copy = r.clone(); caches.open(CACHE).then(c=>c.put(e.request, copy)); return r;
-    })));
-  } else {
-    e.respondWith(fetch(e.request).catch(()=>caches.match('/index.html')));
+
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  const url = new URL(req.url);
+
+  if (req.mode === 'navigate' && url.origin === self.location.origin) {
+    event.respondWith(
+      fetch(req)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put('/index.html', copy));
+          return response;
+        })
+        .catch(() => caches.match('/index.html'))
+    );
+    return;
+  }
+
+  if (url.origin === self.location.origin) {
+    event.respondWith(
+      caches.match(req).then(cached => cached || fetch(req).then(response => {
+        const copy = response.clone();
+        caches.open(CACHE).then(cache => cache.put(req, copy));
+        return response;
+      }))
+    );
   }
 });
