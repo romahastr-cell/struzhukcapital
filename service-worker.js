@@ -1,4 +1,4 @@
-const CACHE = 'sk-v2-2026';
+const CACHE = 'sk-v3-2026-polish';
 const STATIC_ASSETS = [
   '/logo.jpg', '/og-image.jpg', '/favicon.ico', '/manifest.json'
 ];
