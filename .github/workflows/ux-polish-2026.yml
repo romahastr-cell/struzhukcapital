@@ -15,10 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Apply UX polish and calculator fixes
-        run: python .github/scripts/ux_polish.py
+        run: |
+          sed -i 's/re.subn(pro_pattern, pro_repl, s/re.subn(pro_pattern, lambda m: pro_repl, s/' .github/scripts/ux_polish.py
+          sed -i 's/re.subn(light_pattern, light_repl, s/re.subn(light_pattern, lambda m: light_repl, s/' .github/scripts/ux_polish.py
+          python .github/scripts/ux_polish.py
       - name: Commit polish
         run: |
-          if git diff --quiet; then
+          if git diff --quiet index.html service-worker.js; then
             echo "No changes"
             exit 0
           fi
